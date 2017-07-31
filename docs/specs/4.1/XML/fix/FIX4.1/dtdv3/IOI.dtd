@@ -1,0 +1,125 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+
+<!ENTITY % EmptyIndication 'IGNORE' >  
+
+<!ENTITY % IndicationCustom "" >
+
+<!ENTITY % IndicationContent "  IOI_ID, 
+				IOI_TransType, 
+				Instrument, 
+				IOI_Side, 
+				IOI_Shares, 
+				Price?, 
+				Currency?, 
+				ValidUntilTime?, 
+				IOI_QltyInd?,
+				IOI_OthSvc?,
+				IOI_NaturalFlag?,
+                      		IOI_QualifierList?, 
+				Text?, TransactTime?, URLLink?
+				%IndicationCustom; ">
+
+<!ELEMENT Indication (%IndicationContent;) >
+<!ATTLIST Indication
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "6"
+
+>
+          
+<!ELEMENT IOI_TransType (IOI_New | IOI_Cancel | IOI_Replace)>
+
+
+<!ELEMENT IOI_New EMPTY>
+<!ATTLIST IOI_New
+        FIXTag CDATA #FIXED "28"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "N">
+
+<!ELEMENT IOI_Cancel (IOI_RefID)>
+<!ATTLIST IOI_Cancel
+        FIXTag CDATA #FIXED "28"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "C">
+
+          
+<!ELEMENT IOI_Replace (IOI_RefID)>
+<!ATTLIST IOI_Replace
+	FIXTag CDATA #FIXED "28"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "R">
+  
+
+<!ELEMENT IOI_RefID               (#PCDATA)>
+<!ATTLIST IOI_RefID
+        FIXTag CDATA #FIXED "26"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT IOI_Shares              (#PCDATA)>
+<!ATTLIST IOI_Shares
+	FIXTag CDATA #FIXED "27"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT IOI_QualifierList (NoIOI_Qualifiers?, IOI_Qualifier+)>
+
+<!ELEMENT NoIOI_Qualifiers (#PCDATA)>
+<!ATTLIST NoIOI_Qualifiers
+	FIXTag CDATA #FIXED "199"
+	DataType CDATA #FIXED "int"
+>
+
+
+<!ELEMENT IOI_Qualifier           EMPTY>
+<!ATTLIST IOI_Qualifier
+	FIXTag CDATA #FIXED "104"
+	DataType CDATA #FIXED "char"
+	Value (X|O|M|P|V|Q|C|S|I|W|A|L|T|Y|Z) #REQUIRED
+	SDValue (CrossOpp|AtOpen|MoreBehind|TakePosition|Versus|AtMarket|AtClose|
+		PortShow|InTouch|IndWrkAway|AON|Limit|ThroughDay|AtMid|PreOpen) #IMPLIED
+	>
+
+
+<!-- Note: IOI_ is limited to either buy or sell, so the general Side element is not appropriate -->
+
+<!ELEMENT IOI_Side                   EMPTY>
+<!ATTLIST IOI_Side
+	FIXTag CDATA #FIXED "54"
+	DataType CDATA #FIXED "char"
+	Value (1|2) #REQUIRED
+	SDValue (Buy|Sell) #IMPLIED
+>
+
+<!ELEMENT IOI_QltyInd 	EMPTY>
+<!ATTLIST IOI_QltyInd 
+	FIXTag CDATA #FIXED "25"
+	DataType CDATA #FIXED "char"
+	Value (L|M|H) #REQUIRED
+	SDValue (Low|Medium|High) #IMPLIED
+>
+
+<!ELEMENT IOI_OthSvc EMPTY>
+<!ATTLIST IOI_OthSvc 
+	FIXTag CDATA #FIXED "24"
+	DataType CDATA #FIXED "char"
+	Value (A|B) #REQUIRED
+	SDValue (Autex|Bridge) #IMPLIED
+>
+
+<!ELEMENT IOI_NaturalFlag EMPTY>
+<!ATTLIST IOI_NaturalFlag 
+	FIXTag CDATA #FIXED "130"
+	DataType CDATA #FIXED "char"
+	Value (Y|N) #REQUIRED
+	SDValue (Yes|No) #IMPLIED
+>
+
+
+

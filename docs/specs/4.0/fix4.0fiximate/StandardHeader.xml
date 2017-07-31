@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+<FileName>Standard Message Header</FileName> 
+ 
+
+	<TAG>
+		<level0>
+			<fieldID>8</fieldID>
+
+ 			<fieldName>
+				<hiddenName>BeginString</hiddenName>
+				<shownName>BeginString</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>FIX.4.0 (Always unencrypted, must be first field in message)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>9</fieldID>
+
+ 			<fieldName>
+				<hiddenName>BodyLength</hiddenName>
+				<shownName>BodyLength</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Always unencrypted, must be second field in message)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>35</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MsgType</hiddenName>
+				<shownName>MsgType</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Always unencrypted, must be third field in message)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>49</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SenderCompID</hiddenName>
+				<shownName>SenderCompID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Always unencrypted)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>56</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TargetCompID</hiddenName>
+				<shownName>TargetCompID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Always unencrypted)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>115</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OnBehalfOfCompID</hiddenName>
+				<shownName>OnBehalfOfCompID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Trading partner company ID used when sending messages via a third party (Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>128</fieldID>
+
+ 			<fieldName>
+				<hiddenName>DeliverToCompID</hiddenName>
+				<shownName>DeliverToCompID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Trading partner company ID used when sending messages via a third party (Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>90</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecureDataLen</hiddenName>
+				<shownName>SecureDataLen</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required to identify length of encrypted section of message. (Always unencrypted)  
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>91</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecureData</hiddenName>
+				<shownName>SecureData</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required when message body is encrypted.  Always immediately follows SecureDataLen field.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>34</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MsgSeqNum</hiddenName>
+				<shownName>MsgSeqNum</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>50</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SenderSubID</hiddenName>
+				<shownName>SenderSubID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>(Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>57</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TargetSubID</hiddenName>
+				<shownName>TargetSubID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>&quot;ADMIN&quot; reserved for administrative messages not intended for a specific user. (Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>116</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OnBehalfOfSubID</hiddenName>
+				<shownName>OnBehalfOfSubID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Trading partner SubID used when delivering messages via a third party. (Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>129</fieldID>
+
+ 			<fieldName>
+				<hiddenName>DeliverToSubID</hiddenName>
+				<shownName>DeliverToSubID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Trading partner SubID used when delivering messages via a third party. (Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>43</fieldID>
+
+ 			<fieldName>
+				<hiddenName>PossDupFlag</hiddenName>
+				<shownName>PossDupFlag</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Always required for retransmissions, whether prompted by the sending system or as the result of a resend request. (Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>97</fieldID>
+
+ 			<fieldName>
+				<hiddenName>PossResend</hiddenName>
+				<shownName>PossResend</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required when message may be duplicate of another message sent under a different sequence number. (Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>52</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SendingTime</hiddenName>
+				<shownName>SendingTime</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Can be embedded within encrypted data section.)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>122</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrigSendingTime</hiddenName>
+				<shownName>OrigSendingTime</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for message resends.  If data is not available set to same value as SendingTime  (Can be embedded within encrypted data section.)
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

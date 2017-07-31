@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+<FileName>Settlement Instructions</FileName> 
+ 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = T
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>162</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlInstID</hiddenName>
+				<shownName>SettlInstID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Unique message ID regardless of SettlInstMode
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>163</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlInstTransType</hiddenName>
+				<shownName>SettlInstTransType</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>New, Replace, or Cancel
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>160</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlInstMode</hiddenName>
+				<shownName>SettlInstMode</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>1=Standing Instructions, 2=Specific Allocation Account Overriding, 3=Specific Allocation Account Standing
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>165</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlInstSource</hiddenName>
+				<shownName>SettlInstSource
+</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>1=Broker's Settlement Instructions, 2=Institution's Settlement Instructions
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>79</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AllocAccount</hiddenName>
+				<shownName>AllocAccount</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Required for SettlInstMode=1, 2, or 3
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>166</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlLocation</hiddenName>
+				<shownName>SettlLocation</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for SettlInstMode=2 or 3, may be required for SettlInstMode=1 (i.e. may not be required if StandInstDbType and StandInstDbID are used)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>75</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TradeDate</hiddenName>
+				<shownName>TradeDate</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for SettlInstMode=2 or 3
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>70</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AllocID</hiddenName>
+				<shownName>AllocID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for SettlInstMode=2 or 3
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>30</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LastMkt</hiddenName>
+				<shownName>LastMkt</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for SettlInstMode=2 or 3, May be required for SettlInstMode=1
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>54</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Side</hiddenName>
+				<shownName>Side</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for SettlInstMode=2 or 3, May be required for SettlInstMode=1
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>167</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityType</hiddenName>
+				<shownName>SecurityType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>May be required for SettlInstMode=1
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>168</fieldID>
+
+ 			<fieldName>
+				<hiddenName>EffectiveTime</hiddenName>
+				<shownName>EffectiveTime</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>May be required for SettlInstMode=1 (timestamp when it goes in to effect)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>60</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TransactTime</hiddenName>
+				<shownName>TransactTime</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Date/Time Settlement Instructions were generated
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>109</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClientID</hiddenName>
+				<shownName>ClientID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Used for firm identification in third-party transactions.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>76</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExecBroker</hiddenName>
+				<shownName>ExecBroker</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Used for firm identification in third-party transactions.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>169</fieldID>
+
+ 			<fieldName>
+				<hiddenName>StandInstDbType</hiddenName>
+				<shownName>StandInstDbType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>1=DTC SID, 2=Thomson ALERT, 3=Global Custodian's, etc.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>170</fieldID>
+
+ 			<fieldName>
+				<hiddenName>StandInstDbName</hiddenName>
+				<shownName>StandInstDbName</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Name of StandInstDbType (i.e. DTC, Global Custodian's name)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>171</fieldID>
+
+ 			<fieldName>
+				<hiddenName>StandInstDbID</hiddenName>
+				<shownName>StandInstDbID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Identifier used within the StandInstDbType
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>172</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlDeliveryType</hiddenName>
+				<shownName>SettlDeliveryType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>173</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlDepositoryCode</hiddenName>
+				<shownName>SettlDepositoryCode</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when SettlLocation is a depository
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>174</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlBrkrCode</hiddenName>
+				<shownName>SettlBrkrCode</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>175</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlInstCode</hiddenName>
+				<shownName>SettlInstCode</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>176</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecuritySettlAgentName</hiddenName>
+				<shownName>SecuritySettlAgentName</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when settlement is being performed at a country vs. a depository
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>177</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecuritySettlAgentCode</hiddenName>
+				<shownName>SecuritySettlAgentCode</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when settlement is being performed at a country vs. a depository
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>178</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecuritySettlAgentAcctNum</hiddenName>
+				<shownName>SecuritySettlAgentAcctNum</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when settlement is being performed at a country vs. a depository
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>179</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecuritySettlAgentAcctName</hiddenName>
+				<shownName>SecuritySettlAgentAcctName</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when settlement is being performed at a country vs. a depository
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>180</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecuritySettlAgentContactName</hiddenName>
+				<shownName>SecuritySettlAgentContactName</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when settlement is being performed at a country vs. a depository
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>181</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecuritySettlAgentContactPhone</hiddenName>
+				<shownName>SecuritySettlAgentContactPhone</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when settlement is being performed at a country vs. a depository
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>182</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CashSettlAgentName</hiddenName>
+				<shownName>CashSettlAgentName</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when SettlDeliveryType=Free
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>183</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CashSettlAgentCode</hiddenName>
+				<shownName>CashSettlAgentCode</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when SettlDeliveryType=Free
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>184</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CashSettlAgentAcctNum</hiddenName>
+				<shownName>CashSettlAgentAcctNum</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when SettlDeliveryType=Free
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>185</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CashSettlAgentAcctName</hiddenName>
+				<shownName>CashSettlAgentAcctName</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when SettlDeliveryType=Free
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>186</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CashSettlAgentContactName</hiddenName>
+				<shownName>CashSettlAgentContactName</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when SettlDeliveryType=Free
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>187</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CashSettlAgentContactPhone</hiddenName>
+				<shownName>CashSettlAgentContactPhone</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Applicable when SettlDeliveryType=Free
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

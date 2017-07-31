@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+ 
+<FileName>Quote</FileName> 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = S
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>131</fieldID>
+
+ 			<fieldName>
+				<hiddenName>QuoteReqID</hiddenName>
+				<shownName>QuoteReqID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required when quote is in response to a Quote Request message
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>117</fieldID>
+
+ 			<fieldName>
+				<hiddenName>QuoteID</hiddenName>
+				<shownName>QuoteID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>55</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Symbol</hiddenName>
+				<shownName>Symbol</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>65</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SymbolSfx</hiddenName>
+				<shownName>SymbolSfx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>48</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityID</hiddenName>
+				<shownName>SecurityID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>22</fieldID>
+
+ 			<fieldName>
+				<hiddenName>IDSource</hiddenName>
+				<shownName>IDSource</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>106</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Issuer</hiddenName>
+				<shownName>Issuer</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>107</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityDesc</hiddenName>
+				<shownName>SecurityDesc</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>132</fieldID>
+
+ 			<fieldName>
+				<hiddenName>BidPx</hiddenName>
+				<shownName>BidPx</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>133</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OfferPx</hiddenName>
+				<shownName>OfferPx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>134</fieldID>
+
+ 			<fieldName>
+				<hiddenName>BidSize</hiddenName>
+				<shownName>BidSize</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>135</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OfferSize</hiddenName>
+				<shownName>OfferSize</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>62</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ValidUntilTime</hiddenName>
+				<shownName>ValidUntilTime</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

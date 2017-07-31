@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+ 
+<FileName>Logon</FileName> 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = A
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>98</fieldID>
+
+ 			<fieldName>
+				<hiddenName>EncryptMethod</hiddenName>
+				<shownName>EncryptMethod</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Always unencrypted)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>108</fieldID>
+
+ 			<fieldName>
+				<hiddenName>HeartBtInt</hiddenName>
+				<shownName>HeartBtInt</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>95</fieldID>
+
+ 			<fieldName>
+				<hiddenName>RawDataLength</hiddenName>
+				<shownName>RawDataLength</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for some authentication methods
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>96</fieldID>
+
+ 			<fieldName>
+				<hiddenName>RawData</hiddenName>
+				<shownName>RawData</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for some authentication methods
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>141</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ResetSeqNumFlag</hiddenName>
+				<shownName>ResetSeqNumFlag</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Indicates both sides of a FIX session should reset sequence numbers
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

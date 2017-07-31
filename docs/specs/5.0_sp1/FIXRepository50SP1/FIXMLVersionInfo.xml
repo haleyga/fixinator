@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<FIXML>
+<ReleaseDate>20080101</ReleaseDate>
+<Version>5-0-SP1</Version>
+<Header><![CDATA[
+    Revision: FIXML 5.0 SP1 Schema Version - 20080101
+    Copyright 2003-2008 FIX Protocol Limited.  All rights reserved.
+
+    This Schema represents FIXML vocabulary based on version 5.0SP1 of the FIX Protocol
+
+    Comments should be posted on the FIX protocol web-site
+    http://www.fixprotocol.org
+]]>
+</Header>
+</FIXML>

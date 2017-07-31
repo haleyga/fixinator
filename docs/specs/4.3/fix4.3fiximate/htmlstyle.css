@@ -1,0 +1,41 @@
+BODY
+{
+    BACKGROUND-COLOR: #e0e0e0;
+    COLOR: #000080;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small
+}
+A:link
+{
+    COLOR: #006699;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+A:active
+{
+    TEXT-DECORATION: underline
+}
+A:visited
+{
+    COLOR: #000080;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: #006699;
+    TEXT-DECORATION: underline
+}
+H3
+{
+    COLOR: #006699;
+    FONT-SIZE: medium;
+    FONT-VARIANT: small-caps;
+    TEXT-ALIGN: center
+}
+H2
+{
+    COLOR: #ffffff;
+    FONT-SIZE: medium;
+    FONT-WEIGHT: bolder;
+    TEXT-ALIGN: center
+}

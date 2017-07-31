@@ -1,0 +1,532 @@
+BODY .disclaimer
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	left:2px;
+}
+TABLE
+{
+	border-right: darkgray 1px solid;
+	table-layout: auto;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	border-bottom: darkgray 1px solid;
+	border-collapse: collapse;
+	width:100%;
+	left:2px;
+}
+HEAD
+{
+	text-align:center;
+	left:2px;
+}
+TITLE
+{
+	text-align:center;
+	left:2px;
+}
+TH
+{
+	text-align :left;
+	left:2px;
+}
+li
+{
+	list-style-type: none;
+	left:2px;
+}
+
+ul
+{
+	list-style-type: none;
+	left:2px;
+}
+
+sup
+{
+	font-variant:small-caps;
+	left:2px;
+}
+
+.FIXLogo
+{
+	text-align:left;
+	width:200;
+	height:52;
+	left:2px;
+	border-color:White;
+}
+
+.disclaimer
+{
+	
+	left:2px;
+}
+.component
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: rosybrown;
+	text-align: left;
+	left:2px;
+}
+.navrowtop
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	left:2px;
+}
+
+.navrowtwo
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	left:2px;
+}
+
+.navrowone
+{
+	font-weight: normal;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	list-style-type: none;
+	background-color: gainsboro;
+	text-align: left;
+	left:2px;
+}
+
+.MsgTag
+{
+	font-weight: normal;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgTagHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgFld
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgFldHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgRqd
+{
+	font-weight: normal;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+
+.MsgRqdHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgCmt
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgCmtHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgUsdHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.MsgUsd
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	left:2px;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldTag
+{
+	font-weight: normal;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldTagHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldFld
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldFldHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldDat
+{
+	font-weight: normal;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+
+.FldDatHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldDes
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldDesHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldEnm
+{
+	font-weight: normal;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+
+.FldEnmHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldUsd
+{
+	font-weight: normal;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.FldUsdHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	vertical-align:top;
+	border-top: darkgray 1px solid;
+	border-left: darkgray 1px solid;
+	left:2px;
+}
+.LstTag
+{
+	border-right: darkgray 1px solid;
+	border-top: darkgray 1px solid;
+	font-weight: normal;
+	font-size: x-small;
+	border-left: darkgray 1px solid;
+	color: black;
+	border-bottom: darkgray 1px solid;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	left:2px;
+}
+.LstTagHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	left:2px;
+}
+.LstFld
+{
+	border-right: darkgray 1px solid;
+	border-top: darkgray 1px solid;
+	font-size: x-small;
+	border-left: darkgray 1px solid;
+	color: black;
+	border-bottom: darkgray 1px solid;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	left:2px;
+}
+.LstFldHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: white;
+	text-align: left;
+	left:2px;
+}
+.LstTyp
+{
+	border-right: darkgray 1px solid;
+	border-top: darkgray 1px solid;
+	font-weight: normal;
+	font-size: x-small;
+	border-left: darkgray 1px solid;
+	color: black;
+	border-bottom: darkgray 1px solid;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	left:2px;
+}
+.LstTypHdr
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	background-color: gainsboro;
+	text-align: left;
+	left:2px;
+}
+.LstTable
+{
+	text-align: center;
+	width:30%;
+	left:2px;
+}
+.LstBody
+{
+	text-align: center;
+	left:2px;
+}
+.LstHdr
+{
+	text-align: center;
+	left:2px;
+}
+
+
+
+
+
+
+
+
+
+
+A:link
+{
+	font-size: x-small;
+	color: black;
+	font-family: Verdana;
+	text-decoration: underline;
+	left:2px;
+}
+A:active
+{
+    TEXT-DECORATION: underline;
+	left:2px;
+}
+A:visited
+{
+	color: dimgray;
+	text-decoration: underline;
+	left:2px;
+}
+A:hover
+{
+	color: blue;
+	text-decoration: underline;
+	left:2px;
+}
+H3
+{
+    COLOR: black;
+    FONT-SIZE: small;
+    FONT-VARIANT: small-caps;
+    TEXT-ALIGN: left;
+	left:2px;
+}
+H2
+{
+	font-weight: lighter;
+	font-size: medium;
+	color: black;
+	font-family: Verdana;
+	text-align: left;
+	left:2px;
+}

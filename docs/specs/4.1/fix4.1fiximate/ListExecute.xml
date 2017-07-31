@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+<FileName>List Execute</FileName>
+ 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = L
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>66</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ListID</hiddenName>
+				<shownName>ListID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Must be unique, by customer, for the day
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>105</fieldID>
+
+ 			<fieldName>
+				<hiddenName>WaveNo</hiddenName>
+				<shownName>WaveNo</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>58</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Text</hiddenName>
+				<shownName>Text</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

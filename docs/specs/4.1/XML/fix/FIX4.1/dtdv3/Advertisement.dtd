@@ -1,0 +1,70 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+
+<!ENTITY % EmptyAdvertisement 'IGNORE' > 
+
+<!ENTITY % AdvertisementCustom "" >
+
+<!ENTITY % AdvertisementContent "AdvID, AdvTransType, Instrument, AdvSide, Shares, Price?, Currency?, TradeDate?, TransactTime?, Text?, URLLink?, LastMkt?
+	%AdvertisementCustom;">
+
+<!ELEMENT Advertisement (%AdvertisementContent; )>
+<!ATTLIST Advertisement
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "7"
+>
+
+
+<!ELEMENT AdvSide                   EMPTY>
+<!ATTLIST AdvSide 
+	FIXTag CDATA #FIXED "4"
+	DataType CDATA #FIXED "char"
+	Value (B|S|X|T) #REQUIRED
+	SDValue (Buy|Sell|Cross|Trade) #IMPLIED
+>
+
+
+<!ELEMENT AdvTransType (AdvNew | AdvCancel | AdvReplace)>
+
+
+<!ELEMENT AdvNew EMPTY>
+<!ATTLIST AdvNew
+        FIXTag CDATA #FIXED "5"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "N"
+>
+
+<!ELEMENT AdvCancel (AdvRefID)>
+<!ATTLIST AdvCancel
+        FIXTag CDATA #FIXED "5"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "C"
+>
+
+          
+<!ELEMENT AdvReplace (AdvRefID)>
+<!ATTLIST AdvReplace
+        FIXTag CDATA #FIXED "5"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "R"
+>
+ 
+
+<!ELEMENT AdvID                  (#PCDATA)>
+<!ATTLIST AdvID
+	FIXTag CDATA #FIXED "2"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT AdvRefID               (#PCDATA)>
+<!ATTLIST AdvRefID
+	FIXTag CDATA #FIXED "3"
+	DataType CDATA #FIXED "char"
+>
+

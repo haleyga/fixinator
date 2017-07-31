@@ -1,0 +1,1092 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+
+
+<!ENTITY % EmptyOrder 'IGNORE' >  
+<!ENTITY % EmptyNewOrderList 'IGNORE' >  
+<!ENTITY % EmptyExecutionReport 'IGNORE' >  
+<!ENTITY % EmptyDK_Trade 'IGNORE' >  
+<!ENTITY % EmptyOrderModificationRequest 'IGNORE' >  
+<!ENTITY % EmptyOrderCancelRequest 'IGNORE' >  
+<!ENTITY % EmptyOrderCancelReject 'IGNORE' >  
+<!ENTITY % EmptyOrderStatusRequest 'IGNORE' >  
+<!ENTITY % EmptyAllocation 'IGNORE' >  
+<!ENTITY % EmptyAllocationACK 'IGNORE' >  
+<!ENTITY % EmptySettlementInstructions 'IGNORE' >  
+<!ENTITY % EmptyListStatus 'IGNORE' >  
+<!ENTITY % EmptyListExecute 'IGNORE' >  
+<!ENTITY % EmptyListCancelRequest 'IGNORE' >  
+<!ENTITY % EmptyListStatusRequest 'IGNORE' >  
+
+
+<!ENTITY % OrderCustom "" >
+
+<!ENTITY % OrderContent "ClOrdID, ClientID?, ExecBroker?, Account?, Settlement?, HandInst, ExecInstList?, MinQty?, MaxFloor? ,ExecDestination?, ProcessCode?, Instrument, PrevClosePx?, Side, LocateReq?, OrderQuantity, OrderType, OrderDuration?, Currency?, Commission?, Rule80A?, ForexReqOrder? , Text?, MaxShow? %OrderCustom;">
+
+<!ELEMENT Order (%OrderContent;)>
+<!ATTLIST Order
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "D"
+>
+
+
+<!--
+	Order Container for NewOrderList
+-->
+
+<!ELEMENT OrderElement (%OrderContent;)>
+
+
+<!ENTITY % NewOrderListCustom "" >
+<!ENTITY % NewOrderListContent "ListID, WaveNo?, ListExecInst, OrderList 
+		%NewOrderListCustom;">
+                 
+<!ELEMENT NewOrderList (%NewOrderListContent;)>
+<!ATTLIST NewOrderList
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "E"
+>
+          
+<!ELEMENT OrderListElement (ListSeqNo?, OrderElement)>
+
+
+<!ELEMENT ListSeqNo (#PCDATA)>
+<!ATTLIST ListSeqNo
+	FIXTag CDATA #FIXED "67"
+	DataType CDATA #FIXED "int"
+>
+
+
+<!ELEMENT OrderList (ListNoOrders? ,OrderListElement+)>
+
+
+<!ELEMENT ListNoOrders (#PCDATA)>
+<!ATTLIST ListNoOrders
+	FIXTag CDATA #FIXED "68"
+	DataType CDATA #FIXED "int"
+>
+
+
+
+<!ENTITY % ExecutionReportCustom "" >
+<!ENTITY % ExecutionReportContent "OrderID, SecondaryOrderID?, ClOrdID?, OrigClOrdID?, 			ClientID?, 			ExecBroker?, ListID?, ExecID, ExecTransType,
+                        ExecType, OrderStatus, OrderRejReason?, Account?, Settlement?,
+                        Instrument, Side, OrderQty, OrderType?, Currency?, 						OrderDuration?,
+                        ExecInstList?, Rule80A?, LastSpotRate?, LastForwardPoints?, 						LastMkt?, LastCapacity?,
+                        LeavesQty, CumQty, AvgPx, TradeDate?, TransactTime?, ReportToExch?, 			Commission?, 
+                        ForexSettlement?, Text? 
+			%ExecutionReportCustom;">
+
+<!ELEMENT ExecutionReport (%ExecutionReportContent;)>
+<!ATTLIST ExecutionReport
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "8"
+
+>
+
+<!ELEMENT ExecTransType (ExecNew | ExecCancel | ExecCorrect | ExecStatus)>
+
+<!ELEMENT ExecNew (LastShares, LastPx)>
+<!ATTLIST ExecNew
+        FIXTag CDATA #FIXED "20"
+        Value CDATA #FIXED "0">
+
+<!ELEMENT ExecCancel (ExecRefID, LastShares, LastPx)>
+<!ATTLIST ExecCancel
+        FIXTag CDATA #FIXED "20"
+        Value CDATA #FIXED "1">
+
+<!ELEMENT ExecCorrect (ExecRefID, LastShares, LastPx)>
+<!ATTLIST ExecCorrect
+        FIXTag CDATA #FIXED "20"
+        Value CDATA #FIXED "2">
+
+<!ELEMENT ExecStatus EMPTY>
+<!ATTLIST ExecStatus
+        FIXTag CDATA #FIXED "20"
+        Value CDATA #FIXED "3">
+
+
+
+<!ELEMENT ReportToExch EMPTY>
+<!ATTLIST ReportToExch 
+	FIXTag CDATA #FIXED "113"
+	DataType CDATA #FIXED "char"
+	Value (Y|N) #REQUIRED
+	SDValue (Yes|No) #IMPLIED
+>
+
+  
+<!ELEMENT ExecRefID               (#PCDATA)>
+<!ATTLIST ExecRefID
+        FIXTag CDATA #FIXED "19"
+	DataType CDATA #FIXED "char"
+>
+
+
+<!ELEMENT ExecType EMPTY>
+<!ATTLIST ExecType 
+	FIXTag CDATA #FIXED "150"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3|4|5|6|7|8|9|A|B|C)  #REQUIRED      
+	SDValue (New|Partial|Filled|Done|Canceled|Replaced|
+	PendingCR|Stopped|Rejected|Suspended|PendingNew|Calculated|Expired) #IMPLIED
+>
+
+
+<!ENTITY % DK_TradeCustom "" >
+
+<!ENTITY % DK_TradeContent "OrderID?, ExecID?, DK_Reason,Instrument, Side, OrderQuantity, LastShares?, LastPx?, Text? %DK_TradeCustom;">
+
+<!ELEMENT DK_Trade (%DK_TradeContent;)>
+<!ATTLIST DK_Trade
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "Q"
+>
+
+<!ELEMENT DK_Reason EMPTY>
+<!ATTLIST DK_Reason 
+	FIXTag CDATA #FIXED "127"
+	DataType CDATA #FIXED "char"
+	Value (A|B|C|D|E|Z) #REQUIRED
+	SDValue (UnknownSymbol|WrongSide|QuantityExceedsOrder|NoMatch|
+	PriceExceedsLimit|Other) #IMPLIED
+>
+
+
+<!ENTITY % OrderModificationRequestCustom "" >
+
+<!ENTITY % OrderModificationRequestContent "OrderID?, ClientID?, ExecBroker?, ClOrdID, 		OrigClOrdID,ListID?, Account?, Settlement, HandInst, ExecInstList?, MinQty?,MaxFloor?,
+ExecDestination?, Instrument, PrevClosePx?, Side, OrderQuantity, OrderType, 
+OrderDuration?, Currency?, Commission?, Rule80A?, ForexReqOrder? , Text?, MaxShow?, LocateReq? %OrderModificationRequestCustom;">
+
+<!ELEMENT OrderModificationRequest (%OrderModificationRequestContent;)>
+<!ATTLIST OrderModificationRequest
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "G"
+
+>
+
+
+<!ENTITY % OrderCancelCustom "" >
+
+<!ENTITY % OrderCancelContent "OrigClOrdID, OrderID?, ClOrdID, ListID?, ClientID?, ExecBroker?, Instrument, Side, OrderQuantity, Text? %OrderCancelCustom;">
+
+<!ELEMENT OrderCancelRequest (%OrderCancelContent;)>
+<!ATTLIST OrderCancelRequest
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "F"
+>
+
+
+<!ENTITY % OrderCancelRejectCustom "" >
+
+<!ENTITY % OrderCancelRejectContent "OrderID, SecondaryOrderID?, ClOrdID, OrigClOrdID, OrderStatus, ClientID?, ExecBroker?, ListID?, CancelRejReason?, Text? %OrderCancelRejectCustom;">
+
+<!ELEMENT OrderCancelReject (%OrderCancelRejectContent;)>
+<!ATTLIST OrderCancelReject
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "9"
+>
+
+<!ELEMENT CancelRejReason EMPTY>
+<!ATTLIST CancelRejReason 
+	FIXTag CDATA #FIXED "102"
+	DataType CDATA #FIXED "char"
+	Value (0|1) #REQUIRED
+	SDValue (TooLate|Unknown) #IMPLIED
+>
+
+<!ENTITY % OrderStatusRequestCustom "" >
+
+<!ENTITY % OrderStatusRequestContent "OrderID?, ClOrdID, ClientID?, ExecBroker?, Instrument, Side %OrderStatusRequestCustom;">
+
+<!ELEMENT OrderStatusRequest (%OrderStatusRequestContent;)>
+<!ATTLIST OrderStatusRequest
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "H"
+>
+
+<!ENTITY % AllocationCustom "" >
+
+<!ENTITY % AllocationContent "AllocID, AllocTransType, AllocLinkID?, AllocLinkType?, AllocOrderList?, ExecRecordList?, Side, Instrument,Shares, LastMkt?, AvgPx, Currency?, AvgPxPrecision?, TradeDate, TransactTime?, Settlement?, NetMoney?,Text?, NoDaysInterest?, AccruedInterestRate?, AllocGroupList %AllocationCustom;">
+
+<!ELEMENT Allocation (%AllocationContent;)>
+<!ATTLIST Allocation
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "J"
+>
+
+<!ELEMENT AllocTransType (AllocNew | AllocReplace | AllocCancel | AllocPrelim| AllocCalc)>
+
+<!--
+RefAllocID required for Calc, replace, or cancel
+Calc includes fees and net monies 
+-->
+
+<!ELEMENT AllocNew EMPTY>
+<!ATTLIST AllocNew
+        FIXTag CDATA #FIXED "71" 
+        Value CDATA #FIXED "0">
+
+<!ELEMENT AllocReplace (RefAllocID)>
+<!ATTLIST AllocReplace 
+        FIXTag CDATA #FIXED "71"
+        Value CDATA #FIXED "1">
+
+<!ELEMENT AllocCancel (RefAllocID)>
+<!ATTLIST AllocCancel 
+        FIXTag CDATA #FIXED "71"
+        Value CDATA #FIXED "2">
+
+<!ELEMENT AllocPrelim EMPTY>
+<!ATTLIST AllocPrelim 
+        FIXTag CDATA #FIXED "71"
+        Value CDATA #FIXED "3">
+
+<!ELEMENT AllocCalc (RefAllocID)>
+<!ATTLIST AllocCalc
+        FIXTag CDATA #FIXED "71"
+        Value CDATA #FIXED "4">
+
+
+<!--
+	AllocAcct has a Y* in the spec which means this is not required for
+	AllocTransType = Cancel  
+
+	AllocAcct has been made temporarily optional until Allocation can 
+	be remodeled
+-->
+
+
+<!ENTITY % AllocGroupCustom "" >
+
+<!ENTITY % AllocGroupContent "AllocAcct?, AllocShares, ProcessCode?, BrokerOfCredit?, NotifyBrokerOfCredit?, AllocHandInst?, AllocText?, ExecBroker?, ClientID?, Commission?, AllocAvgPx?, AllocNetMoney?, ForexSettlement?, AccruedInterestAmt?, SettInstMode?, MiscFeeList? %AllocGroupCustom;">
+
+<!ELEMENT AllocGroup (%AllocGroupContent;)>
+                           
+
+<!ELEMENT AllocHandInst EMPTY>
+<!ATTLIST AllocHandInst 
+	FIXTag CDATA #FIXED "209"
+	DataType CDATA #FIXED "char"
+	Value (1|2|3) #REQUIRED
+	SDValue (Match|Forward|ForwardMatch) #IMPLIED
+>
+
+<!ELEMENT SettInstMode EMPTY>
+<!ATTLIST SettInstMode 
+	FIXTag CDATA #FIXED "160"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3) #REQUIRED
+	SDValue (Default|SIProvided|AccountOverriding|AccountStanding) #IMPLIED
+>
+
+<!ELEMENT NotifyBrokerOfCredit EMPTY>
+<!ATTLIST NotifyBrokerOfCredit 
+	FIXTag CDATA #FIXED "208"
+	DataType CDATA #FIXED "char"
+	Value (Y|N) #REQUIRED
+	SDValue (Yes|No) #IMPLIED
+>
+
+
+<!ELEMENT AllocGroupList (NoAllocs?, AllocGroup+)>
+
+
+<!ELEMENT NoAllocs (#PCDATA)>
+<!ATTLIST NoAllocs
+	FIXTag CDATA #FIXED "78"
+	DataType CDATA #FIXED "int"
+>
+
+<!--
+	ClOrdID has a Y* in the spec which means this is not required for
+	AllocTransType = Cancel  
+
+	ClOrdID has been made temporarily made optional until Allocation can 
+	be remodeled
+-->
+
+
+<!ENTITY % AllocOrderCustom "" >
+
+<!ENTITY % AllocOrderContent "ClOrdID?, OrderID?, SecondaryOrderID?, ListID?, WaveNo? %AllocOrderCustom;">
+
+<!ELEMENT AllocOrder (%AllocOrderContent;)>
+
+<!ELEMENT AllocOrderList (NoOrders?, AllocOrder+)>
+
+<!ELEMENT NoOrders (#PCDATA)>
+<!ATTLIST NoOrders
+	FIXTag CDATA #FIXED "73"
+	DataType CDATA #FIXED "int"
+>
+
+
+<!ENTITY % ExecOrderCustom "" >
+
+<!ENTITY % ExecOrderContent "ExecID, LastShares?, LastPx?, LastCapacity? %ExecOrderCustom;">
+
+<!ELEMENT ExecRecord (%ExecOrderContent;)>
+
+<!ELEMENT ExecRecordList (NoExecs?, ExecRecord+)>
+
+<!ELEMENT NoExecs  (#PCDATA)>
+<!ATTLIST NoExecs
+	FIXTag CDATA #FIXED "124"
+	DataType CDATA #FIXED "int"
+>
+
+
+<!ELEMENT MiscFee (MiscFeeAmt, MiscFeeCurr, MiscFeeType)>
+
+<!--
+  	MiscFeeCurr defined in Base.dtd
+-->
+
+
+<!ELEMENT MiscFeeList (NoMiscFees? , MiscFee+)>
+
+
+<!ELEMENT NoMiscFees (#PCDATA)>
+<!ATTLIST NoMiscFees
+	FIXTag CDATA #FIXED "136"
+	DataType CDATA #FIXED "int"
+>
+
+  
+        
+<!ENTITY % AllocationACKCustom "" >
+
+<!ENTITY % AllocationACKContent "ClientID?, ExecBroker?, AllocID, TradeDate, TransactTime?, AllocStatus, Text? %AllocationACKCustom;">
+
+<!ELEMENT AllocationACK (%AllocationACKContent;)>
+<!ATTLIST AllocationACK
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "P"
+
+>
+          
+
+<!ENTITY % SettlementInstructionsCustom "" >
+
+<!ENTITY % SettlementInstructionsContent "SettInstID, SettInstTransType, SIMode, SettInstSource, SISecType?, EffectiveTime?,TransactTime, ClientID?, ExecBroker?, StandInstDb?,SettDeliveryType?, SettDepositoryCode?, SettBrokerCode?, SettInstCode?,SecuritySettAgentInfo?, CashSettAgentInfo? %SettlementInstructionsCustom;">
+
+<!ELEMENT SettlementInstructions (%SettlementInstructionsContent;)>
+                                  
+<!ATTLIST SettlementInstructions
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "T"
+
+>
+
+<!--
+	Tag 160 SettInstMode is defined in two places based on its use in the
+	Allocation (SettInstMode ) and SettlementInstructions (SIMode) message	
+-->
+
+<!ELEMENT SIMode (SIDefault | SIProvided | SIAcctOverriding | SIAcctStanding )>
+
+
+<!ELEMENT SIDefault (AllocAcct?,SettLocation?, TradeDate?,AllocID?, LastMkt?, Side? )>
+<!ATTLIST SIDefault
+	FIXTag CDATA #FIXED "160" 
+        Value CDATA #FIXED "0">
+
+<!ELEMENT SIProvided (AllocAcct,SettLocation?, TradeDate?, AllocID?, LastMkt?, Side? )>
+<!ATTLIST SIProvided
+	FIXTag CDATA #FIXED "160"  
+        Value CDATA #FIXED "1">
+
+<!ELEMENT SIAcctOverriding (AllocAcct,SettLocation, TradeDate, AllocID, LastMkt, Side )>
+<!ATTLIST SIAcctOverriding
+	FIXTag CDATA #FIXED "160"  
+        Value CDATA #FIXED "2">
+
+<!ELEMENT SIAcctStanding (AllocAcct,SettLocation, TradeDate, AllocID, LastMkt, Side )>
+<!ATTLIST SIAcctStanding
+	FIXTag CDATA #FIXED "160"  
+        Value CDATA #FIXED "3">
+
+ 
+<!ELEMENT SettInstTransType EMPTY>
+<!ATTLIST SettInstTransType 
+	FIXTag CDATA #FIXED "163"
+	DataType CDATA #FIXED "char"
+	Value (N|C|R) #REQUIRED
+	SDValue (New|Cancel|Replace) #IMPLIED
+>
+
+<!ELEMENT SettInstSource EMPTY>
+<!ATTLIST SettInstSource 
+	FIXTag CDATA #FIXED "165"
+	DataType CDATA #FIXED "char"
+	Value (1|2) #REQUIRED
+	SDValue (BrokerInstr|InstInstr) #IMPLIED
+>
+
+<!ELEMENT SettDeliveryType EMPTY>
+<!ATTLIST SettDeliveryType 
+	FIXTag CDATA #FIXED "172"
+	DataType CDATA #FIXED "char"
+	Value (0|1) #REQUIRED
+	SDValue (VersusPayment|Free) #IMPLIED
+>
+
+<!ELEMENT SettLocation EMPTY>
+<!ATTLIST SettLocation 
+	FIXTag CDATA #FIXED "166"
+	DataType CDATA #FIXED "char"
+	Value (CED|DTC|EUR|FED|PNY|PTC) #REQUIRED
+	SDValue (Cedel|DTCC|Euroclear|FederalBookEntry|Physical
+		|ParticTrustCo|LocalMarket) #IMPLIED
+>
+
+                                
+     
+<!ELEMENT StandInstDb (StandInstDbType?, StandInstDbName?, StandInstDbID?)>
+
+
+<!ELEMENT StandInstDbType EMPTY>
+<!ATTLIST StandInstDbType 
+	FIXTag CDATA #FIXED "169"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3) #REQUIRED      
+	SDValue (Other|SID|ALERT|Custodian) #IMPLIED
+>
+
+<!ELEMENT StandInstDbName        (#PCDATA)>
+<!ATTLIST StandInstDbName
+	FIXTag CDATA #FIXED "170"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT StandInstDbID          (#PCDATA)>
+<!ATTLIST StandInstDbID
+	FIXTag CDATA #FIXED "171"
+	DataType CDATA #FIXED "char"
+>
+
+
+
+<!ELEMENT SecuritySettAgentInfo (SecuritySettAgentName?, SecuritySettAgentCode?, SecuritySettAgentAcctNo?, SecuritySettAgentAcctName?, SecuritySettAgentContactName?, SecuritySettAgentContactPhone?)>
+                                  
+<!ELEMENT CashSettAgentInfo (CashSettAgentName?,CashSettAgentCode?, CashSettAgentAcctNo?, CashSettAgentAcctName?, CashSettAgentContactName?,
+                              CashSettAgentContactPhone?)>
+
+<!ELEMENT ListStatus (ListID, WaveNo?, NoRpts, RptSeq, ListStatusElementList)>
+<!ATTLIST ListStatus
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "N"
+>
+ 
+<!ELEMENT ListStatusElement (ClOrdID, CumQty, LeavesQty, CancelQty, AvgPx)>
+
+<!ELEMENT ListStatusElementList (NoOrders?, ListStatusElement+)>
+
+<!ELEMENT ListExecute (ListID, WaveNo?, Text?)>
+<!ATTLIST ListExecute
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "L"
+>
+
+
+<!ELEMENT ListCancelRequest (ListID, WaveNo?, Text?)>
+<!ATTLIST ListCancelRequest
+         FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "K"
+
+>
+          
+<!ELEMENT ListStatusRequest (ListID, WaveNo?, Text?)>
+<!ATTLIST ListStatusRequest
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "M"
+>
+
+
+<!ELEMENT MinQty (#PCDATA)>
+<!ATTLIST MinQty
+    FIXTag CDATA #FIXED "110"
+    DataType CDATA #FIXED "int"
+    Max CDATA #FIXED "1000000000">
+
+<!ELEMENT MaxFloor (#PCDATA)>
+<!ATTLIST MaxFloor
+    FIXTag CDATA #FIXED "111"
+    DataType CDATA #FIXED "int"
+    Max CDATA #FIXED "1000000000">
+    
+<!ELEMENT OrderQuantity (OrderQty | CashOrderQty)>
+
+<!ELEMENT CashOrderQty           (#PCDATA)>
+<!ATTLIST CashOrderQty
+	FIXTag CDATA #FIXED "152"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"           >
+        
+
+
+<!ELEMENT ProcessCode            EMPTY>
+<!ATTLIST ProcessCode
+	FIXTag CDATA #FIXED "81"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3|4|5|6)  #REQUIRED      
+	SDValue (Regular|SoftDollar|StepIn|StepOut|StepInSoft|StepOutSoft
+		|PlanSponsor) #IMPLIED	
+>
+
+
+
+<!ELEMENT OrderDuration (TimeInForce | GTD_TimeInForce)>
+
+<!ELEMENT TimeInForce            EMPTY>
+<!ATTLIST TimeInForce
+	FIXTag CDATA #FIXED "59"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3|4|5) #REQUIRED
+	SDValue (Day|GoodTillCancel|AtTheOpening|ImmediateOrCancel|FillOrKill|
+	GoodTillCrossing) #IMPLIED
+      >
+        
+<!ELEMENT GTD_TimeInForce            (ExpireTime)>
+<!ATTLIST GTD_TimeInForce
+	FIXTag CDATA #FIXED "59"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "6" 
+	SDValue CDATA #FIXED "GoodTillDate" >
+ 
+        
+<!ELEMENT ExpireTime             (#PCDATA)>
+<!ATTLIST ExpireTime
+	FIXTag CDATA #FIXED "126"
+	DataType CDATA #FIXED "time"
+>
+
+<!ELEMENT Commission   (CommType, CommAmt)>
+
+<!ELEMENT CommAmt             (#PCDATA)>
+<!ATTLIST CommAmt
+	FIXTag CDATA #FIXED "12"
+	DataType CDATA #FIXED "float"
+>
+
+<!ELEMENT CommType EMPTY >
+<!ATTLIST CommType
+	FIXTag CDATA #FIXED "13"
+	DataType CDATA #FIXED "char"
+	Value (1|2|3) #REQUIRED 
+	SDValue (PerShare|Percent|Absolute) #IMPLIED     >
+
+<!--
+	Rule80A aka OrderCapacity
+-->        
+
+<!ELEMENT Rule80A                EMPTY>
+<!ATTLIST Rule80A
+	FIXTag CDATA #FIXED "47"
+	DataType CDATA #FIXED "char"
+	Value (A|C|D|I|J|
+		K|M|N|O|
+		P|R|S|Y|
+		U|W|Y)  #REQUIRED   
+
+	SDValue (AgencySingle|PrgNonIndexArbMem|PrgIndexArbMem|MarketMaker|InvInestor|
+		PrgNonIndexArbInv|PrgIndexArbInv|PrgNonIndexArbOthMem|PrgIndexArbOthMem|
+		CompetingDealer|Principal|CompDealer1|Specialist|CompDealer2|
+		PrgIndexArbOthAgn|AllOtherAgn|PrgNonIndexArbOthAgn ) #IMPLIED	   >
+
+                
+<!ELEMENT MaxShow                (#PCDATA)>
+<!ATTLIST MaxShow
+	FIXTag CDATA #FIXED "210"
+	DataType CDATA #FIXED "int"
+>
+
+<!ELEMENT PegDifference          (#PCDATA)>
+<!ATTLIST PegDifference
+	FIXTag CDATA #FIXED "211"
+	DataType CDATA #FIXED "float"
+>
+
+
+<!ELEMENT ForexReqOrder (SettCurrency )>
+<!ATTLIST ForexReqOrder 
+	FIXTag CDATA #FIXED "121"
+	Value CDATA #FIXED "Y"
+	SDValue CDATA #FIXED "Yes"
+>
+        
+<!ELEMENT ForexSettlement (SettCurrAmt?, SettCurrency?, SettCurrForex?)>
+
+
+<!ELEMENT Account                (#PCDATA)>
+<!ATTLIST Account
+	FIXTag CDATA #FIXED "1"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT HandInst              EMPTY>
+<!ATTLIST HandInst
+	FIXTag CDATA #FIXED "21"
+	DataType CDATA #FIXED "char"
+	Value (1|2|3) #REQUIRED 
+	SDValue (AutoExecPriv|AutoExecPub|Manual) #IMPLIED     >
+ 
+
+       
+<!ELEMENT ExecInst               EMPTY>
+<!ATTLIST ExecInst
+	FIXTag CDATA #FIXED "18"
+	DataType CDATA #FIXED "char"
+	Value (1|2|3|4|5|6|7|8|9|0|A|B|C|D|E|F|G|I|L|M|N|O|P|R|S|U|V) #REQUIRED
+        SDValue (NotHeld|Work|GoAlong|OverDay|Held|PartNotInit|StrictScale|TryToScale|
+		StayBid|StayOffer|NoCross|OkCross|CallFirst|PercVol|DNI|DNR|AON|InstitOnly|
+		LastPeg|MidPrcPeg|NonNego|OpenPeg|MarkPeg|PrimPeg|Suspend|CustDispInst|
+		Netting ) #IMPLIED >
+
+<!ELEMENT ExecInstList (ExecInst+)>
+
+
+        
+<!ELEMENT LastPx                 (#PCDATA)>
+<!ATTLIST LastPx
+	FIXTag CDATA #FIXED "31"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"      >
+
+<!ELEMENT LastShares             (#PCDATA)>
+<!ATTLIST LastShares
+	FIXTag CDATA #FIXED "32"
+	DataType CDATA #FIXED "int"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000"      >
+        
+<!ELEMENT OrigClOrdID            (#PCDATA)>
+<!ATTLIST OrigClOrdID
+	FIXTag CDATA #FIXED "41"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT ListID                 (#PCDATA)>
+<!ATTLIST ListID
+	FIXTag CDATA #FIXED "66"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT ClientID               (#PCDATA)>
+<!ATTLIST ClientID
+	FIXTag CDATA #FIXED "109"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT ExecBroker             (#PCDATA)>
+<!ATTLIST ExecBroker
+	FIXTag CDATA #FIXED "76"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT WaveNo                 (#PCDATA)>
+<!ATTLIST WaveNo
+	FIXTag CDATA #FIXED "105"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT ListExecInst           (#PCDATA)>
+<!ATTLIST ListExecInst
+	FIXTag CDATA #FIXED "69"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecondaryOrderID       (#PCDATA)>
+<!ATTLIST SecondaryOrderID
+	FIXTag CDATA #FIXED "198"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT ExecID                 (#PCDATA)>
+<!ATTLIST ExecID
+	FIXTag CDATA #FIXED "17"
+	DataType CDATA #FIXED "char"	
+>
+
+
+<!ELEMENT OrderStatus	EMPTY>
+<!ATTLIST OrderStatus
+	FIXTag CDATA #FIXED "39"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3|4|5|6|7|8|9|A|B|C)  #REQUIRED      
+	SDValue (New|Partial|Filled|Done|Canceled|Replaced|
+	PendingCR|Stopped|Rejected|Suspended|PendingNew|Calculated|Expired) #IMPLIED
+>
+
+
+<!ELEMENT OrderRejReason EMPTY>
+<!ATTLIST OrderRejReason 
+	FIXTag CDATA #FIXED "103"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3|4|5|6)  #REQUIRED     
+	SDValue (BrokerOpt|UnknownSym|ExchClosed|ExceedsLim|TooLate|
+		Unknown|Duplicate) #IMPLIED
+>
+
+
+<!ELEMENT LastSpotRate           (#PCDATA)>
+<!ATTLIST LastSpotRate
+	FIXTag CDATA #FIXED "194"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"         >
+
+<!ELEMENT LastForwardPoints      (#PCDATA)>
+<!ATTLIST LastForwardPoints
+	FIXTag CDATA #FIXED "195"
+	DataType CDATA #FIXED "float"
+>
+
+<!ELEMENT LastCapacity           EMPTY>
+<!ATTLIST LastCapacity
+	FIXTag CDATA #FIXED "29"
+	DataType CDATA #FIXED "char"
+	Value (1|2|3|4) #REQUIRED
+	SDValue (A|XA|XP|P) #IMPLIED      >
+
+<!ELEMENT LeavesQty              (#PCDATA)>
+<!ATTLIST LeavesQty
+	FIXTag CDATA #FIXED "151"
+	DataType CDATA #FIXED "int"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000"           >
+
+<!ELEMENT CumQty                 (#PCDATA)>
+<!ATTLIST CumQty
+	FIXTag CDATA #FIXED "14"
+	DataType CDATA #FIXED "int"
+	Max CDATA #FIXED "1000000000"     >
+
+<!ELEMENT AvgPx                  (#PCDATA)>
+<!ATTLIST AvgPx
+	FIXTag CDATA #FIXED "6"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"      >
+
+
+<!ELEMENT SettCurrAmt           (#PCDATA)>
+<!ATTLIST SettCurrAmt
+	FIXTag CDATA #FIXED "119"
+	DataType CDATA #FIXED "float"
+>
+
+
+<!ELEMENT SettCurrForex        (SettCurrForexRate, SettCurrForexRateCalc )>
+
+<!ELEMENT SettCurrForexRate        (#PCDATA)>
+<!ATTLIST SettCurrForexRate
+	FIXTag CDATA #FIXED "155"
+	DataType CDATA #FIXED "float"
+>
+
+
+<!ELEMENT SettCurrForexRateCalc EMPTY >
+<!ATTLIST SettCurrForexRateCalc 
+	FIXTag CDATA #FIXED "156"
+	DataType CDATA #FIXED "char"
+	Value (M|D) #REQUIRED 
+	SDValue (Multiply|Divide) #IMPLIED     >
+
+
+
+<!ELEMENT AllocID                (#PCDATA)>
+<!ATTLIST AllocID
+	FIXTag CDATA #FIXED "70"
+	DataType CDATA #FIXED "char"
+>
+
+
+<!ELEMENT RefAllocID             (#PCDATA)>
+<!ATTLIST RefAllocID
+	FIXTag CDATA #FIXED "72"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT AllocLinkID            (#PCDATA)>
+<!ATTLIST AllocLinkID
+	FIXTag CDATA #FIXED "196"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT AllocLinkType EMPTY>
+<!ATTLIST AllocLinkType 
+	FIXTag CDATA #FIXED "197"
+	DataType CDATA #FIXED "char"
+	Value (0|1) #REQUIRED
+	SDValue (FXNetting|FXSwap) #IMPLIED      >
+
+
+<!ELEMENT AvgPxPrecision        (#PCDATA)>
+<!ATTLIST AvgPxPrecision
+	FIXTag CDATA #FIXED "74"
+	DataType CDATA #FIXED "int"
+>
+
+<!ELEMENT NetMoney               (#PCDATA)>
+<!ATTLIST NetMoney
+	FIXTag CDATA #FIXED "118"
+	DataType CDATA #FIXED "float"
+>
+
+
+<!ELEMENT NoDaysInterest        (#PCDATA)>
+<!ATTLIST NoDaysInterest
+	FIXTag CDATA #FIXED "157"
+	DataType CDATA #FIXED "int"
+>
+
+<!ELEMENT AccruedInterestRate    (#PCDATA)>
+<!ATTLIST AccruedInterestRate
+	FIXTag CDATA #FIXED "158"
+	DataType CDATA #FIXED "float"
+>
+
+<!ELEMENT AllocAcct           (#PCDATA)>
+<!ATTLIST AllocAcct
+	FIXTag CDATA #FIXED "79"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT AllocShares            (#PCDATA)>
+<!ATTLIST AllocShares
+	FIXTag CDATA #FIXED "80"
+	DataType CDATA #FIXED "int"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000">
+
+
+<!ELEMENT BrokerOfCredit         (#PCDATA)>
+<!ATTLIST BrokerOfCredit
+	FIXTag CDATA #FIXED "92"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT AllocText              (#PCDATA)>
+<!ATTLIST AllocText
+	FIXTag CDATA #FIXED "161"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT AllocAvgPx             (#PCDATA)>
+<!ATTLIST AllocAvgPx
+	FIXTag CDATA #FIXED "153"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"           >
+
+<!ELEMENT AllocNetMoney          (#PCDATA)>
+<!ATTLIST AllocNetMoney
+	FIXTag CDATA #FIXED "154"
+	DataType CDATA #FIXED "float"
+>
+
+
+<!ELEMENT AccruedInterestAmt     (#PCDATA)>
+<!ATTLIST AccruedInterestAmt
+	FIXTag CDATA #FIXED "159"
+	DataType CDATA #FIXED "float"
+>
+
+<!ELEMENT MiscFeeAmt             (#PCDATA)>
+<!ATTLIST MiscFeeAmt
+	FIXTag CDATA #FIXED "137"
+	DataType CDATA #FIXED "float"
+>
+
+<!ELEMENT MiscFeeType            EMPTY>
+<!ATTLIST MiscFeeType
+	FIXTag CDATA #FIXED "139"
+	DataType CDATA #FIXED "char"
+	Value (1|2|3|4|5|6|7|8) #REQUIRED 
+	SDValue (Reg|Tax|LocalComm|ExchFee|Stamp|Levy|Other|Markup) #IMPLIED     >
+
+
+<!ELEMENT AllocStatus (AllocStatusAccepted | AllocStatusRejected | AllocStatusPartialAccept | AllocStatusReceived)>
+
+        
+<!ELEMENT AllocStatusAccepted EMPTY>
+<!ATTLIST AllocStatusAccepted
+	FIXTag CDATA #FIXED "87"
+        Value CDATA #FIXED "0"
+>
+
+<!ELEMENT AllocStatusRejected (AllocRejCode) >
+<!ATTLIST AllocStatusRejected
+	FIXTag CDATA #FIXED "87"
+        Value CDATA #FIXED "1"
+>
+
+<!ELEMENT AllocRejCode EMPTY>
+<!ATTLIST AllocRejCode
+	FIXTag CDATA #FIXED "88"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2|3|4|5|6|7)  #REQUIRED     
+	SDValue (UnknownAcct|IncorrectQty|IncorrectAvgPrc|IncorrectBrkMnc|CommDiff|
+		UnknownOrdID|Other) #IMPLIED
+>
+
+
+<!ELEMENT AllocStatusPartialAccept EMPTY>
+<!ATTLIST AllocStatusPartialAccept
+	FIXTag CDATA #FIXED "87"
+        Value CDATA #FIXED "2"
+>
+
+<!ELEMENT AllocStatusReceived EMPTY>
+<!ATTLIST AllocStatusReceived
+	FIXTag CDATA #FIXED "87"
+        Value CDATA #FIXED "3"
+>
+
+<!ELEMENT SettInstID            (#PCDATA)>
+<!ATTLIST SettInstID
+	FIXTag CDATA #FIXED "162"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT EffectiveTime          (#PCDATA)>
+<!ATTLIST EffectiveTime
+	FIXTag CDATA #FIXED "168"
+	DataType CDATA #FIXED "time"
+>
+
+
+<!ELEMENT SettDepositoryCode    (#PCDATA)>
+<!ATTLIST SettDepositoryCode
+	FIXTag CDATA #FIXED "173"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SettBrokerCode          (#PCDATA)>
+<!ATTLIST SettBrokerCode
+	FIXTag CDATA #FIXED "174"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SettInstCode          (#PCDATA)>
+<!ATTLIST SettInstCode
+	FIXTag CDATA #FIXED "175"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecuritySettAgentName (#PCDATA)>
+<!ATTLIST SecuritySettAgentName
+	FIXTag CDATA #FIXED "176"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecuritySettAgentCode (#PCDATA)>
+<!ATTLIST SecuritySettAgentCode
+	FIXTag CDATA #FIXED "177"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecuritySettAgentAcctNo (#PCDATA)>
+<!ATTLIST SecuritySettAgentAcctNo
+	FIXTag CDATA #FIXED "178"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecuritySettAgentAcctName (#PCDATA)>
+<!ATTLIST SecuritySettAgentAcctName
+	FIXTag CDATA #FIXED "179"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecuritySettAgentContactName (#PCDATA)>
+<!ATTLIST SecuritySettAgentContactName
+	FIXTag CDATA #FIXED "180"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecuritySettAgentContactPhone (#PCDATA)>
+<!ATTLIST SecuritySettAgentContactPhone
+	FIXTag CDATA #FIXED "181"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT CashSettAgentCode     (#PCDATA)>
+<!ATTLIST CashSettAgentCode
+	FIXTag CDATA #FIXED "183"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT CashSettAgentAcctNo  (#PCDATA)>
+<!ATTLIST CashSettAgentAcctNo
+	FIXTag CDATA #FIXED "184"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT CashSettAgentAcctName (#PCDATA)>
+<!ATTLIST CashSettAgentAcctName
+	FIXTag CDATA #FIXED "185"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT CashSettAgentContactName (#PCDATA)>
+<!ATTLIST CashSettAgentContactName
+	FIXTag CDATA #FIXED "186"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT CashSettAgentContactPhone (#PCDATA)>
+<!ATTLIST CashSettAgentContactPhone
+	FIXTag CDATA #FIXED "187"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT NoRpts                 (#PCDATA)>
+<!ATTLIST NoRpts
+	FIXTag CDATA #FIXED "82"
+	DataType CDATA #FIXED "int"
+>
+
+<!ELEMENT RptSeq                 (#PCDATA)>
+<!ATTLIST RptSeq
+	FIXTag CDATA #FIXED "83"
+	DataType CDATA #FIXED "int"
+>
+
+<!ELEMENT CancelQty                 (#PCDATA)>
+<!ATTLIST CancelQty
+	FIXTag CDATA #FIXED "84"
+	DataType CDATA #FIXED "int"
+>
+
+<!ELEMENT CashSettAgentName     (#PCDATA)>
+<!ATTLIST CashSettAgentName
+	FIXTag CDATA #FIXED "182"
+	DataType CDATA #FIXED "char">
+
+

@@ -1,0 +1,565 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+
+<!ELEMENT FIXML (FIXMLMessage+)>
+<!ATTLIST FIXML
+    DTDVersion NMTOKEN #FIXED "1.2.0"
+    FIXVersion NMTOKEN #FIXED "4.1">
+
+
+<!ELEMENT FIXMLMessage (Header, ApplicationMessage)>
+
+<!ELEMENT ApplicationMessage (Advertisement | 
+                              Indication |
+                              News |
+                              Email |
+                              QuoteReq |
+                              Quote |
+                              Order |
+                              NewOrderList |
+                              ExecutionReport |
+                              DK_Trade |
+                              OrderModificationRequest |
+                              OrderCancelRequest |
+                              OrderCancelReject |
+                              OrderStatusRequest |
+                              Allocation |
+                              AllocationACK |
+                              SettlementInstructions |
+                              ListStatus |
+                              ListExecute |
+                              ListCancelRequest | 
+                              ListStatusRequest |
+                              Custom
+                              )>
+
+
+<!-- 
+
+  The entity Empty[application message] is used to conditionally 
+  include a declaration for an empty element when a message
+  is not implemented by a particular application.
+  
+  Each file that is combined to make the complete FIXML DTD 
+  contains an entity declaration like:
+  
+     <!ENTITY % EmptyAdvertisement 'IGNORE' > 
+     
+  for each message that is defined in the file.  This effectively
+  eliminates the empty element definition contained in this file.
+  It is an error for a DTD to contain more than one ELEMENT declaration
+  with the same name.
+
+  For this to work correctly, the contents of this file must appear
+  at the end of the DTD declaration.  It is not an error to redefine
+  an ENTITY.  The first declaration encountered is used throughout the
+  document.  Parsers may issue a warning when duplicate ENTITY definitions
+  are encountered.
+  
+  In practice, when a FIXML application receives a ApplicationMessage that it does not
+  support, and the application uses a validating parser, the message will
+  be rejected because it will not conform to the empty content declaration.
+
+-->
+
+
+<!ENTITY % EmptyAdvertisement 'INCLUDE' > 
+<!ENTITY % EmptyIndication 'INCLUDE' >  
+<!ENTITY % EmptyNews 'INCLUDE' >  
+<!ENTITY % EmptyEmail 'INCLUDE' >  
+<!ENTITY % EmptyQuoteReq 'INCLUDE' >  
+<!ENTITY % EmptyQuote 'INCLUDE' >  
+<!ENTITY % EmptyOrder 'INCLUDE' >  
+<!ENTITY % EmptyNewOrderList 'INCLUDE' >  
+<!ENTITY % EmptyExecutionReport 'INCLUDE' >  
+<!ENTITY % EmptyDK_Trade 'INCLUDE' >  
+<!ENTITY % EmptyOrderModificationRequest 'INCLUDE' >  
+<!ENTITY % EmptyOrderCancelRequest 'INCLUDE' >  
+<!ENTITY % EmptyOrderCancelReject 'INCLUDE' >  
+<!ENTITY % EmptyOrderStatusRequest 'INCLUDE' >  
+<!ENTITY % EmptyAllocation 'INCLUDE' >  
+<!ENTITY % EmptyAllocationACK 'INCLUDE' >  
+<!ENTITY % EmptySettlementInstructions 'INCLUDE' >  
+<!ENTITY % EmptyListStatus 'INCLUDE' >  
+<!ENTITY % EmptyListExecute 'INCLUDE' >  
+<!ENTITY % EmptyListCancelRequest 'INCLUDE' >  
+<!ENTITY % EmptyListStatusRequest 'INCLUDE' >  
+<!ENTITY % EmptyCustom 'INCLUDE'>  
+
+
+<![%EmptyAdvertisement;[
+<!ELEMENT Advertisement EMPTY> 
+  ]]>
+<![%EmptyIndication;[
+<!ELEMENT Indication EMPTY>  
+  ]]>
+<![%EmptyNews;[
+<!ELEMENT News EMPTY>  
+  ]]>
+<![%EmptyEmail;[
+<!ELEMENT Email EMPTY>  
+  ]]>
+<![%EmptyQuoteReq;[
+<!ELEMENT QuoteReq EMPTY>  
+  ]]>
+<![%EmptyQuote;[
+<!ELEMENT Quote EMPTY>  
+  ]]>
+<![%EmptyOrder;[
+<!ELEMENT Order EMPTY>  
+  ]]>
+<![%EmptyNewOrderList;[
+<!ELEMENT NewOrderList EMPTY>  
+  ]]>
+<![%EmptyExecutionReport;[
+<!ELEMENT ExecutionReport EMPTY>  
+  ]]>
+<![%EmptyDK_Trade;[
+<!ELEMENT DK_Trade EMPTY>  
+  ]]>
+<![%EmptyOrderModificationRequest;[
+<!ELEMENT OrderModificationRequest EMPTY>  
+  ]]>
+<![%EmptyOrderCancelRequest;[
+<!ELEMENT OrderCancelRequest EMPTY>  
+  ]]>
+<![%EmptyOrderCancelReject;[
+<!ELEMENT OrderCancelReject EMPTY>  
+  ]]>
+<![%EmptyOrderStatusRequest;[
+<!ELEMENT OrderStatusRequest EMPTY>  
+  ]]>
+<![%EmptyAllocation;[
+<!ELEMENT Allocation EMPTY>  
+  ]]>
+<![%EmptyAllocationACK;[
+<!ELEMENT AllocationACK EMPTY>  
+  ]]>
+<![%EmptySettlementInstructions;[
+<!ELEMENT SettlementInstructions EMPTY>  
+  ]]>
+<![%EmptyListStatus;[
+<!ELEMENT ListStatus EMPTY>  
+  ]]>
+<![%EmptyListExecute;[
+<!ELEMENT ListExecute EMPTY>  
+  ]]>
+<![%EmptyListCancelRequest;[
+<!ELEMENT ListCancelRequest EMPTY>  
+  ]]>
+<![%EmptyListStatusRequest;[
+<!ELEMENT ListStatusRequest EMPTY>  
+  ]]>
+<![%EmptyCustom;[
+<!ELEMENT Custom EMPTY>  
+  ]]>
+
+<!-- *** Header Information -->
+
+<!ENTITY % HeaderCustom "" >
+
+<!ENTITY % HeaderContent "Sender, OnBehalfOf?, Target, DeliverTo?, SendingTime?, PossDupFlag?, PossResend? %HeaderCustom;">
+
+
+<!ELEMENT Header (%HeaderContent; ) >
+
+
+<!ELEMENT Sender (CompID, SubID?, LocationID?)>
+
+<!ELEMENT Target (CompID, SubID?, LocationID?)>
+
+<!ELEMENT OnBehalfOf (CompID, SubID?, LocationID?)>
+
+<!ELEMENT DeliverTo (CompID, SubID?, LocationID?)>
+
+<!-- Generalized Firm identifier -->
+
+<!ELEMENT CompID (#PCDATA)>
+<!ATTLIST CompID
+    FIXTag CDATA #FIXED "49-56-115-128"
+    SenderFIXTag CDATA #FIXED "49"
+    TargetFIXTag CDATA #FIXED "56"
+    OnBehalfOfFIXTag CDATA #FIXED "115"
+    DeliverToFIXTag CDATA #FIXED "128"
+    DataType CDATA #FIXED "char">
+
+<!-- Generalized Firm Secondary Identifier (desk, trader, etc.) -->
+
+<!ELEMENT SubID (#PCDATA)>
+<!ATTLIST SubID
+    FIXTag CDATA #FIXED "50-57-116-129"
+    SenderFIXTag CDATA #FIXED "50"
+    TargetFIXTag CDATA #FIXED "57"
+    OnBehalfOfFIXTag CDATA #FIXED "116"
+    DeliverToFIXTag CDATA #FIXED "129"
+    DataType CDATA #FIXED "char">
+
+<!-- Generalized "On Behalf Of" Identifier -->
+
+<!ELEMENT LocationID (#PCDATA)>
+<!ATTLIST LocationID
+    FIXTag CDATA #FIXED "142-143-144-145"
+    SenderFIXTag CDATA #FIXED "142"
+    TargetFIXTag CDATA #FIXED "143"
+    OnBehalfOfFIXTag CDATA #FIXED "144"
+    DeliverToFIXTag CDATA #FIXED "145"
+    DataType CDATA #FIXED "char">
+
+
+<!-- Time of Message Transmission - always expressed in GMT -->
+
+<!ELEMENT SendingTime (#PCDATA)>
+<!ATTLIST SendingTime
+    FIXTag CDATA #FIXED "52"
+    DataType CDATA #FIXED "time">
+
+
+<!ELEMENT PossDupFlag EMPTY>
+<!ATTLIST PossDupFlag
+	FIXTag CDATA #FIXED "43"
+	DataType CDATA #FIXED "char"
+	Value (Y|N) #REQUIRED
+	SDValue (Yes|No) #IMPLIED
+>
+
+<!ELEMENT PossResend EMPTY>
+<!ATTLIST PossResend
+	FIXTag CDATA #FIXED "97"
+	DataType CDATA #FIXED "char"
+	Value (Y|N) #REQUIRED
+	SDValue (Yes|No) #IMPLIED
+>
+
+
+    
+<!-- Header Information *** -->
+
+<!-- *** General Entities -->
+
+<!ENTITY % currCodes "AED|AFA|ALL|ANG|AOK|ARP|ATS|AUD|BBD|BDT|BEC|BEF|BEL|BGL|BHD|BIF|BMD|BOP|BRC|
+BSD|BUK|BWP|BZD|CAD|CHF|CLP|CNY|COP|CRC|CSK|CUP|CVE|CYP|DDM|DEM|DJF|DKK|DOP|DZD|ECS|EGP|
+ESA|ESB|ESP|ETB|FIM|FJD|FKP|FRF|GBP|GHC|GIP|GMD|GNS|GQE|GRD|GTQ|GWP|GYD|HKD|HNL|HTG|HUF|IDR|IEP|ILS|INR|IQD|IRR|ISK|ITL|JMD|JOD|JPY|KES|KHR|KMF|KPQ|KRW|KWD|KYD|LAK|LBP|
+LKR|LRD|LSM|LUF|LYD|MAD|MGF|MLF|MNT|MOP|MRO|MTP|MUR|MVR|MWK|MXP|MYR|MZM|NGN|NIC|NLG|
+NOK|NPR|NZD|OMR|PAB|PES|PGK|PHP|PKR|PLZ|PTE|PYG|QAR|ROL|RWF|SAR|SBD|SCR|SDP|SEK|
+SGD|SHP|SLL|SOS|SRG|STD|SUR|SVC|SYP|SZL|THB|TND|TOP|TPE|TRL|TTD|TWD|TZS|UGS|USD|
+USN|USS|UYP|VEB|VND|VUV|WST|XAF|XAU|YDD|YER|YUD|ZAL|ZAR|ZMK|ZRZ|ZWD">
+
+<!ENTITY % exchanges "AL|A|AM|AS|AX|BH|BS|BC|MC|BE|BN|BL|BO|BD|B|BM|BR|W|C|CM|
+CO|d|D|E|FL|F|FU|G|GE|H|HA|HE|HI|HK|IB|IS|JK|Q|J|KA|KS|KL|KY|LG|LA|LI|L|LU|LY|
+MA|MC|MS|MT|I|MX|MW|MI|p|M|MU|OM|NC|NG|NR|NT|NA|O|OI|OB|N|NZ|NI|OS|OL|P|PL|PA|PH|
+X|RO|SA|SP|SI|SS|SZ|O|ST|SG|Z|TW|TA|BK|TH|T|K|TO|TR|TN|TU|V|VE|VI|ZI|Z|0|1|2|3|4|5|
+6|7|8|9" >
+
+
+<!-- *** General Entities -->
+
+<!-- *** General Elements -->
+
+<!ELEMENT MonthYear (#PCDATA)>
+<!ATTLIST MonthYear
+    FIXTag CDATA #FIXED "200"
+    DataType CDATA #FIXED "month-year">
+
+<!ELEMENT Day (#PCDATA)>
+<!ATTLIST Day
+    FIXTag CDATA #FIXED "205"
+    DataType CDATA #FIXED "day-of-month">
+    
+<!ELEMENT Shares                 (#PCDATA)>
+<!ATTLIST Shares
+	FIXTag CDATA #FIXED "53"
+	DataType CDATA #FIXED "int"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000"      >
+        
+<!ELEMENT Price                  (#PCDATA)>
+<!ATTLIST Price
+	FIXTag CDATA #FIXED "44"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999" >
+        
+<!ELEMENT Currency               EMPTY>
+<!ATTLIST Currency
+	FIXTag CDATA #FIXED "15"
+	DataType CDATA #FIXED "char"
+	Value (%currCodes;) #REQUIRED      >
+
+<!ELEMENT MiscFeeCurr EMPTY>
+<!ATTLIST MiscFeeCurr 
+	FIXTag CDATA #FIXED "138"
+	DataType CDATA #FIXED "char"
+	Value (%currCodes;) #REQUIRED      >
+
+<!ELEMENT SettCurrency EMPTY>
+<!ATTLIST SettCurrency 
+	FIXTag CDATA #FIXED "120"
+	DataType CDATA #FIXED "char"
+	Value (%currCodes;) #REQUIRED      >
+
+
+<!ELEMENT TradeDate              (#PCDATA)>
+<!ATTLIST TradeDate
+	FIXTag CDATA #FIXED "75"
+	DataType CDATA #FIXED "date"
+>
+
+<!ELEMENT TransactTime           (#PCDATA)>
+<!ATTLIST TransactTime
+	FIXTag CDATA #FIXED "60"
+	DataType CDATA #FIXED "time"
+>
+
+   
+<!ELEMENT Text                   (#PCDATA)>
+<!ATTLIST Text
+	FIXTag CDATA #FIXED "58"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT LinesOfText (NoLinesOfText?, Text+)>
+
+<!ELEMENT NoLinesOfText (#PCDATA)>
+<!ATTLIST NoLinesOfText
+	FIXTag CDATA #FIXED "33"
+	DataType CDATA #FIXED "int"
+>
+
+
+<!ELEMENT URLLink                (#PCDATA)>
+<!ATTLIST URLLink
+	FIXTag CDATA #FIXED "149"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT LastMkt                EMPTY>
+<!ATTLIST LastMkt
+	FIXTag CDATA #FIXED "30"
+	DataType CDATA #FIXED "char"
+	Value (%exchanges;)  #REQUIRED      >
+
+
+<!ELEMENT ExecDestination          EMPTY>
+<!ATTLIST ExecDestination
+	FIXTag CDATA #FIXED "100"
+	DataType CDATA #FIXED "char"
+	Value (%exchanges;)  #REQUIRED      >
+
+
+<!ELEMENT ValidUntilTime         (#PCDATA)>
+<!ATTLIST ValidUntilTime
+	FIXTag CDATA #FIXED "62"
+	DataType CDATA #FIXED "time"
+>
+
+<!ELEMENT OrigTime               (#PCDATA)>
+<!ATTLIST OrigTime
+	FIXTag CDATA #FIXED "42"
+	DataType CDATA #FIXED "time"
+>
+
+<!ELEMENT OrderID                (#PCDATA)>
+<!ATTLIST OrderID
+	FIXTag CDATA #FIXED "37"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT ClOrdID                (#PCDATA)>
+<!ATTLIST ClOrdID
+	FIXTag CDATA #FIXED "11"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT PrevClosePx            (#PCDATA)>
+<!ATTLIST PrevClosePx
+	FIXTag CDATA #FIXED "140"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"         >
+
+<!ELEMENT OrderQty               (#PCDATA)>
+<!ATTLIST OrderQty
+	FIXTag CDATA #FIXED "38"
+	DataType CDATA #FIXED "int"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000"      >
+        
+<!ELEMENT FutSettDate            (#PCDATA)>
+<!ATTLIST FutSettDate
+	FIXTag CDATA #FIXED "64"
+	DataType CDATA #FIXED "date"
+>
+
+<!ELEMENT FutSettDate2           (#PCDATA)>
+<!ATTLIST FutSettDate2
+	FIXTag CDATA #FIXED "193"
+	DataType CDATA #FIXED "date"
+>
+
+<!ELEMENT OrderQty2              (#PCDATA)>
+<!ATTLIST OrderQty2
+	FIXTag CDATA #FIXED "192"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000"        >
+
+<!ELEMENT QuoteID                (#PCDATA)>
+<!ATTLIST QuoteID
+	FIXTag CDATA #FIXED "117"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT IOI_ID                  (#PCDATA)>
+<!ATTLIST IOI_ID
+	FIXTag CDATA #FIXED "23"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT Side                   EMPTY>
+<!ATTLIST Side
+	FIXTag CDATA #FIXED "54"
+	DataType CDATA #FIXED "char"
+	Value (1|2|3|4|5|6|7|8)  #REQUIRED      
+	SDValue (Buy|Sell|BuyMin|SellPlus|SellSht|SellShtEx|Undisc|Cross)  #IMPLIED  >
+
+<!ELEMENT LocateReq EMPTY>
+<!ATTLIST LocateReq
+	FIXTag CDATA #FIXED "114"
+	DataType CDATA #FIXED "char"
+	Value (Y|N) #REQUIRED
+	SDValue (Yes|No) #IMPLIED
+>
+
+        
+<!ELEMENT Settlement (SettType | FutureSettlement | SellersOptSettlement)>
+
+<!ELEMENT SettType (FutSettDate?)>
+<!ATTLIST SettType
+	  FIXTag CDATA #FIXED "63"
+	  DataType CDATA #FIXED "char"
+          Value (0|1|2|3|4|5|7|9) #REQUIRED 
+	  SDValue (Regular|Cash|NextDay|T2|T3|T4|WhenIssued|T5) #IMPLIED	>
+    
+<!ELEMENT FutureSettlement (FutSettDate)>
+<!ATTLIST FutureSettlement
+	  FIXTag CDATA #FIXED "63"
+	  DataType CDATA #FIXED "char" 	 
+          Value CDATA #FIXED "6" 
+	  SDValue CDATA #FIXED "Future" >
+          
+<!ELEMENT SellersOptSettlement (FutSettDate)>
+<!ATTLIST SellersOptSettlement
+	  FIXTag CDATA #FIXED "63"
+ 	  DataType CDATA #FIXED "char" 	
+          Value CDATA #FIXED "8"
+	  SDValue CDATA #FIXED "SellersOpt" >
+
+
+          
+<!ELEMENT OrderType (MarketOrder | LimitOrder | StopOrder | StopLimitOrder | PrevQuotedOrder | PrevIndicatedOrder | ForexSwapOrder | PeggedOrder | ForexOrder)>
+
+<!ELEMENT MarketOrder EMPTY>
+<!ATTLIST MarketOrder
+	  FIXTag CDATA #FIXED "40"
+	  DataType CDATA #FIXED "char"
+          Value (1|5|6|9|A) #REQUIRED 
+	  SDValue (Market|MarketOnClose|WithOrWithout|OnBasis|OnClose) #IMPLIED	
+>
+
+
+<!ELEMENT LimitOrder (Price)>
+<!ATTLIST LimitOrder
+	  FIXTag CDATA #FIXED "40"
+	  DataType CDATA #FIXED "char"
+          Value (2|7|8|B) #REQUIRED 
+	  SDValue (Limit|LimitOrBetter|LimitWithOrWithout|LimitOnClose) #IMPLIED	
+>
+
+<!ELEMENT StopOrder (StopPx)>
+<!ATTLIST StopOrder
+	FIXTag CDATA #FIXED "40"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "3" 
+	SDValue CDATA #FIXED "Stop"
+>
+
+
+<!ELEMENT StopLimitOrder (Price, StopPx)>
+<!ATTLIST StopLimitOrder
+	FIXTag CDATA #FIXED "40"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "4" 
+	SDValue CDATA #FIXED "StopLimit"
+
+>
+
+<!ELEMENT PrevQuotedOrder (QuoteID)>
+<!ATTLIST PrevQuotedOrder
+	  FIXTag CDATA #FIXED "40"
+	  DataType CDATA #FIXED "char"
+          Value CDATA #FIXED "D"
+	  SDValue (PrevQuoted) #IMPLIED	
+>
+
+<!ELEMENT PrevIndicatedOrder (IOI_ID)>
+<!ATTLIST PrevIndicatedOrder
+	FIXTag CDATA #FIXED "40"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "E" 
+	SDValue CDATA #FIXED "PrevInd"
+>
+
+<!ELEMENT ForexSwapOrder (OrderQty2?, FutSettDate2?)>
+<!ATTLIST ForexSwapOrder
+	FIXTag CDATA #FIXED "40"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "G" 
+	SDValue CDATA #FIXED "FXSwap"
+>
+
+<!ELEMENT PeggedOrder (PegDifference)>
+<!ATTLIST PeggedOrder
+	FIXTag CDATA #FIXED "40"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "P" 
+	SDValue CDATA #FIXED "PegDiff"
+>
+
+
+<!ELEMENT StopPx                 (#PCDATA)>
+<!ATTLIST StopPx
+	FIXTag CDATA #FIXED "99"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999">     
+
+
+<!ELEMENT ForexOrder (FutSettDate?)>
+<!ATTLIST ForexOrder
+	FIXTag CDATA #FIXED "40"
+	DataType CDATA #FIXED "char"
+ 	Value (C|F|H) #REQUIRED 
+	SDValue (FXMarket|FXLimit|FXPrevQt) #IMPLIED	
+>
+        
+<!-- Note: probably should use NOTATION, but what is the appropriate identifier for "base64? -->
+        
+<!ELEMENT RawData                (#PCDATA)>
+<!ATTLIST RawData
+          FIXTag CDATA #FIXED "96"
+          packed (base64 | none) #IMPLIED
+	  packedFIXTag CDATA #FIXED "XXX" 
+>
+
+<!-- General Elements *** -->
+
+
+<!-- Include the Instrument DTD -->
+
+<!ENTITY % instrumentdtd SYSTEM "Instrument.dtd">
+%instrumentdtd;

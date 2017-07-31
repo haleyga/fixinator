@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="dataroot">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="Datatype">
+					<xs:complexType mixed="true">
+						<xs:sequence>
+							<xs:element name="TypeName" type="xs:string" />
+							<xs:element minOccurs="0" name="BaseType" type="xs:string" />
+							<xs:element name="Desc" type="xs:string" />
+							<xs:element minOccurs="0" name="Example" type="xs:string" />
+							<xs:element minOccurs="0" name="XML">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="BuiltIn" />
+										<xs:element name="Base" type="xs:string" />
+										<xs:element minOccurs="0" name="MinInclusive" type="xs:unsignedShort" />
+										<xs:element minOccurs="0" name="Pattern" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

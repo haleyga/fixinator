@@ -1,0 +1,61 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+
+<!ENTITY % EmptyEmail 'IGNORE' >  
+
+
+
+<!ENTITY % EmailCustom "" >
+
+<!ENTITY % EmailContent "EmailThreadID
+			 ,EmailType 
+                         , OrigTime?
+                         , Subject
+                         , InstrumentList?
+                         , OrderID?
+                         , ClOrdID?
+                         , LinesOfText
+                         , RawData?
+			%EmailCustom;">
+
+<!ELEMENT Email	(%EmailContent;)>
+<!ATTLIST Email
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "C"
+
+>
+
+<!-- 
+     FIX Email uses the tag, RelatedSym instead of Symbol to reference Securities 
+     FIX Requires NoRelatedSym to be specified.  This corresponds to the number of elements in InstrumentList.
+-->
+
+        
+<!ELEMENT EmailThreadID          (#PCDATA)>
+<!ATTLIST EmailThreadID
+	FIXTag CDATA #FIXED "164"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT Subject                (#PCDATA)>
+<!ATTLIST Subject
+	FIXTag CDATA #FIXED "147"
+	DataType CDATA #FIXED "char"
+>
+
+
+<!ELEMENT EmailType EMPTY>
+<!ATTLIST EmailType 
+	FIXTag CDATA #FIXED "94"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2) #REQUIRED
+	SDValue (New|Reply|AdminReply) #IMPLIED
+>
+
+

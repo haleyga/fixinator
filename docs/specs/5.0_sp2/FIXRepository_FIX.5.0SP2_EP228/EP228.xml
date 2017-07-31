@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns="http://www.fixprotocol.org/extensionpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="FIX.5.0SP2" xsi:schemaLocation="http://www.fixprotocol.org/extensionpack ..\..\schema\extensionpack.xsd">
+	<extensionPack approved="2017-03-13T17:00:00" desc="MiFID II and MiFIR Extensions Part 2" id="228" tempIntermediatePath="../EP227/">
+		<Fields>
+			<Updates>
+				<Field Tag="30">
+					<Elaboration>In the context of ESMA RTS 1 Annex I, Table 3, Field 6 &quot;Venue of Execution&quot; it is required that the &quot;venue where the transaction was executed&quot; be identified using ISO 10383 (MIC).  Additionally, ESMA requires the use of &quot;MIC code &apos;XOFF&apos; for financial instruments admitted to trading or traded on a trading venue, where the transaction on that financial instrument is not executed on a trading venue, systematic internaliser or organized trading platform outside of the Union.  Use &apos;SINT&apos; for financial instruments admitted to trading or traded on a trading venue, where the transaction is executed on a systematic internaliser.&quot;</Elaboration>
+				</Field>
+			</Updates>
+			<Inserts>
+				<Field Tag="2704">
+					<Name>ExDestinationType</Name>
+					<Type>int</Type>
+					<AbbrName>ExDestTyp</AbbrName>
+					<NotReqXML>0</NotReqXML>
+					<Description>Identifies the type of execution destination for the order.</Description>
+				</Field>
+			</Inserts>
+		</Fields>
+		<Enums>
+			<Updates>
+				<Enum Tag="277" Value="AZ">
+					<SymbolicName>SystematicInternaliser</SymbolicName>
+					<Description>Systematic Internaliser (SI)</Description>
+					<Elaboration>Trade conducted by Systematic Internaliser (SI).</Elaboration>
+				</Enum>
+				<Enum Tag="574" Value="9">
+					<SymbolicName>SystematicInternaliser</SymbolicName>
+					<Description>Systematic Internaliser (SI)</Description>
+				</Enum>
+				<Enum Tag="865" Value="21">
+					<Description>Delivery start time</Description>
+				</Enum>
+				<Enum Tag="2405" Value="2">
+					<Elaboration>The transaction was executed on an automated execution platform such as an automated systematic internaliser system, broker crossing network, broker crossing system, dark pool trading, &quot;direct to capital&quot; systems, broker position unwind mechanisms, etc.</Elaboration>
+				</Enum>
+				<Enum Tag="2670" Value="5">
+					<Description>No public price quoted by Systematic Internaliser as order is above standard market size</Description>
+					<Elaboration>In the context of ESMA, as per Article 14(2) MiFIR, the systematic internaliser was not obliged to quote prior to closing the trade as the trade was above the instrument’s standard market size. For ESMA RTS 1, this is the &quot;SIZE&quot; flag.</Elaboration>
+				</Enum>
+			</Updates>
+			<Inserts>
+				<Enum Tag="803" Value="76">
+					<SymbolicName>SystematicInternaliser</SymbolicName>
+					<Sort>76</Sort>
+					<Description>Systematic Internaliser (SI)</Description>
+					<Elaboration>In the context of ESMA reporting, this is used to indicate whether the specified party is a Systematic Internaliser or not for the security defined in the Instrument component (Y/N).</Elaboration>
+				</Enum>
+				<Enum Tag="2704" Value="0">
+					<SymbolicName>NoRestriction</SymbolicName>
+					<Sort>0</Sort>
+					<Description>No restriction</Description>
+					<Elaboration>May be used for MiFID II to indicate no restriction on where the order is executed.</Elaboration>
+				</Enum>
+				<Enum Tag="2704" Value="1">
+					<SymbolicName>TradedOnlyOnTradingVenue</SymbolicName>
+					<Sort>1</Sort>
+					<Description>Can be traded only on a trading venue</Description>
+					<Elaboration>May be used for MiFID II to indicate the order can only be executed on a trading venue.</Elaboration>
+				</Enum>
+				<Enum Tag="2704" Value="2">
+					<SymbolicName>TradedOnlyOnSI</SymbolicName>
+					<Sort>2</Sort>
+					<Description>Can be traded only on a Systematic Internaliser (SI)</Description>
+					<Elaboration>May be used for MiFID II to indicate the order can only be executed on a Systematic Internaliser.</Elaboration>
+				</Enum>
+				<Enum Tag="2704" Value="3">
+					<SymbolicName>TradedOnTradingVenueOrSI</SymbolicName>
+					<Sort>3</Sort>
+					<Description>Can be traded on a trading venue or Systematic internaliser (SI)</Description>
+					<Elaboration>May be used for MiFID II to indicate the order can be executed on either a trading venue or a Systematic Internaliser.</Elaboration>
+				</Enum>
+				<Enum Tag="1024" Value="7">
+					<SymbolicName>VoiceNegotiation</SymbolicName>
+					<Sort>7</Sort>
+					<Description>Voice negotiation</Description>
+					<Elaboration>A trading system where transactions between members are arranged through voice negotiation.</Elaboration>
+				</Enum>
+				<Enum Tag="1024" Value="8">
+					<SymbolicName>HybridMarket</SymbolicName>
+					<Sort>8</Sort>
+					<Description>Hybrid market</Description>
+					<Elaboration>A hybrid system falling into two or more types of trading systems. Can also be used for ESMA RTS 1 &quot;other type of trading system&quot;.</Elaboration>
+				</Enum>
+				<Enum Tag="1430" Value="V">
+					<SymbolicName>VoiceNegotiation</SymbolicName>
+					<Sort>11</Sort>
+					<Description>Voice neotiation</Description>
+					<Elaboration>A trading system where transactions between members are arranged through voice negotiation.</Elaboration>
+				</Enum>
+				<Enum Tag="1430" Value="H">
+					<SymbolicName>HybridMarket</SymbolicName>
+					<Sort>12</Sort>
+					<Description>Hybrid market</Description>
+					<Elaboration>A hybrid system falling into two or more types of trading systems. Can also be used for ESMA RTS 1 &quot;other type of trading system&quot;.</Elaboration>
+				</Enum>
+				<Enum Tag="1839" Value="17">
+					<SymbolicName>PricePending</SymbolicName>
+					<Sort>17</Sort>
+					<Description>Price is pending</Description>
+					<Elaboration>In the context of ESMA RTS 2, Annex II, Table 1, Price, this is ESMA&apos;s &quot;PNDG&quot; value.  Used to indicate the transaction is pending a price at the time it was reported.</Elaboration>
+				</Enum>
+				<Enum Tag="1839" Value="18">
+					<SymbolicName>PriceNotApplicable</SymbolicName>
+					<Sort>18</Sort>
+					<Description>Price is not applicable</Description>
+					<Elaboration>In the context of ESMA RTS 2, Annex II, Table 1, Price and RTS 22, Annex I, Table 2, Field 33, this is to flag that the price is &quot;not applicable&quot; for the transaction at the time it was reported. This is ESMA&apos;s &quot;NOAP&quot; value in RTS 22.</Elaboration>
+				</Enum>
+				<Enum Tag="2594" Value="6">
+					<SymbolicName>AllExecutionsSubmittedToAPA</SymbolicName>
+					<Sort>6</Sort>
+					<Description>All executions for the order are to be submitted to an APA</Description>
+					<Elaboration>All executions from this order that may need to be trade reported by the order submitter under MiFID II rules will be submitted by the order receiver on the submitter&apos;s behalf to the Approved Publication Arrangement (APA) facility specified in OrderAttributeValue(2595). ESMA RTS 1.</Elaboration>
+				</Enum>
+				<Enum Tag="2594" Value="7">
+					<SymbolicName>OrderExecutionInstructedByClient</SymbolicName>
+					<Sort>7</Sort>
+					<Description>Order execution instructed by client</Description>
+					<Elaboration>In the context of ESMA RTS 22, Annex I, Table 2, Field 59, when OrderAttributeValue(2595)=Y, it signifies that the execution (e.g. the details of the trade including the venue of execution) was instructed by a client or by another person from outside the Investment Firm but within the same group (Field 59 &apos;CLIENT&apos; in ESMA 2016-1452 Guidelines).</Elaboration>
+				</Enum>
+				<Enum Tag="2594" Value="8">
+					<SymbolicName>LargeInScale</SymbolicName>
+					<Sort>8</Sort>
+					<Description>Large in scale</Description>
+					<Elaboration>In the context of MiFIR Article 4(1)(c) and Article 9(1)(a), when OrderAttributeValue(2595)=Y, it signifies that the order size is above normal market size.
+In the context of MiFIR Article 4(1)(c) and Article 9(1)(a), when OrderAttributeValue(2595)=Y, it signifies that the order is large in scale compared to normal market size.</Elaboration>
+				</Enum>
+				<Enum Tag="2594" Value="9">
+					<SymbolicName>Hidden</SymbolicName>
+					<Sort>9</Sort>
+					<Description>Hidden</Description>
+					<Elaboration>In the context of MiFIR Article 4(1)(d) and Article 9(1)(a), when OrderAttributeValue(2595)=Y, it signifies that the order is held in an order management facility of the trading venue pending disclosure.</Elaboration>
+				</Enum>
+				<Enum Tag="2669" Value="2">
+					<SymbolicName>ExemptFromPublication</SymbolicName>
+					<Sort>2</Sort>
+					<Description>Exempt from publication</Description>
+					<Elaboration>There are allowable exemptions for the post-trade publication of trade transactions.  In the context of ESMA exemptions are specified in RTS 22 Annex I, Table 2, Field 65 and RTS 2 Article 14(1) and Article 15(1).</Elaboration>
+				</Enum>
+				<Enum Tag="2670" Value="9">
+					<SymbolicName>NoPublicPriceDueToLargeInScale</SymbolicName>
+					<Sort>9</Sort>
+					<Description>No public price and/or size quoted as transaction is &quot;large in scale&quot;</Description>
+					<Elaboration>In the context of ESMA, as per MiFIR Article 4(1)(c) and Article 9(1)(a), the trading venue was not obliged to quote prior to closing the trade as the order size was above normal market size.</Elaboration>
+				</Enum>
+				<Enum Tag="2670" Value="10">
+					<SymbolicName>NoPublicPriceSizeDueToOrderHidden</SymbolicName>
+					<Sort>10</Sort>
+					<Description>No public price and/or size quoted due to order being hidden</Description>
+					<Elaboration>In the ccontext of ESMA, as per MiFIR Article 4(1)(d) and Article 9(1)(a), a transaction arising from an order that was not fully pre-trade transparent due to all or part of it being held in a trading venue order management facility, such as a reserve order.</Elaboration>
+				</Enum>
+				<Enum Tag="2670" Value="11">
+					<SymbolicName>ExemptedDueToSecuritiesFinancingTransaction</SymbolicName>
+					<Sort>11</Sort>
+					<Description>Exempted due to securities financing transaction </Description>
+					<Elaboration>Per ESMA RTS 22, Annex I, Table 2, Field 65: a transaction which &quot;falls within the scope of activity but is exempted from reporting under Securities Financing Transaction Regulation&quot;.</Elaboration>
+				</Enum>
+				<Enum Tag="2670" Value="12">
+					<SymbolicName>ExemptedDueToESCBPolicyTransaction</SymbolicName>
+					<Sort>12</Sort>
+					<Description>Exempted due to European System of Central Banks (ESCB) policy transaction</Description>
+					<Elaboration>Per ESMA RTS2, Article 14(1), and Article 15(1): &quot;A transaction shall be considered to be entered into by a member of the European System of Central Banks (ESCB) in performance of monetary, foreign exchange and financial stability policy [is exempted from publication] … [The regulation] shall not apply to the following types of transaction entered into by a member of the ESCB for the performance of one of the tasks referred to in Article 14: transaction entered into for the management of its own funds; transaction entered into for administrative purposes or for the staff of the member of the ESCB which include transactions conducted in the capacity as administrator of a pension scheme for its staff; transactions entered into for its investment portfolio pursuant to obligations under national law.&quot;</Elaboration>
+				</Enum>
+			</Inserts>
+		</Enums>
+		<MsgContents>
+			<Updates>
+				<MsgContent ComponentID="9" TagText="31">
+					<Description>Price of this (last) fill. Required if ExecType(150) = ExecType = F (Trade) or G (Trade Correct) unless FillsGrp or OrderEventGrp or TradePriceCondition(1839)=17 (Price is pending) or 18 (Price is not applicable) is used.
+Should represent the &quot;all-in&quot; (LastSpotRate(194) + LastForwardPoints(195)) rate for F/X orders.).
+If ExecType(150) = 7 (Stopped), represents the price stopped/guaranteed/protected at.
+Not required for FX Swap when ExecType(150) = F (Trade) or G (Trade Correct) as there is no &quot;all-in&quot; rate that applies to both legs of the FX Swap.</Description>
+				</MsgContent>
+			</Updates>
+			<Inserts>
+				<MsgContent ComponentID="14" TagText="2704">
+					<Indent>0</Indent>
+					<Position>30.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="17" TagText="2704">
+					<Indent>0</Indent>
+					<Position>34.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="17" TagText="OrderAttributeGrp">
+					<Indent>0</Indent>
+					<Position>70.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="61" TagText="2704">
+					<Indent>0</Indent>
+					<Position>30.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="61" TagText="1390">
+					<Indent>0</Indent>
+					<Position>79.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="62" TagText="2704">
+					<Indent>0</Indent>
+					<Position>33.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="62" TagText="1390">
+					<Indent>0</Indent>
+					<Position>82.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="62" TagText="1724">
+					<Indent>0</Indent>
+					<Position>83.3</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="62" TagText="OrderAttributeGrp">
+					<Indent>0</Indent>
+					<Position>83.6</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="9" TagText="2704">
+					<Indent>0</Indent>
+					<Position>81.9</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+				<MsgContent ComponentID="2143" TagText="2704">
+					<Indent>0</Indent>
+					<Position>22.8</Position>
+					<Reqd>0</Reqd>
+				</MsgContent>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

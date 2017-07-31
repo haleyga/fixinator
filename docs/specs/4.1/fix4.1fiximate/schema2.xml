@@ -1,0 +1,31 @@
+<Schema xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<ElementType name="fieldID" content="textOnly" dt:type="string"/>
+	<ElementType name="hiddenName" content="textOnly" dt:type="string"/>
+	<ElementType name="shownName" content="textOnly" dt:type="string"/>
+	<ElementType name="HiddenLink" content="textOnly" dt:type="string"/>
+	<ElementType name="ShownLink" content="textOnly" dt:type="string"/>
+	<ElementType name="fieldName" content="eltOnly" order="seq">
+		<element type="hiddenName"/>
+		<element type="shownName"/>
+	</ElementType>
+	<ElementType name="fieldFormat" content="textOnly" dt:type="string"/>
+	<ElementType name="desc" content="mixed">
+	     <element type="BR" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BR" content="empty"/>
+	<AttributeType name="fieldID" dt:type="int" required="yes"/>
+	<ElementType name="Message" content="mixed" order="many">
+		<element type="ShownLink" minOccurs="0"/>
+		<element type="HiddenLink" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="TAG" content="eltOnly" order="seq">
+		<element type="fieldID"/>
+		<element type="fieldName"/>
+		<element type="fieldFormat"/>
+		<element type="desc"/>		
+		<element type="Message" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="TAGS" content="eltOnly">
+		<element type="TAG" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+</Schema>

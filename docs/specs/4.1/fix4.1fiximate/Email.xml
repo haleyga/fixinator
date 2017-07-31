@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+ 
+<FileName>E-Mail</FileName> 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = C
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>164</fieldID>
+
+ 			<fieldName>
+				<hiddenName>EmailThreadID</hiddenName>
+				<shownName>EmailThreadID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Unique identifier for the email message thread
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>94</fieldID>
+
+ 			<fieldName>
+				<hiddenName>EmailType</hiddenName>
+				<shownName>EmailType</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>42</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrigTime</hiddenName>
+				<shownName>OrigTime</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>147</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Subject</hiddenName>
+				<shownName>Subject</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Specifies the Subject text
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>146</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoRelatedSym</hiddenName>
+				<shownName>NoRelatedSym</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Specifies the number of repeating symbols specified
+</commts>
+
+
+	<TAG>
+		<level1>
+			<fieldID>46</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   RelatdSym</hiddenName>
+				<shownName>   RelatdSym</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be repeated multiple times if message is related to multiple symbols.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>65</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   SymbolSfx</hiddenName>
+				<shownName>   SymbolSfx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be repeated multiple times if message is related to multiple symbols.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>48</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   SecurityID</hiddenName>
+				<shownName>   SecurityID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be repeated multiple times if message is related to multiple symbols.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>22</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   IDSource</hiddenName>
+				<shownName>   IDSource</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be repeated multiple times if message is related to multiple symbols.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>167</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   SecurityType</hiddenName>
+				<shownName>   SecurityType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Must be specified if a Future or Option.  If a Future: RelatedSym, SecurityType, and MaturityMonthYear are required.  If an Option: RelatedSym, SecurityType, MaturityMonthYear, PutOrCall, and StrikePrice are required.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>200</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   MaturityMonth Year</hiddenName>
+				<shownName>   MaturityMonth Year</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options or Futures to specify the month and year of maturity.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>205</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   MaturityDay</hiddenName>
+				<shownName>   MaturityDay</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options or Futures and can be used in conjunction with MaturityMonthYear to specify a particular maturity date.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>201</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   PutOrCall</hiddenName>
+				<shownName>   PutOrCall</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>202</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   StrikePrice</hiddenName>
+				<shownName>   StrikePrice</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>206</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   OptAttribute</hiddenName>
+				<shownName>   OptAttribute</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>207</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   Security Exchange</hiddenName>
+				<shownName>   Security Exchange</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be used to identify the security.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>106</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   Issuer</hiddenName>
+				<shownName>   Issuer</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be repeated multiple times if message is related to multiple symbols.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>107</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   SecurityDesc</hiddenName>
+				<shownName>   SecurityDesc</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be repeated multiple times if message is related to multiple symbols.
+</commts>
+		</level1>
+	</TAG>		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>37</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderID</hiddenName>
+				<shownName>OrderID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>11</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClOrdID</hiddenName>
+				<shownName>ClOrdID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>33</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LinesOfText</hiddenName>
+				<shownName>LinesOfText</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Specifies the number of repeating lines of text specified
+</commts>
+
+
+	<TAG>
+		<level1>
+			<fieldID>58</fieldID>
+
+ 			<fieldName>
+				<hiddenName>   Text</hiddenName>
+				<shownName>   Text</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Repeating field, number of instances defined in LinesOfText
+</commts>
+		</level1>
+	</TAG>		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>95</fieldID>
+
+ 			<fieldName>
+				<hiddenName>RawDataLength</hiddenName>
+				<shownName>RawDataLength</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>96</fieldID>
+
+ 			<fieldName>
+				<hiddenName>RawData</hiddenName>
+				<shownName>RawData</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

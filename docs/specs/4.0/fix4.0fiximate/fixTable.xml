@@ -1,0 +1,3052 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<TAGS xmlns="x-schema:schema2.xml">
+	<TAG>
+		<fieldID>1</fieldID>
+		<fieldName>
+			<hiddenName>Account</hiddenName>
+			<shownName>Account
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Account mnemonic as agreed between broker and institution.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>2</fieldID>
+		<fieldName>
+			<hiddenName>AdvId</hiddenName>
+			<shownName>AdvId
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Unique identifier of advertisement message<BR/>
+		</desc>
+		<Message/>
+	</TAG>
+	<TAG>
+		<fieldID>3</fieldID>
+		<fieldName>
+			<hiddenName>AdvRefID</hiddenName>
+			<shownName>AdvRefID
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Reference identifier used with CANCEL and REPLACE transaction types.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>4</fieldID>
+		<fieldName>
+			<hiddenName>AdvSide</hiddenName>
+			<shownName>AdvSide
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Broker's side of advertised trade<BR/>Valid values: <BR/>B = Buy <BR/>S = Sell<BR/>X = Cross<BR/>T = Trade<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>5</fieldID>
+		<fieldName>
+			<hiddenName>AdvTransType</hiddenName>
+			<shownName>AdvTransType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies advertisement message transaction type<BR/>Valid values:  <BR/>N = New<BR/>C = Cancel<BR/>R = Replace <BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>6</fieldID>
+		<fieldName>
+			<hiddenName>AvgPx</hiddenName>
+			<shownName>AvgPx
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Calculated average price of all fills on this order. <BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>7</fieldID>
+		<fieldName>
+			<hiddenName>BeginSeqNo</hiddenName>
+			<shownName>BeginSeqNo
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Message sequence number of first record in range to be resent<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Resend Request</ShownLink>
+			<HiddenLink>ResendRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>8</fieldID>
+		<fieldName>
+			<hiddenName>BeginString</hiddenName>
+			<shownName>BeginString
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies beginning of new message and protocol version.  ALWAYS FIRST FIELD IN MESSAGE. (Always unencrypted)<BR/>Valid values:<BR/> FIX.4.0<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>9</fieldID>
+		<fieldName>
+			<hiddenName>BodyLength</hiddenName>
+			<shownName>BodyLength
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Message length, in bytes, forward to the CheckSum field.  ALWAYS SECOND FIELD IN MESSAGE. (Always unencrypted)<BR/>Valid values:   <BR/>0 - 9999<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>10</fieldID>
+		<fieldName>
+			<hiddenName>CheckSum</hiddenName>
+			<shownName>CheckSum
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Three byte, simple checksum  (see Appendix B for description).  ALWAYS LAST FIELD IN RECORD; i.e. serves, with the trailing &lt;SOH&gt;, as the end-of-record delimiter.  Always defined as three characters. (Always unencrypted)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Trailer</ShownLink>
+			<HiddenLink>StandardTrailer</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>11</fieldID>
+		<fieldName>
+			<hiddenName>ClOrdID</hiddenName>
+			<shownName>ClOrdID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Unique identifier for Order as assigned by institution.  Uniqueness must be guaranteed within a single trading day.  Firms which electronically submit multi-day orders should consider embedding a date within the ClOrderID field to assure uniqueness across days.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Reject</ShownLink>
+			<HiddenLink>OrderCancelReject</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>12</fieldID>
+		<fieldName>
+			<hiddenName>Commission</hiddenName>
+			<shownName>Commission
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Commission<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>13</fieldID>
+		<fieldName>
+			<hiddenName>CommType</hiddenName>
+			<shownName>CommType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Commission type<BR/>Valid values:<BR/>1 = per share<BR/>2 = percentage<BR/>3 = absolute<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>14</fieldID>
+		<fieldName>
+			<hiddenName>CumQty</hiddenName>
+			<shownName>CumQty
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Total number of shares filled.<BR/>Valid values:<BR/>(0 - 1000000000)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>15</fieldID>
+		<fieldName>
+			<hiddenName>Currency</hiddenName>
+			<shownName>Currency
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies currency used for price,  Absence of this field in a message is interpreted as US dollars.  See Appendix A for information on obtaining valid values. <BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>16</fieldID>
+		<fieldName>
+			<hiddenName>EndSeqNo</hiddenName>
+			<shownName>EndSeqNo
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Message sequence number of last record in range to be resent.  If request is for a single record BeginSeqNo = EndSeqNo.  If request is for all messages subsequent to a particular message, EndSeqNo = &quot;999999&quot;<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Resend Request</ShownLink>
+			<HiddenLink>ResendRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>17</fieldID>
+		<fieldName>
+			<hiddenName>ExecID</hiddenName>
+			<shownName>ExecID
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Unique identifier of execution message as assigned by broker (will be 0 (zero) for ExecTransType=3 (Status)).  <BR/>Uniqueness must be guaranteed within a single trading day.  Firms which accept multi-day orders should consider embedding a date within the ExecID field to assure uniqueness across days.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>18</fieldID>
+		<fieldName>
+			<hiddenName>ExecInst</hiddenName>
+			<shownName>ExecInst
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Instructions for order handling on exchange trading floor.  If more than one instruction is applicable to an order, this field can contain multiple instructions separated by space.<BR/>Valid values:<BR/>1 = Not held<BR/>2 = Work<BR/>3 = Go along<BR/>4 = Over the day<BR/>5 = Held<BR/>6 = Participate don't initiate<BR/>7 = Strict scale<BR/>8 = Try to scale<BR/>9 = Stay on bidside<BR/>0 = Stay on offerside<BR/>A = No cross<BR/>B = OK to cross<BR/>C = Call first<BR/>D = Percent of volume<BR/>E = Do not increase - DNI<BR/>F = Do not reduce - DNR<BR/>G = All or none - AON<BR/>I = Institutions only<BR/>L = Last peg (last sale)<BR/>M = Mid-price peg (midprice of inside quote)<BR/>N = Non-negotiable<BR/>O = Opening peg
+P = Market peg<BR/>R = Primary peg (primary market - buy at bid/sell at offer)<BR/>S = Suspend<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>19</fieldID>
+		<fieldName>
+			<hiddenName>ExecRefID</hiddenName>
+			<shownName>ExecRefID
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Reference identifier used with Cancel and Correct transaction types.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>20</fieldID>
+		<fieldName>
+			<hiddenName>ExecTransType</hiddenName>
+			<shownName>ExecTransType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies transaction type<BR/>Valid values:  <BR/>0 = New <BR/>1 = Cancel<BR/>2 = Correct<BR/>3 = Status<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>21</fieldID>
+		<fieldName>
+			<hiddenName>HandlInst</hiddenName>
+			<shownName>HandlInst
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Instructions for order handling on Broker trading floor<BR/>Valid values:<BR/>1 = Automated execution order, private, no Broker intervention<BR/>2 = Automated execution order, public, Broker intervention OK<BR/>3 = Manual order, best execution<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>22</fieldID>
+		<fieldName>
+			<hiddenName>IDSource</hiddenName>
+			<shownName>IDSource
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies class of alternative SecurityID<BR/>Valid values:<BR/>1 = CUSIP<BR/>2 = SEDOL<BR/>3 = QUIK<BR/>4 = ISIN number<BR/>5 = RIC code<BR/>100+ are reserved for private security identifications<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>23</fieldID>
+		<fieldName>
+			<hiddenName>IOIid</hiddenName>
+			<shownName>IOIid
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Unique identifier of IOI message.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>24</fieldID>
+		<fieldName>
+			<hiddenName>IOIOthSvc</hiddenName>
+			<shownName>IOIOthSvc
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates if, and on which other services, the indication has been advertised.  Each character represents an additional service (e.g. if on Bridge and Autex, field = BA, if only on Autex, field = A)<BR/>Valid values:<BR/>A = Autex<BR/>B = Bridge<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>25</fieldID>
+		<fieldName>
+			<hiddenName>IOIQltyInd</hiddenName>
+			<shownName>IOIQltyInd
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Relative quality of indication<BR/>Valid values:<BR/>L = Low<BR/>M = Medium<BR/>H = High<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>26</fieldID>
+		<fieldName>
+			<hiddenName>IOIRefID</hiddenName>
+			<shownName>IOIRefID
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Reference identifier used with CANCEL and REPLACE, transaction types.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>27</fieldID>
+		<fieldName>
+			<hiddenName>IOIShares</hiddenName>
+			<shownName>IOIShares
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Number of shares in numeric or relative size.<BR/>Valid values:<BR/>0 - 1000000000<BR/>S = Small<BR/>M = Medium<BR/>L = Large<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>28</fieldID>
+		<fieldName>
+			<hiddenName>IOITransType</hiddenName>
+			<shownName>IOITransType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies IOI message transaction type<BR/>Valid values:  <BR/>N = New<BR/>C = Cancel<BR/>R = Replace <BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>29</fieldID>
+		<fieldName>
+			<hiddenName>LastCapacity</hiddenName>
+			<shownName>LastCapacity
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Broker capacity in order execution<BR/>Valid values:  <BR/>1 = Agent<BR/>2 = Cross as agent<BR/>3 = Cross as principal<BR/>4 = Principal<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>30</fieldID>
+		<fieldName>
+			<hiddenName>LastMkt</hiddenName>
+			<shownName>LastMkt
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Market of execution for last fill  <BR/>Valid values:  <BR/>See Appendix C<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>31</fieldID>
+		<fieldName>
+			<hiddenName>LastPx</hiddenName>
+			<shownName>LastPx
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Price of last fill.  Field not required for ExecTransType = 3 (Status)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>32</fieldID>
+		<fieldName>
+			<hiddenName>LastShares</hiddenName>
+			<shownName>LastShares
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Quantity of shares bought/sold on this fill. Field not required for ExecTransType = 3 (Status)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>33</fieldID>
+		<fieldName>
+			<hiddenName>LinesOfText</hiddenName>
+			<shownName>LinesOfText
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Identifies number of lines of text body<BR/>
+		</desc>
+		<Message>
+			<ShownLink>News</ShownLink>
+			<HiddenLink>News</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>34</fieldID>
+		<fieldName>
+			<hiddenName>MsgSeqNum</hiddenName>
+			<shownName>MsgSeqNum
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Integer message sequence number.   <BR/>Valid values:  <BR/>0 - 999999<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>35</fieldID>
+		<fieldName>
+			<hiddenName>MsgType</hiddenName>
+			<shownName>MsgType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Defines message type.    ALWAYS THIRD FIELD IN MESSAGE. (Always unencrypted)<BR/>Note: A &quot;U&quot; as the first character in the MsgType field indicates that the  message format is privately defined between the sender and receiver.<BR/>Valid values:<BR/>0 = Heartbeat<BR/>1 = Test Request<BR/>2 = Resend Request<BR/>3 = Reject<BR/>4 = Sequence Reset<BR/>5 = Logout<BR/>6 = Indication of Interest<BR/>7 = Advertisement<BR/>8 = Execution Report<BR/>9 = Order Cancel Reject<BR/>A = Logon<BR/>B = News<BR/>C = Email<BR/>D = Order - Single<BR/>E = Order - List<BR/>F = Order Cancel Request<BR/>G= Order Cancel/Replace Request<BR/>H= Order Status Request<BR/>J = Allocation<BR/>K = List Cancel Request<BR/>L = List Execute<BR/>M = List Status Request<BR/>N = List Status<BR/>P = Allocation ACK<BR/>Q = Dont Know Trade (DK)<BR/>R = Quote Request<BR/>S = Quote<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>36</fieldID>
+		<fieldName>
+			<hiddenName>NewSeqNo</hiddenName>
+			<shownName>NewSeqNo
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>New sequence number<BR/>Valid values:  <BR/>0 - 999999<BR/>
+		</desc>
+		<Message/>
+	</TAG>
+	<TAG>
+		<fieldID>37</fieldID>
+		<fieldName>
+			<hiddenName>OrderID</hiddenName>
+			<shownName>OrderID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Unique identifier for Order as assigned by broker.  Uniqueness must be guaranteed within a single trading day.  Firms which accept multi-day orders should consider embedding a date within the OrderID field to assure uniqueness across days.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Reject</ShownLink>
+			<HiddenLink>OrderCancelReject</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>38</fieldID>
+		<fieldName>
+			<hiddenName>OrderQty</hiddenName>
+			<shownName>OrderQty
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of shares ordered  <BR/>Valid values: <BR/>(0 - 1000000000)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>39</fieldID>
+		<fieldName>
+			<hiddenName>OrdStatus</hiddenName>
+			<shownName>OrdStatus
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies current status of order.  <BR/>Valid values: <BR/>0 = New<BR/>1 = Partially filled<BR/>2 = Filled<BR/>3 = Done for day<BR/>4 = Canceled<BR/>5 = Replaced<BR/>6 = Pending Cancel/Replace<BR/>7 = Stopped<BR/>8 = Rejected<BR/>9 = Suspended<BR/>A = Pending New<BR/>B = Calculated<BR/>C = Expired<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>40</fieldID>
+		<fieldName>
+			<hiddenName>OrdType</hiddenName>
+			<shownName>OrdType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Order type.<BR/>Valid values:  <BR/>1 = Market<BR/>2 = Limit<BR/>3 = Stop<BR/>4 = Stop limit<BR/>5 = Market on close<BR/>6 = With or without<BR/>7 = Limit or better<BR/>8 = Limit with or without<BR/>9 = On basis<BR/>A = On close<BR/>B = Limit on close<BR/>C = Forex<BR/>D = Previously quoted<BR/>E = Previously indicated<BR/>P = Pegged (requires ExecInst = L, R, M, P or O)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>41</fieldID>
+		<fieldName>
+			<hiddenName>OrigClOrdID</hiddenName>
+			<shownName>OrigClOrdID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Original order id as assigned by the institution, used to identify original order in cancel and cancel/replace requests.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>42</fieldID>
+		<fieldName>
+			<hiddenName>OrigTime</hiddenName>
+			<shownName>OrigTime
+</shownName>
+		</fieldName>
+		<fieldFormat>time</fieldFormat>
+		<desc>Time of message origination (always expressed in GMT)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>News</ShownLink>
+			<HiddenLink>News</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>43</fieldID>
+		<fieldName>
+			<hiddenName>PossDupFlag</hiddenName>
+			<shownName>PossDupFlag
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates possible retransmission of message with this sequence number<BR/>Valid values:<BR/>Y = Possible duplicate<BR/>N = Original transmission<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>44</fieldID>
+		<fieldName>
+			<hiddenName>Price</hiddenName>
+			<shownName>Price
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Price per share<BR/>Valid values:  <BR/>0 - 99999999.9999<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>45</fieldID>
+		<fieldName>
+			<hiddenName>RefSeqNum</hiddenName>
+			<shownName>RefSeqNum
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Reference message sequence number <BR/>Valid values: <BR/>0 - 999999<BR/>
+		</desc>
+		<Message/>
+	</TAG>
+	<TAG>
+		<fieldID>46</fieldID>
+		<fieldName>
+			<hiddenName>RelatdSym</hiddenName>
+			<shownName>RelatdSym
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Symbol of issue related to story.  Can be repeated within message to identify multiple companies.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>News</ShownLink>
+			<HiddenLink>News</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>47</fieldID>
+		<fieldName>
+			<hiddenName>Rule80A</hiddenName>
+			<shownName>Rule80A
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates order type upon which exchange Rule 80A is applied.<BR/>Valid values:<BR/>A = Agency single order<BR/>I  = Individual Investor, single order<BR/>D = Program Order, index arb, for Member firm/org<BR/>C = Program Order, non-index arb, for Member firm/org<BR/>J = Program Order, index arb, for individual customer<BR/>K = Program Order, non-index arb, for individual customer<BR/>U = Program Order, index arb, for other agency<BR/>Y = Program Order, non-index arb, for other agency<BR/>M = Program Order, index arb, for other member<BR/>N = Program Order, non-index arb, for other member<BR/>W = All other orders as agent for other member<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>48</fieldID>
+		<fieldName>
+			<hiddenName>SecurityID</hiddenName>
+			<shownName>SecurityID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>CUSIP or other alternate security identifier<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>49</fieldID>
+		<fieldName>
+			<hiddenName>SenderCompID</hiddenName>
+			<shownName>SenderCompID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify firm sending message.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>50</fieldID>
+		<fieldName>
+			<hiddenName>SenderSubID</hiddenName>
+			<shownName>SenderSubID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify specific message originator (desk, trader, etc.)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>51</fieldID>
+		<fieldName>
+			<hiddenName>SendingDate
+</hiddenName>
+			<shownName>SendingDate
+  (not used)
+</shownName>
+		</fieldName>
+		<fieldFormat>date</fieldFormat>
+		<desc>Field not presently used.  Included here as reference to previous versions.<BR/>
+		</desc>
+		<Message/>
+	</TAG>
+	<TAG>
+		<fieldID>52</fieldID>
+		<fieldName>
+			<hiddenName>SendingTime</hiddenName>
+			<shownName>SendingTime
+</shownName>
+		</fieldName>
+		<fieldFormat>time</fieldFormat>
+		<desc>Time of message transmission (always expressed in GMT)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>53</fieldID>
+		<fieldName>
+			<hiddenName>Shares</hiddenName>
+			<shownName>Shares
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of shares <BR/>Valid values:<BR/>0 - 1000000000<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>54</fieldID>
+		<fieldName>
+			<hiddenName>Side</hiddenName>
+			<shownName>Side
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Side of order<BR/>Valid values:<BR/>1 = Buy<BR/>2 = Sell<BR/>3 = Buy minus<BR/>4 = Sell plus<BR/>5 = Sell short<BR/>6 = Sell short exempt<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>55</fieldID>
+		<fieldName>
+			<hiddenName>Symbol</hiddenName>
+			<shownName>Symbol
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Ticker symbol  <BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>56</fieldID>
+		<fieldName>
+			<hiddenName>TargetCompID</hiddenName>
+			<shownName>TargetCompID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify receiving firm.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>57</fieldID>
+		<fieldName>
+			<hiddenName>TargetSubID</hiddenName>
+			<shownName>TargetSubID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify specific individual or unit intended to receive message.  &quot;ADMIN&quot; reserved for administrative messages not intended for a specific user.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>58</fieldID>
+		<fieldName>
+			<hiddenName>Text</hiddenName>
+			<shownName>Text
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Free format text string<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Reject</ShownLink>
+			<HiddenLink>Reject</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Logout</ShownLink>
+			<HiddenLink>Logout</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>News</ShownLink>
+			<HiddenLink>News</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Reject</ShownLink>
+			<HiddenLink>OrderCancelReject</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Execute</ShownLink>
+			<HiddenLink>ListExecute</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Cancel Request</ShownLink>
+			<HiddenLink>ListCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status Request</ShownLink>
+			<HiddenLink>ListStatusRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>59</fieldID>
+		<fieldName>
+			<hiddenName>TimeInForce</hiddenName>
+			<shownName>TimeInForce
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Specifies how long the order remains in effect.  Absence of this field is interpreted as DAY.<BR/>Valid values:  <BR/>0 = Day<BR/>1 = Good Till Cancel  (GTC)<BR/>2 = At the Opening  (OPG)<BR/>3 = Immediate or Cancel  (OC)<BR/>4 = Fill or Kill  (FOK)<BR/>5 = Good Till Crossing  (GTX)<BR/>6 = Good Till Date <BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>60</fieldID>
+		<fieldName>
+			<hiddenName>TransactTime</hiddenName>
+			<shownName>TransactTime
+</shownName>
+		</fieldName>
+		<fieldFormat>time</fieldFormat>
+		<desc>Time of execution/order creation (expressed in GMT)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>61</fieldID>
+		<fieldName>
+			<hiddenName>Urgency</hiddenName>
+			<shownName>Urgency
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Urgency flag<BR/>Valid values:  <BR/>0 = Normal<BR/>1 = Flash<BR/>2 = Background<BR/>
+		</desc>
+		<Message>
+			<ShownLink>News</ShownLink>
+			<HiddenLink>News</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>62</fieldID>
+		<fieldName>
+			<hiddenName>ValidUntilTime</hiddenName>
+			<shownName>ValidUntilTime
+</shownName>
+		</fieldName>
+		<fieldFormat>time</fieldFormat>
+		<desc>Indicates expiration time of indication message (always expressed in GMT)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>63</fieldID>
+		<fieldName>
+			<hiddenName>SettlmntTyp</hiddenName>
+			<shownName>SettlmntTyp
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates order settlement period.  Absence of this field is interpreted as Regular.  Regular is defined as the default settlement period for the particular security on the exchange of execution.<BR/>Valid values:<BR/>0 = Regular<BR/>1 = Cash<BR/>2 = Next Day<BR/>3 = T+2<BR/>4 = T+3<BR/>5 = T+4<BR/>6 = Future<BR/>7 = When Issued<BR/>8 = Sellers Option<BR/>9 = T+ 5<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>64</fieldID>
+		<fieldName>
+			<hiddenName>FutSettDate</hiddenName>
+			<shownName>FutSettDate
+</shownName>
+		</fieldName>
+		<fieldFormat>date</fieldFormat>
+		<desc>Specific date of trade settlement in YYYYMMDD format.  Required when SettlmntTyp = 6 (Future) or SettlmntTyp = 8 (Sellers Option).  (expressed in local time at place of settlement)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>65</fieldID>
+		<fieldName>
+			<hiddenName>SymbolSfx</hiddenName>
+			<shownName>SymbolSfx
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Additional information about the security (e.g. preferred, warrants, etc.).  Absence of this field indicates common.<BR/>Valid values:<BR/>  As defined in the NYSE Stock and bond Symbol Directory and in the AMEX Fitch Directory<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>66</fieldID>
+		<fieldName>
+			<hiddenName>ListID</hiddenName>
+			<shownName>ListID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Customer assigned listUnique identifier for list as assigned by institution, used to associate multiple individual orders.  Uniqueness must be guaranteed within a single trading day.  Firms which generate multi-day orders should consider embedding a date within the ListID field to assure uniqueness across days.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Reject</ShownLink>
+			<HiddenLink>OrderCancelReject</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Execute</ShownLink>
+			<HiddenLink>ListExecute</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Cancel Request</ShownLink>
+			<HiddenLink>ListCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status Request</ShownLink>
+			<HiddenLink>ListStatusRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>67</fieldID>
+		<fieldName>
+			<hiddenName>ListSeqNo</hiddenName>
+			<shownName>ListSeqNo
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Sequence of individual order within list (i.e. ListSeqNo of ListNoOrds, 2 of 25, 3 of 25,   . . . )<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>68</fieldID>
+		<fieldName>
+			<hiddenName>ListNoOrds</hiddenName>
+			<shownName>ListNoOrds
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Total number of orders within list  (i.e. ListSeqNo of ListNoOrds, e.g.  2 of 25, 3 of 25,   . . . )<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>69</fieldID>
+		<fieldName>
+			<hiddenName>ListExecInst</hiddenName>
+			<shownName>ListExecInst
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Free format text message containing list handling and execution instructions.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>70</fieldID>
+		<fieldName>
+			<hiddenName>AllocID</hiddenName>
+			<shownName>AllocID
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Unique identifier for allocation record.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>71</fieldID>
+		<fieldName>
+			<hiddenName>AllocTransType</hiddenName>
+			<shownName>AllocTransType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies allocation transaction type<BR/>Valid values:<BR/>0 = New<BR/>1 = Replace<BR/>2 = Cancel<BR/>
+		</desc>
+		<Message/>
+	</TAG>
+	<TAG>
+		<fieldID>72</fieldID>
+		<fieldName>
+			<hiddenName>RefAllocID</hiddenName>
+			<shownName>RefAllocID
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Reference identifier to be used with Replace and Cancel AllocTransType records.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>73</fieldID>
+		<fieldName>
+			<hiddenName>NoOrders</hiddenName>
+			<shownName>NoOrders
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Indicates number of orders to be combined for average pricing and allocation.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>74</fieldID>
+		<fieldName>
+			<hiddenName>AvgPrxPrecision</hiddenName>
+			<shownName>AvgPrxPrecision
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Indicates number of decimal places to be used for average pricing.  Absence of this field indicates that default precision arranged by the broker/institution is to be used.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>75</fieldID>
+		<fieldName>
+			<hiddenName>TradeDate</hiddenName>
+			<shownName>TradeDate
+</shownName>
+		</fieldName>
+		<fieldFormat>date</fieldFormat>
+		<desc>Indicates date of trade referenced in this record in YYYYMMDD format.  Absence of this field indicates current day (expressed in local time at place of trade).<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>76</fieldID>
+		<fieldName>
+			<hiddenName>ExecBroker</hiddenName>
+			<shownName>ExecBroker
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies executing / give-up broker.  Standard NASD market-maker mnemonic is preferred.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Reject</ShownLink>
+			<HiddenLink>OrderCancelReject</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>77</fieldID>
+		<fieldName>
+			<hiddenName>OpenClose</hiddenName>
+			<shownName>OpenClose
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>For options only.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>78</fieldID>
+		<fieldName>
+			<hiddenName>NoAllocs</hiddenName>
+			<shownName>NoAllocs
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of AllocAccount/AllocShares/ProcessCode instances included in allocation record.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>79</fieldID>
+		<fieldName>
+			<hiddenName>AllocAccount</hiddenName>
+			<shownName>AllocAccount
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Sub-account mnemonic<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>80</fieldID>
+		<fieldName>
+			<hiddenName>AllocShares</hiddenName>
+			<shownName>AllocShares
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of shares to be allocated to specific sub-account <BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>81</fieldID>
+		<fieldName>
+			<hiddenName>ProcessCode</hiddenName>
+			<shownName>ProcessCode
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Processing code for sub-account.  Absence of this field in AllocAccount / AllocShares / ProcessCode instance indicates regular trade.<BR/>Valid values:<BR/>0 = regular<BR/>1 = soft dollar<BR/>2 = step-in<BR/>3 = step-out<BR/>4 = soft-dollar step-in<BR/>5 = soft-dollar step-out<BR/>6 = plan sponsor <BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>82</fieldID>
+		<fieldName>
+			<hiddenName>NoRpts</hiddenName>
+			<shownName>NoRpts
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Total number of reports within series.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>83</fieldID>
+		<fieldName>
+			<hiddenName>RptSeq</hiddenName>
+			<shownName>RptSeq
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Sequence number of message within report series.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>84</fieldID>
+		<fieldName>
+			<hiddenName>CxlQty</hiddenName>
+			<shownName>CxlQty
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Total number of shares canceled for this order.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>85</fieldID>
+		<fieldName>
+			<hiddenName>NoDlvyInst</hiddenName>
+			<shownName>NoDlvyInst
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of delivery instruction fields to follow<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>86</fieldID>
+		<fieldName>
+			<hiddenName>DlvyInst</hiddenName>
+			<shownName>DlvyInst
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Free format text field to indicate delivery instructions<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>87</fieldID>
+		<fieldName>
+			<hiddenName>AllocStatus</hiddenName>
+			<shownName>AllocStatus
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Identifies status of allocation.<BR/>Valid values:<BR/>0 = accepted (successfully processed)<BR/>1 = rejected<BR/>2 = partial accept<BR/>3 = received (received, not yet processed)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>88</fieldID>
+		<fieldName>
+			<hiddenName>AllocRejCode</hiddenName>
+			<shownName>AllocRejCode
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Identifies reason for rejection.<BR/>Valid values:<BR/>0 = unknown account(s)<BR/>1 = incorrect quantity<BR/>2 = incorrect average price<BR/>3 = unknown executing broker mnemonic<BR/>4 = commission difference<BR/>5 = unknown OrderID<BR/>6 = unknown ListID<BR/>7 = other<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>89</fieldID>
+		<fieldName>
+			<hiddenName>Signature</hiddenName>
+			<shownName>Signature
+</shownName>
+		</fieldName>
+		<fieldFormat>data</fieldFormat>
+		<desc>Electronic signature<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Trailer</ShownLink>
+			<HiddenLink>StandardTrailer</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>90</fieldID>
+		<fieldName>
+			<hiddenName>SecureDataLen</hiddenName>
+			<shownName>SecureDataLen
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Length of encrypted message<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>91</fieldID>
+		<fieldName>
+			<hiddenName>SecureData</hiddenName>
+			<shownName>SecureData
+</shownName>
+		</fieldName>
+		<fieldFormat>data</fieldFormat>
+		<desc>Actual encrypted data stream<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>92</fieldID>
+		<fieldName>
+			<hiddenName>BrokerOfCredit</hiddenName>
+			<shownName>BrokerOfCredit
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Broker to receive trade credit <BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>93</fieldID>
+		<fieldName>
+			<hiddenName>SignatureLength</hiddenName>
+			<shownName>SignatureLength
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of bytes in signature field.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Trailer</ShownLink>
+			<HiddenLink>StandardTrailer</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>94</fieldID>
+		<fieldName>
+			<hiddenName>EmailType</hiddenName>
+			<shownName>EmailType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Email message type.<BR/>Valid values:<BR/>0 = New<BR/>1 = Reply<BR/>2 = Admin Reply<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>95</fieldID>
+		<fieldName>
+			<hiddenName>RawDataLength</hiddenName>
+			<shownName>RawDataLength
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of bytes in raw data field.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Logon</ShownLink>
+			<HiddenLink>Logon</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>News</ShownLink>
+			<HiddenLink>News</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>96</fieldID>
+		<fieldName>
+			<hiddenName>RawData</hiddenName>
+			<shownName>RawData
+</shownName>
+		</fieldName>
+		<fieldFormat>data</fieldFormat>
+		<desc>Unformatted raw data, can include bitmaps, word processor documents, etc.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Logon</ShownLink>
+			<HiddenLink>Logon</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>News</ShownLink>
+			<HiddenLink>News</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Email</ShownLink>
+			<HiddenLink>Email</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>97</fieldID>
+		<fieldName>
+			<hiddenName>PossResend</hiddenName>
+			<shownName>PossResend
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates that message may contain information that has been sent under another sequence number.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>98</fieldID>
+		<fieldName>
+			<hiddenName>EncryptMethod</hiddenName>
+			<shownName>EncryptMethod
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Method of encryption.<BR/>Valid values:<BR/>0 = None / other<BR/>1 = PKCS (proprietary)<BR/>2 = DES (EBC mode)<BR/>3 = PKCS/DES (proprietary)<BR/>4 = PGP/DES (defunct)<BR/>5 = PGP/DES-MD5  (see app note on FIX home page)<BR/>6 = PEM/DES-MD5  (see app note on FIX home page)<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Logon</ShownLink>
+			<HiddenLink>Logon</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>99</fieldID>
+		<fieldName>
+			<hiddenName>StopPx</hiddenName>
+			<shownName>StopPx
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Price per share<BR/>Valid values:  <BR/>0 - 99999999.9999<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>100</fieldID>
+		<fieldName>
+			<hiddenName>ExDestination</hiddenName>
+			<shownName>ExDestination
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Execution destination as defined by institution when order is entered.<BR/>Valid values:<BR/>See Appendix C<BR/>plus<BR/>0 = none<BR/>4 = POSIT<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>102</fieldID>
+		<fieldName>
+			<hiddenName>CxlRejReason</hiddenName>
+			<shownName>CxlRejReason
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Code to identify reason for cancel rejection.<BR/>Valid values:<BR/>0 = Too late to cancel<BR/>1 = Unknown order<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Order Cancel Reject</ShownLink>
+			<HiddenLink>OrderCancelReject</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>103</fieldID>
+		<fieldName>
+			<hiddenName>OrdRejReason</hiddenName>
+			<shownName>OrdRejReason
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Code to identify reason for order rejection.<BR/>Valid values:<BR/>0 = Broker option<BR/>1 = Unknown symbol<BR/>2 = Exchange closed<BR/>3 = Order exceeds limit<BR/>4 = Too late to enter<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>104</fieldID>
+		<fieldName>
+			<hiddenName>IOIQualifier</hiddenName>
+			<shownName>IOIQualifier
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Code to qualify IOI use.<BR/>Valid values:<BR/>X = Crossing opportunity<BR/>O = At the open<BR/>M = More behind<BR/>P = Taking a position<BR/>V = Versus<BR/>Q = Current quote<BR/>C = At the close<BR/>S = Portfolio show-n<BR/>I = In touch with<BR/>W = Indication - Working away<BR/>A = All or none<BR/>L = Limit<BR/>T = Through the day<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>105</fieldID>
+		<fieldName>
+			<hiddenName>WaveNo</hiddenName>
+			<shownName>WaveNo
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifier to aid in the management of multiple lists derived from a single, master list.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status</ShownLink>
+			<HiddenLink>ListStatus</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Execute</ShownLink>
+			<HiddenLink>ListExecute</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Cancel Request</ShownLink>
+			<HiddenLink>ListCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>List Status Request</ShownLink>
+			<HiddenLink>ListStatusRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>106</fieldID>
+		<fieldName>
+			<hiddenName>Issuer</hiddenName>
+			<shownName>Issuer
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Company name of security issuer (e.g. International Business Machines) 
+
+</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>107</fieldID>
+		<fieldName>
+			<hiddenName>SecurityDesc</hiddenName>
+			<shownName>SecurityDesc
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Security description. 
+
+</desc>
+		<Message>
+			<ShownLink>Advertisement</ShownLink>
+			<HiddenLink>Advertisement</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>108</fieldID>
+		<fieldName>
+			<hiddenName>HeartBtInt</hiddenName>
+			<shownName>HeartBtInt
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Heartbeat interval (seconds) 
+
+</desc>
+		<Message>
+			<ShownLink>Logon</ShownLink>
+			<HiddenLink>Logon</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>109</fieldID>
+		<fieldName>
+			<hiddenName>ClientID</hiddenName>
+			<shownName>ClientID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Firm identifier used in third party-transactions. 
+
+</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Reject</ShownLink>
+			<HiddenLink>OrderCancelReject</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Status Request</ShownLink>
+			<HiddenLink>OrderStatusRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation ACK</ShownLink>
+			<HiddenLink>AllocationACK</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>110</fieldID>
+		<fieldName>
+			<hiddenName>MinQty</hiddenName>
+			<shownName>MinQty
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Minimum quantity of an order to be executed. 
+
+</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>111</fieldID>
+		<fieldName>
+			<hiddenName>MaxFloor</hiddenName>
+			<shownName>MaxFloor
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Maximum number of shares within an order to be shown on the exchange floor at any given time. 
+
+</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>112</fieldID>
+		<fieldName>
+			<hiddenName>TestReqID</hiddenName>
+			<shownName>TestReqID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifier included in Test Request message to be returned in resulting Heartbeat<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Heartbeat</ShownLink>
+			<HiddenLink>Heartbeat</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Test Request</ShownLink>
+			<HiddenLink>TestRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>113</fieldID>
+		<fieldName>
+			<hiddenName>ReportToExch</hiddenName>
+			<shownName>ReportToExch
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Identifies party of trade responsible for exchange reporting.<BR/>Valid values:<BR/>Y = Indicates that party receiving message must report trade<BR/>N = Indicates that party sending message will report trade<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>114</fieldID>
+		<fieldName>
+			<hiddenName>LocateReqd</hiddenName>
+			<shownName>LocateReqd
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates whether the broker is to locate the stock in conjuction with a short sell order.
+
+Valid values:<BR/>Y = Indicates the broker is responsible for locating the stock<BR/>N = Indicates the broker is not required to locate<BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>115</fieldID>
+		<fieldName>
+			<hiddenName>OnBehalfOfCompID</hiddenName>
+			<shownName>OnBehalfOfCompID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify firm originating message  
+if the message was delivered by a third party  i.e.   the third party firm identifier would be delivered in the SenderCompID field and the firm originating the message in this field.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>116</fieldID>
+		<fieldName>
+			<hiddenName>OnBehalfOfSubID</hiddenName>
+			<shownName>OnBehalfOfSubID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify specific message originator (desk, trader, etc.) if the message was delivered by a third party
+
+</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>117</fieldID>
+		<fieldName>
+			<hiddenName>QuoteID</hiddenName>
+			<shownName>QuoteID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Unique identifier for quote<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>118</fieldID>
+		<fieldName>
+			<hiddenName>NetMoney</hiddenName>
+			<shownName>NetMoney
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Total amount due as the result of the transaction (e.g. for Buy order - principal + commission + fees) reported in currency of execution.
+
+</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>119</fieldID>
+		<fieldName>
+			<hiddenName>SettlCurrAmt</hiddenName>
+			<shownName>SettlCurrAmt
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Total amount due expressed in settlement currency (includes the effect of the forex transaction)
+
+</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>120</fieldID>
+		<fieldName>
+			<hiddenName>SettlCurrency</hiddenName>
+			<shownName>SettlCurrency
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Currency code of settlement denomination. 
+
+</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>121</fieldID>
+		<fieldName>
+			<hiddenName>ForexReq</hiddenName>
+			<shownName>ForexReq
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates request for forex accommodation trade to be executed along with security transaction.<BR/>Valid values:<BR/>Y = Execute Forex after security trade<BR/>N = Do not execute Forex after security trade
+
+</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>122</fieldID>
+		<fieldName>
+			<hiddenName>OrigSendingTime</hiddenName>
+			<shownName>OrigSendingTime
+</shownName>
+		</fieldName>
+		<fieldFormat>time</fieldFormat>
+		<desc>Original time of message transmission (always expressed in GMT) when transmitting orders as the result of a resend request.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>123</fieldID>
+		<fieldName>
+			<hiddenName>GapFillFlag</hiddenName>
+			<shownName>GapFillFlag
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates that the Sequence Reset message is replacing administrative or application messages which will not be resent.<BR/>Valid values:<BR/>Y = Gap Fill message, MsgSeqNum field valid<BR/>N = Sequence Reset, ignore MsgSeqNum<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Sequence Reset</ShownLink>
+			<HiddenLink>SequenceReset</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>124</fieldID>
+		<fieldName>
+			<hiddenName>NoExecs</hiddenName>
+			<shownName>NoExecs
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>No of execution record groups to follow.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>125</fieldID>
+		<fieldName>
+			<hiddenName>CxlType</hiddenName>
+			<shownName>CxlType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Defines if cancel is for part or all of the remaining quantity of an order.<BR/>Valid values:<BR/>P = partial cancel (reduce quantity)<BR/>F = full remaining quantity<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Order Cancel Request</ShownLink>
+			<HiddenLink>OrderCancelRequest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>126</fieldID>
+		<fieldName>
+			<hiddenName>ExpireTime</hiddenName>
+			<shownName>ExpireTime
+</shownName>
+		</fieldName>
+		<fieldFormat>time</fieldFormat>
+		<desc>Time/Date of order expiration (always expressed in GMT) <BR/>
+		</desc>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Order Cancel Replace Request</ShownLink>
+			<HiddenLink>OrderCancelReplaceRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>127</fieldID>
+		<fieldName>
+			<hiddenName>DKReason</hiddenName>
+			<shownName>DKReason
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Reason for execution rejection.<BR/>Valid values:<BR/>A =  Unknown symbol<BR/>B = Wrong side<BR/>C = Quantity exceeds order<BR/>D = No matching order<BR/>E = Price exceeds limit<BR/>Z = Other<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Dont Know Trade</ShownLink>
+			<HiddenLink>DontKnowTrade</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>128</fieldID>
+		<fieldName>
+			<hiddenName>DeliverToCompID</hiddenName>
+			<shownName>DeliverToCompID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify the firm targeted to receive the message if the message is delivered by a third party   i.e.  the third party firm identifier would be delivered in the TargetCompID field and the ultimate receiver firm ID in this field.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>129</fieldID>
+		<fieldName>
+			<hiddenName>DeliverToSubID</hiddenName>
+			<shownName>DeliverToSubID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Assigned value used to identify specific message recipient (desk, trader, etc.) if the message is delivered by a third party
+
+</desc>
+		<Message>
+			<ShownLink>Standard Header</ShownLink>
+			<HiddenLink>StandardHeader</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>130</fieldID>
+		<fieldName>
+			<hiddenName>IOINaturalFlag</hiddenName>
+			<shownName>IOINaturalFlag
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates that IOI is the result of an existing agency order or a facilitation position resulting from an agency order, not from principal trading or order solicitation activity.<BR/>Valid values:<BR/>Y = Natural<BR/>N = Not natural<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Indication of Interest</ShownLink>
+			<HiddenLink>IndicationofInterest</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>131</fieldID>
+		<fieldName>
+			<hiddenName>QuoteReqID</hiddenName>
+			<shownName>QuoteReqID
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Unique identifier for quote request<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>132</fieldID>
+		<fieldName>
+			<hiddenName>BidPx</hiddenName>
+			<shownName>BidPx
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Bid price/rate<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>133</fieldID>
+		<fieldName>
+			<hiddenName>OfferPx</hiddenName>
+			<shownName>OfferPx
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Offer price/rate<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>134</fieldID>
+		<fieldName>
+			<hiddenName>BidSize</hiddenName>
+			<shownName>BidSize
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Quantity of bid<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>135</fieldID>
+		<fieldName>
+			<hiddenName>OfferSize</hiddenName>
+			<shownName>OfferSize
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Quantity of offer<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote</ShownLink>
+			<HiddenLink>Quote</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>136</fieldID>
+		<fieldName>
+			<hiddenName>NoMiscFees</hiddenName>
+			<shownName>NoMiscFees
+</shownName>
+		</fieldName>
+		<fieldFormat>int</fieldFormat>
+		<desc>Number of repeating groups of miscellaneous fees<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>137</fieldID>
+		<fieldName>
+			<hiddenName>MiscFeeAmt</hiddenName>
+			<shownName>MiscFeeAmt
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Miscellaneous fee value<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>138</fieldID>
+		<fieldName>
+			<hiddenName>MiscFeeCurr</hiddenName>
+			<shownName>MiscFeeCurr
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Currency of miscellaneous fee<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>139</fieldID>
+		<fieldName>
+			<hiddenName>MiscFeeType</hiddenName>
+			<shownName>MiscFeeType
+</shownName>
+		</fieldName>
+		<fieldFormat>char</fieldFormat>
+		<desc>Indicates type of miscellaneous fee.<BR/>Valid values:<BR/>1 = Regulatory (e.g. SEC)<BR/>2 = Tax<BR/>3 = Local Commission<BR/>4 = Exchange Fees<BR/>5 = Stamp<BR/>6 = Levy<BR/>7 = Other<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Execution Report</ShownLink>
+			<HiddenLink>ExecutionReport</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>Allocation</ShownLink>
+			<HiddenLink>Allocation</HiddenLink>
+		</Message>
+	</TAG>
+	<TAG>
+		<fieldID>140</fieldID>
+		<fieldName>
+			<hiddenName>PrevClosePx</hiddenName>
+			<shownName>PrevClosePx
+</shownName>
+		</fieldName>
+		<fieldFormat>float</fieldFormat>
+		<desc>Previous closing price of security.<BR/>
+		</desc>
+		<Message>
+			<ShownLink>Quote Request</ShownLink>
+			<HiddenLink>QuoteRequest</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - Single</ShownLink>
+			<HiddenLink>NewOrder-Single</HiddenLink>
+		</Message>
+		<Message>
+			<ShownLink>New Order - List</ShownLink>
+			<HiddenLink>NewOrder-List</HiddenLink>
+		</Message>
+	</TAG>
+</TAGS>

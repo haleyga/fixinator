@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	- - - - - - - - - - - - - - - - - - - - - - - - - -
+    Generated 20080101--><!--
+    Revision: FIXML 5.0 SP1 Schema Version - 20080101
+    Copyright 2003-2008 FIX Protocol Limited.  All rights reserved.
+
+    This Schema represents FIXML vocabulary based on version 5.0SP1 of the FIX Protocol
+
+    Comments should be posted on the FIX protocol web-site
+    http://www.fixprotocol.org
+
+--><!--
+	- - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<xs:schema targetNamespace="http://www.fixprotocol.org/FIXML-5-0-SP1/METADATA"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.fixprotocol.org/FIXML-5-0-SP1/METADATA"	
+		elementFormDefault="unqualified" attributeFormDefault="unqualified"><!--FIXML meta data-->
+	<xs:element name="Xref">
+		<xs:complexType>
+			<xs:attribute name="Protocol" type="xs:string" use="optional"/>
+			<xs:attribute name="name" type="xs:string" use="optional"/>
+			<xs:attribute name="Tag" type="xs:positiveInteger" use="optional"/>
+			<xs:attribute name="MsgID" type="xs:positiveInteger" use="optional"/>
+			<xs:attribute name="Type" type="xs:string" use="optional"/>
+			<xs:attribute name="ComponentType" type="xs:string" use="optional"/>
+			<xs:attribute name="AbbrName" type="xs:string" use="optional"/>
+			<xs:attribute name="Section" type="xs:string" use="optional"/>
+			<xs:attribute name="Category" type="xs:string" use="optional"/>
+			<xs:attribute name="CategoryAbbrName" type="xs:string" use="optional"/>
+			<xs:attribute name="UsesEnumsFromTag" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EnumDoc">
+		<xs:complexType>
+			<xs:attribute name="value" type="xs:string" use="required"/>
+			<xs:attribute name="text" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

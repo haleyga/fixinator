@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+<FileName>Don't Know Trade</FileName> 
+ 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = Q
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>37</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderID</hiddenName>
+				<shownName>OrderID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Broker Order Id as identified on problem execution
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>17</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExecID</hiddenName>
+				<shownName>ExecID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Execution Id of problem execution
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>127</fieldID>
+
+ 			<fieldName>
+				<hiddenName>DKReason</hiddenName>
+				<shownName>DKReason</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>55</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Symbol</hiddenName>
+				<shownName>Symbol</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>54</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Side</hiddenName>
+				<shownName>Side</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>38</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderQty</hiddenName>
+				<shownName>OrderQty</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>32</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LastShares</hiddenName>
+				<shownName>LastShares</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>31</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LastPx</hiddenName>
+				<shownName>LastPx</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>58</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Text</hiddenName>
+				<shownName>Text</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

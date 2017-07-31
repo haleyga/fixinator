@@ -1,0 +1,52 @@
+<Schema xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<ElementType name="fieldID" content="textOnly" dt:type="string"/>
+	<ElementType name="hiddenName" content="textOnly" dt:type="string"/>
+	<ElementType name="msgName" content="textOnly" dt:type="string"/>
+	<ElementType name="shownName" content="textOnly" dt:type="string"/>
+	<ElementType name="fieldName" content="eltOnly" order="many">
+		<element type="hiddenName"/>
+		<element type="msgName"/>
+		<element type="shownName"/>
+	</ElementType>
+	<ElementType name="reqd" content="textOnly" dt:type="string"/>
+	<ElementType name="commts" content="textOnly"/>
+	<ElementType name="BR" content="empty"/>
+	<ElementType name="level3" content="eltOnly" order="seq">
+		<element type="fieldID" minOccurs="1" maxOccurs="1"/>
+		<element type="fieldName" minOccurs="1" maxOccurs="1"/>
+		<element type="reqd" minOccurs="1" maxOccurs="1"/>
+		<element type="commts" minOccurs="1" maxOccurs="1"/>
+	</ElementType>
+	<ElementType name="level2" content="eltOnly" order="seq">
+		<element type="fieldID" minOccurs="1" maxOccurs="1"/>
+		<element type="fieldName" minOccurs="1" maxOccurs="1"/>
+		<element type="reqd" minOccurs="1" maxOccurs="1"/>
+		<element type="commts" minOccurs="1" maxOccurs="1"/>
+		<element type="TAG" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="level1" content="eltOnly" order="seq">
+		<element type="fieldID" minOccurs="1" maxOccurs="1"/>
+		<element type="fieldName" minOccurs="1" maxOccurs="1"/>
+		<element type="reqd" minOccurs="1" maxOccurs="1"/>
+		<element type="commts" minOccurs="1" maxOccurs="1"/>
+		<element type="TAG" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="level0" content="eltOnly" order="seq">
+		<element type="fieldID" minOccurs="1" maxOccurs="1"/>
+		<element type="fieldName" minOccurs="1" maxOccurs="1"/>
+		<element type="reqd" minOccurs="1" maxOccurs="1"/>
+		<element type="commts" minOccurs="1" maxOccurs="1"/>
+		<element type="TAG" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="TAG" content="eltOnly" order="one" model="closed">
+		<element type="level0"/>
+		<element type="level1"/>
+		<element type="level2"/>
+		<element type="level3"/>
+	</ElementType>
+	<ElementType name="FileName" content="textOnly" dt:type="string"/>
+	<ElementType name="TAGS" content="mixed" model="closed">
+		<element type="FileName"/>
+		<element type="TAG"/>
+	</ElementType>
+</Schema>

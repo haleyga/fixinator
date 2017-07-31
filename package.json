@@ -1,0 +1,30 @@
+{
+  "name": "fixinator",
+  "version": "0.1.0",
+  "description": "A TypeScript implementation of the FIX (Financial Information eXchange) protocol.  Includes all supported and unsupported versions.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haleyga/fixinator.git"
+  },
+  "keywords": [
+    "fix",
+    "financial",
+    "protocol",
+    "communication",
+    "exchange",
+    "information"
+  ],
+  "author": "Graham Haley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haleyga/fixinator/issues"
+  },
+  "homepage": "https://github.com/haleyga/fixinator#readme"
+}

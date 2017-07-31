@@ -1,0 +1,841 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+<FileName>Order Cancel / Replace Request (a.k.a. Order Modification Request)</FileName> 
+ 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = G
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>37</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderID</hiddenName>
+				<shownName>OrderID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Unique identifier of most recent order as assigned by broker.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>109</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClientID</hiddenName>
+				<shownName>ClientID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Used for firm identification in third-party transactions.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>76</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExecBroker</hiddenName>
+				<shownName>ExecBroker</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Used for firm identification in third-party transactions.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>41</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrigClOrdID</hiddenName>
+				<shownName>OrigClOrdID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>ClOrdID of the previous order (NOT the initial order of the day) when canceling or replacing an order.<BR />
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>11</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClOrdID</hiddenName>
+				<shownName>ClOrdID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Unique identifier of replacement order as assigned by institution.  Note that this identifier will be used in ClOrdID field of the Cancel Reject Message if the replacement request is rejected.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>66</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ListID</hiddenName>
+				<shownName>ListID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for List Orders
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>1</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Account</hiddenName>
+				<shownName>Account</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>63</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlmntTyp</hiddenName>
+				<shownName>SettlmntTyp</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Absence of this field is interpreted as Regular.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>64</fieldID>
+
+ 			<fieldName>
+				<hiddenName>FutSettDate</hiddenName>
+				<shownName>FutSettDate</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required when SettlmntTyp = 6 (Future) or SettlmntTyp = 8 (Sellers Option)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>21</fieldID>
+
+ 			<fieldName>
+				<hiddenName>HandlInst</hiddenName>
+				<shownName>HandlInst</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>18</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExecInst</hiddenName>
+				<shownName>ExecInst</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can contain multiple instructions, space delimited.  Replacement order must be created with new parameters  (i.e. original order values will not be brought forward to replacement order unless redefined within this message).
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>110</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MinQty</hiddenName>
+				<shownName>MinQty</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>111</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MaxFloor</hiddenName>
+				<shownName>MaxFloor</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>100</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExDestination</hiddenName>
+				<shownName>ExDestination</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>55</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Symbol</hiddenName>
+				<shownName>Symbol</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Must match original order
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>65</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SymbolSfx</hiddenName>
+				<shownName>SymbolSfx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>48</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityID</hiddenName>
+				<shownName>SecurityID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Must match original order
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>22</fieldID>
+
+ 			<fieldName>
+				<hiddenName>IDSource</hiddenName>
+				<shownName>IDSource</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Must match original order
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>167</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityType</hiddenName>
+				<shownName>SecurityType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Must be specified if a Future or Option.  If a Future: Symbol, SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, MaturityMonthYear, PutOrCall, and StrikePrice are required.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>200</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MaturityMonthYear</hiddenName>
+				<shownName>MaturityMonthYear</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options or Futures to specify the month and year of maturity.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>205</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MaturityDay</hiddenName>
+				<shownName>MaturityDay</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options or Futures and can be used in conjunction with MaturityMonthYear to specify a particular maturity date.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>201</fieldID>
+
+ 			<fieldName>
+				<hiddenName>PutOrCall</hiddenName>
+				<shownName>PutOrCall</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>202</fieldID>
+
+ 			<fieldName>
+				<hiddenName>StrikePrice</hiddenName>
+				<shownName>StrikePrice</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>206</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OptAttribute</hiddenName>
+				<shownName>OptAttribute</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>207</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityExchange</hiddenName>
+				<shownName>SecurityExchange</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be used to identify the security.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>106</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Issuer</hiddenName>
+				<shownName>Issuer</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>107</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityDesc</hiddenName>
+				<shownName>SecurityDesc</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>54</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Side</hiddenName>
+				<shownName>Side</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Must match original side, however, Buy and Buy Minus can be interchanged as well as Sell and Sell Plus
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>38</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderQty</hiddenName>
+				<shownName>OrderQty</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Either CashOrderQty or OrderQty is required.  Should be the &quot;Total Intended Order Quantity&quot; (including the amount already executed for this chain of orders)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>152</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CashOrderQty</hiddenName>
+				<shownName>CashOrderQty</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Either CashOrderQty or OrderQty is required.  Specifies the approximate &quot;dollar quantity&quot; for the order.  Broker is responsible for converting and calculating OrderQty in shares for subsequent messages.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>40</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrdType</hiddenName>
+				<shownName>OrdType</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>44</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Price</hiddenName>
+				<shownName>Price</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for limit OrdTypes. For F/X orders, should be the &quot;all-in&quot; rate (spot rate adjusted for forward points). Can be used to specify a limit price for a pegged order, previously indicated, etc.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>99</fieldID>
+
+ 			<fieldName>
+				<hiddenName>StopPx</hiddenName>
+				<shownName>StopPx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for OrdType = &quot;Stop&quot; or OrdType = &quot;Stop limit&quot;.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>211</fieldID>
+
+ 			<fieldName>
+				<hiddenName>PegDifference</hiddenName>
+				<shownName>PegDifference</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>15</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Currency</hiddenName>
+				<shownName>Currency</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Must match original order.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>59</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TimeInForce</hiddenName>
+				<shownName>TimeInForce</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Absence of this field indicates Day order
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>126</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExpireTime</hiddenName>
+				<shownName>ExpireTime</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required if TimeInForce = GTD
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>12</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Commission</hiddenName>
+				<shownName>Commission</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>13</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CommType</hiddenName>
+				<shownName>CommType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>47</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Rule80A</hiddenName>
+				<shownName>Rule80A
+(aka OrderCapacity)</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Must match original order
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>121</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ForexReq</hiddenName>
+				<shownName>ForexReq</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Indicates that broker is requested to execute a Forex accommodation trade in conjunction with the security trade.  
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>120</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlCurrency</hiddenName>
+				<shownName>SettlCurrency</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required if ForexReq = Y.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>58</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Text</hiddenName>
+				<shownName>Text</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>193</fieldID>
+
+ 			<fieldName>
+				<hiddenName>FutSettDate2</hiddenName>
+				<shownName>FutSettDate2</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be used with OrdType = &quot;Forex - Swap&quot; to specify the &quot;value date&quot; for the future portion of a F/X swap.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>192</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderQty2</hiddenName>
+				<shownName>OrderQty2</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be used with OrdType = &quot;Forex - Swap&quot; to specify the order quantity  for the future portion of a F/X swap.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>77</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OpenClose</hiddenName>
+				<shownName>OpenClose</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For options
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>203</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CoveredOrUncovered</hiddenName>
+				<shownName>CoveredOrUncovered</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For options
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>204</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CustomerOrFirm</hiddenName>
+				<shownName>CustomerOrFirm</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For options when delivering the order to execution system/exchange.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>210</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MaxShow</hiddenName>
+				<shownName>MaxShow</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>114</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LocateReqd</hiddenName>
+				<shownName>LocateReqd</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

@@ -1,0 +1,108 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+
+<!ENTITY % EmptyQuoteReq 'IGNORE' >  
+<!ENTITY % EmptyQuote 'IGNORE' >  
+
+<!-- *** Quote Request -->
+
+<!ENTITY % QuoteReqCustom "" >
+
+<!ENTITY % QuoteReqContent "QuoteReqID, Instrument, Side?, PrevClosePx?, OrderQty?, OrderType? %QuoteReqCustom;">
+
+
+<!ELEMENT QuoteReq (%QuoteReqContent; )>
+<!ATTLIST QuoteReq
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "R"
+>
+        
+<!-- Note: Are all Sides valid for quotes ? -->
+
+<!ELEMENT QuoteReqID             (#PCDATA)>
+<!ATTLIST QuoteReqID
+	FIXTag CDATA #FIXED "131"
+	DataType CDATA #FIXED "char"
+>
+
+<!-- Quote Request *** -->
+
+
+<!-- *** Quote -->
+
+<!ENTITY % QuoteCustom "" >
+
+<!ENTITY % QuoteContent "QuoteReqID?, QuoteID, Instrument, BidPx?, OfferPx?, BidSize?,
+		 OfferSize?, ValidUntilTime?, BidSpotRate?, OfferSpotRate?, 		BidForwardPoints?,
+		 OfferForwardPoints?, TransactTime?, OrderType? %QuoteCustom;">
+
+
+<!ELEMENT Quote (%QuoteContent; )>
+<!ATTLIST Quote
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "S">
+        
+<!ELEMENT BidPx                  (#PCDATA)>
+<!ATTLIST BidPx
+	FIXTag CDATA #FIXED "132"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"     >
+        
+<!ELEMENT OfferPx                (#PCDATA)>
+<!ATTLIST OfferPx
+	FIXTag CDATA #FIXED "133"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"      >
+        
+<!ELEMENT BidSize                (#PCDATA)>
+<!ATTLIST BidSize
+	FIXTag CDATA #FIXED "134"
+	DataType CDATA #FIXED "int"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000"     >
+
+<!ELEMENT OfferSize              (#PCDATA)>
+<!ATTLIST OfferSize
+	FIXTag CDATA #FIXED "135"
+	DataType CDATA #FIXED "int"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "1000000000"         >
+        
+<!ELEMENT BidSpotRate            (#PCDATA)>
+<!ATTLIST BidSpotRate
+	FIXTag CDATA #FIXED "188"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"     >
+
+<!ELEMENT BidForwardPoints       (#PCDATA)>
+<!ATTLIST BidForwardPoints
+	FIXTag CDATA #FIXED "189"
+	DataType CDATA #FIXED "float"
+>
+
+<!ELEMENT OfferSpotRate          (#PCDATA)>
+<!ATTLIST OfferSpotRate
+	FIXTag CDATA #FIXED "190"
+	DataType CDATA #FIXED "float"
+	Min CDATA #FIXED "0"
+	Max CDATA #FIXED "99999999.9999"    >
+
+<!ELEMENT OfferForwardPoints     (#PCDATA)>
+<!ATTLIST OfferForwardPoints
+	FIXTag CDATA #FIXED "191"
+	DataType CDATA #FIXED "float"
+>
+
+<!-- Quote *** -->
+      
+

@@ -1,0 +1,43 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+
+<!ENTITY % EmptyNews 'IGNORE' >  
+
+<!ENTITY % NewsCustom "" >
+
+<!ENTITY % NewsContent "OrigTime?, Urgency?, Headline, InstrumentList?, LinesOfText, URLLink?, RawData? %NewsCustom;">
+
+
+<!ELEMENT News	(%NewsContent;)>
+<!ATTLIST News
+        FIXTag CDATA #FIXED "35"
+	DataType CDATA #FIXED "char"
+        Value CDATA #FIXED "B"
+
+>
+
+<!-- 
+      FIX News uses the tag, RelatedSym instead of Symbol to reference Securities 
+      FIX Requires NoRelatedSym to be specified.  This corresponds to the number of elements in InstrumentList.
+-->
+
+<!ELEMENT Headline               (#PCDATA)>
+<!ATTLIST Headline
+	FIXTag CDATA #FIXED "148"
+	DataType CDATA #FIXED "char"
+>
+
+
+<!ELEMENT Urgency EMPTY>
+<!ATTLIST Urgency 
+	FIXTag CDATA #FIXED "61"
+	DataType CDATA #FIXED "char"
+	Value (0|1|2) #REQUIRED
+	SDValue (Normal|Flash|Background) #IMPLIED
+>
+

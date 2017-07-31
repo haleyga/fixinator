@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+<FileName>Order Cancel Request</FileName> 
+ 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = F
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>41</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrigClOrdID</hiddenName>
+				<shownName>OrigClOrdID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Unique ID of original order as assigned by institution
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>37</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderID</hiddenName>
+				<shownName>OrderID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Broker ID of original order
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>11</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClOrdID</hiddenName>
+				<shownName>ClOrdID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Unique ID of cancel request as assigned by the institution.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>66</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ListID</hiddenName>
+				<shownName>ListID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for List Orders
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>125</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CxlType</hiddenName>
+				<shownName>CxlType</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>109</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClientID</hiddenName>
+				<shownName>ClientID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Used for firm identification in third-party transactions.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>76</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExecBroker</hiddenName>
+				<shownName>ExecBroker</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Used for firm identification in third-party transactions.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>55</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Symbol</hiddenName>
+				<shownName>Symbol</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>65</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SymbolSfx</hiddenName>
+				<shownName>SymbolSfx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>48</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityID</hiddenName>
+				<shownName>SecurityID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>22</fieldID>
+
+ 			<fieldName>
+				<hiddenName>IDSource</hiddenName>
+				<shownName>IDSource</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>106</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Issuer</hiddenName>
+				<shownName>Issuer</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>107</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityDesc</hiddenName>
+				<shownName>SecurityDesc</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>54</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Side</hiddenName>
+				<shownName>Side</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>38</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderQty</hiddenName>
+				<shownName>OrderQty</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Original OrderQty for CxlType=F or new OrderQty for CxlType=P.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>58</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Text</hiddenName>
+				<shownName>Text</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

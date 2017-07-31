@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+ 
+<FileName>Advertisement</FileName> 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = 7
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>2</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AdvId</hiddenName>
+				<shownName>AdvId</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>5</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AdvTransType</hiddenName>
+				<shownName>AdvTransType</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>3</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AdvRefID</hiddenName>
+				<shownName>AdvRefID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for Cancel and Replace AdvTransType messages
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>55</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Symbol</hiddenName>
+				<shownName>Symbol</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>65</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SymbolSfx</hiddenName>
+				<shownName>SymbolSfx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>48</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityID</hiddenName>
+				<shownName>SecurityID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>22</fieldID>
+
+ 			<fieldName>
+				<hiddenName>IDSource</hiddenName>
+				<shownName>IDSource</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>167</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityType</hiddenName>
+				<shownName>SecurityType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Must be specified if a Future or Option.  If a Future: Symbol, SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, MaturityMonthYear, PutOrCall, and StrikePrice are required.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>200</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MaturityMonthYear</hiddenName>
+				<shownName>MaturityMonthYear</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options or Futures to specify the month and year of maturity.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>205</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MaturityDay</hiddenName>
+				<shownName>MaturityDay</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options or Futures and can be used in conjunction with MaturityMonthYear to specify a particular maturity date.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>201</fieldID>
+
+ 			<fieldName>
+				<hiddenName>PutOrCall</hiddenName>
+				<shownName>PutOrCall</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>202</fieldID>
+
+ 			<fieldName>
+				<hiddenName>StrikePrice</hiddenName>
+				<shownName>StrikePrice</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>206</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OptAttribute</hiddenName>
+				<shownName>OptAttribute</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>For Options.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>207</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityExchange</hiddenName>
+				<shownName>SecurityExchange</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Can be used to identify the security.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>106</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Issuer</hiddenName>
+				<shownName>Issuer</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>107</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityDesc</hiddenName>
+				<shownName>SecurityDesc</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>4</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AdvSide</hiddenName>
+				<shownName>AdvSide</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>53</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Shares</hiddenName>
+				<shownName>Shares</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>44</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Price</hiddenName>
+				<shownName>Price</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>15</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Currency</hiddenName>
+				<shownName>Currency</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>75</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TradeDate</hiddenName>
+				<shownName>TradeDate</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>60</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TransactTime</hiddenName>
+				<shownName>TransactTime</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>58</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Text</hiddenName>
+				<shownName>Text</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>149</fieldID>
+
+ 			<fieldName>
+				<hiddenName>URLLink</hiddenName>
+				<shownName>URLLink</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>A URL (Uniform Resource Locator) link to additional information (i.e. http://www.XYZ.com/research.html)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>30</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LastMkt</hiddenName>
+				<shownName>LastMkt</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

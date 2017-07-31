@@ -1,0 +1,808 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+ 
+<FileName>Allocation</FileName> 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = J
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>70</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AllocID</hiddenName>
+				<shownName>AllocID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>71</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AllocTransTyp</hiddenName>
+				<shownName>AllocTransTyp</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>72</fieldID>
+
+ 			<fieldName>
+				<hiddenName>RefAllocID</hiddenName>
+				<shownName>RefAllocID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for AllocTransType = R (Replace) or C (Cancel)
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>73</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoOrders</hiddenName>
+				<shownName>NoOrders</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Indicates number of orders to be combined for allocation.  If order(s) were manually delivered set to 1 (one).  
+</commts>
+
+
+	<TAG>
+		<level1>
+			<fieldID>11</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClOrdID</hiddenName>
+				<shownName>ClOrdID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Order ID assigned by client if order(s) were electronically delivered and executed.  If order(s) were manually delivered this field should contain string &quot;MANUAL&quot;.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>37</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OrderID</hiddenName>
+				<shownName>OrderID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>66</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ListID</hiddenName>
+				<shownName>ListID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for List Orders.  
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>105</fieldID>
+
+ 			<fieldName>
+				<hiddenName>WaveNo</hiddenName>
+				<shownName>WaveNo</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>124</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoExecs</hiddenName>
+				<shownName>NoExecs</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Indicates number of individual execution record groups to follow.  Absence of this field indicates that no individual execution records are included.
+</commts>
+
+
+	<TAG>
+		<level1>
+			<fieldID>17</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExecID</hiddenName>
+				<shownName>ExecID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>32</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LastShares</hiddenName>
+				<shownName>LastShares</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Number of shares in individual execution.  Required if NoExecs &gt; 0
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>31</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LastPx</hiddenName>
+				<shownName>LastPx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Price of individual execution.  Required if NoExecs &gt; 0
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>30</fieldID>
+
+ 			<fieldName>
+				<hiddenName>LastMkt</hiddenName>
+				<shownName>LastMkt</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Market of individual execution. 
+</commts>
+		</level1>
+	</TAG>		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>54</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Side</hiddenName>
+				<shownName>Side</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>55</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Symbol</hiddenName>
+				<shownName>Symbol</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>65</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SymbolSfx</hiddenName>
+				<shownName>SymbolSfx</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>48</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityID</hiddenName>
+				<shownName>SecurityID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>22</fieldID>
+
+ 			<fieldName>
+				<hiddenName>IDSource</hiddenName>
+				<shownName>IDSource</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>106</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Issuer</hiddenName>
+				<shownName>Issuer</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>107</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SecurityDesc</hiddenName>
+				<shownName>SecurityDesc</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>53</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Shares</hiddenName>
+				<shownName>Shares</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Total number of shares allocated to all accounts
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>6</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AvgPx</hiddenName>
+				<shownName>AvgPx</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>15</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Currency</hiddenName>
+				<shownName>Currency</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Currency of AvgPx, absence of this field indicates US dollars
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>74</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AvgPrxPrecision</hiddenName>
+				<shownName>AvgPrxPrecision</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Absence of this field indicates that default precision arranged by the broker/institution is to be used
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>75</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TradeDate</hiddenName>
+				<shownName>TradeDate</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>60</fieldID>
+
+ 			<fieldName>
+				<hiddenName>TransactTime</hiddenName>
+				<shownName>TransactTime</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Date/time when allocation is generated
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>63</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlmntTyp</hiddenName>
+				<shownName>SettlmntTyp</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Absence of this field is interpreted as Regular
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>64</fieldID>
+
+ 			<fieldName>
+				<hiddenName>FutSettDate</hiddenName>
+				<shownName>FutSettDate</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required with SettlmntTyp other than regular
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>118</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NetMoney</hiddenName>
+				<shownName>NetMoney</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Expressed in same currency as AvgPx
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>136</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoMiscFees</hiddenName>
+				<shownName>NoMiscFees</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required if any miscellaneous fees are reported. Indicates number of repeating entries
+</commts>
+
+
+	<TAG>
+		<level1>
+			<fieldID>137</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MiscFeeAmt</hiddenName>
+				<shownName>MiscFeeAmt</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required if NoMiscFees &gt; 0
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>138</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MiscFeeCurr</hiddenName>
+				<shownName>MiscFeeCurr</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required if NoMiscFees &gt; 0
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>139</fieldID>
+
+ 			<fieldName>
+				<hiddenName>MiscFeeType</hiddenName>
+				<shownName>MiscFeeType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required if NoMiscFees &gt; 0
+</commts>
+		</level1>
+	</TAG>		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>119</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlCurrAmount</hiddenName>
+				<shownName>SettlCurrAmount</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>120</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SettlCurrency</hiddenName>
+				<shownName>SettlCurrency</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>77</fieldID>
+
+ 			<fieldName>
+				<hiddenName>OpenClose</hiddenName>
+				<shownName>OpenClose</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>58</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Text</hiddenName>
+				<shownName>Text</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>78</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoAllocs</hiddenName>
+				<shownName>NoAllocs</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Indicates number of allocation groups to follow.  
+</commts>
+
+
+	<TAG>
+		<level1>
+			<fieldID>79</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AllocAccount</hiddenName>
+				<shownName>AllocAccount</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>80</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AllocShares</hiddenName>
+				<shownName>AllocShares</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>81</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ProcessCode</hiddenName>
+				<shownName>ProcessCode</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>76</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ExecBroker</hiddenName>
+				<shownName>ExecBroker</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required for step-in and step-out trades
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>109</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClientID</hiddenName>
+				<shownName>ClientID</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Used for firm identification in third-party transactions.
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>12</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Commission</hiddenName>
+				<shownName>Commission</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>13</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CommType</hiddenName>
+				<shownName>CommType</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>85</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoDlvyInst</hiddenName>
+				<shownName>NoDlvyInst</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Repeating group within allocation group
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>92</fieldID>
+
+ 			<fieldName>
+				<hiddenName>BrokerOfCredit</hiddenName>
+				<shownName>BrokerOfCredit</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>86</fieldID>
+
+ 			<fieldName>
+				<hiddenName>DlvyInst</hiddenName>
+				<shownName>DlvyInst</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required if NoDlvyInst &gt; 0
+</commts>
+		</level1>
+	</TAG>		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

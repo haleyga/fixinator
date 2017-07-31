@@ -1,0 +1,123 @@
+BODY
+{
+    COLOR: #000080;
+    BACKGROUND-COLOR: #e0e0e0;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small
+}
+TH
+{
+    BACKGROUND-COLOR: #006699;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+TD
+{
+    COLOR: #006699;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+}
+.component
+{
+    BACKGROUND-COLOR: #aacc99;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+.required
+{
+    COLOR: #006699;
+    BACKGROUND-COLOR: #99ccff;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    TEXT-ALIGN: center
+}
+.fieldName
+{
+    COLOR: #006699;
+    BACKGROUND-COLOR: #cccccc;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    TEXT-ALIGN: center
+}
+.foundIn
+{
+    COLOR: #006699;
+    BACKGROUND-COLOR: #99ccff;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    TEXT-ALIGN: center
+}
+.format
+{
+    COLOR: #006699;
+    BACKGROUND-COLOR: #99ccff;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    TEXT-ALIGN: center
+}
+.tag
+{
+    COLOR: #006699;
+    BACKGROUND-COLOR: #99ccff;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+.description
+{
+    COLOR: #006699;
+    BACKGROUND-COLOR: #cccccc;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    TEXT-ALIGN: left
+}
+.comments
+{
+    COLOR: #006699;
+    BACKGROUND-COLOR: #cccccc;
+    FONT-FAMILY: Arial, Helvetica;
+    FONT-SIZE: small;
+    TEXT-ALIGN: left
+}
+A:link
+{
+    COLOR: #006699;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: underline
+}
+A:active
+{
+    TEXT-DECORATION: underline
+}
+A:visited
+{
+    COLOR: #006699;
+    TEXT-DECORATION: underline
+}
+A:hover
+{
+    COLOR: #000080;
+    TEXT-DECORATION: underline
+}
+H3
+{
+    COLOR: #006699;
+    FONT-SIZE: medium;
+    FONT-VARIANT: small-caps;
+    TEXT-ALIGN: center
+}
+H2
+{
+    FONT-FAMILY: Arial, Helvetica;
+    COLOR: #006699;
+    FONT-SIZE: medium;
+    FONT-WEIGHT: bolder;
+    TEXT-ALIGN: center
+}

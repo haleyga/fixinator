@@ -1,0 +1,141 @@
+September 20, 2002                RELEASE NOTES FOR FIXML4.3v20020920.dtd
+
+The FIXML 4.3 DTD has been updated as part of the FIX 4.3 Errata Release
+dated 20020920. Refer to the FIX .4.3 Itemized Errata document for a 
+description of the changes.
+
+These release notes were produced using the dtddiff utility that is
+part of the perlSGML package from  Earl Hood, ehood@medusa.acs.uci.edu
+http://www.nacs.uci.edu/indiv/ehood/perlSGML.html
+
+    ----------------------------------------------------------------------
+               New Elements/Attributes (fixml4.3v20020909.dtd)
+    ----------------------------------------------------------------------
+	<crossid datatype>               <derivsecinstrgroup>
+	<derivsecinstrlist>              <secinstrgroup>
+	<secinstrlist>
+    ----------------------------------------------------------------------
+              Old/removed Elements/Attributes (fixml4.3v1.0.dtd)
+    ----------------------------------------------------------------------
+	<crossid atatype>                <waveno>
+	<waveno datatype>                <waveno fixtag>
+    ----------------------------------------------------------------------
+                           Content Rule Differences
+    ----------------------------------------------------------------------
+         ------------------------------------------------------------
+	                      <ALLOCORDERGROUP>
+
+  << old content rule <<
+  (clordid,orderid?,secondaryorderid?,secondaryclordid?,listid?,WAVENO?)
+
+  >> new content rule >>
+  (clordid,orderid?,secondaryorderid?,secondaryclordid?,listid?)
+
+         ------------------------------------------------------------
+	                     <CROSSCXLSIDEGROUP>
+
+  << old content rule <<
+  (side,origclordid?,clordid,secondaryclordid?,clordlinkid?,
+   origordmodtime?,partieslist?,tradeoriginationdate?,orderqtydata?,
+   orderqtydata,complianceid?,text?,encodedtextgroup?)
+
+  >> new content rule >>
+  (side,origclordid,clordid,secondaryclordid?,clordlinkid?,origordmodtime?
+   ,partieslist?,tradeoriginationdate?,orderqtydata?,orderqtydata,
+   complianceid?,text?,encodedtextgroup?)
+
+         ------------------------------------------------------------
+	                     <CROSSMODSIDEGROUP>
+
+  << old content rule <<
+  (side,origclordid?,clordid,secondaryclordid?,clordlinkid?,
+   origordmodtime?,partieslist?,tradeoriginationdate,account,accounttype?,
+   daybookinginst?,bookingunit?,preallocmethod?,ordallocgrouplist?,
+   quantitytype?,orderqtydata,commissiondata?,ordercapacity?,
+   orderrestrictions?,custordercapacity?,forexreqorder?,text?,
+   encodedtextgroup?,positioneffect?,coveredoruncovered?,cashmargin?,
+   clearingfeeindicator?)
+
+  >> new content rule >>
+  (side,origclordid,clordid,secondaryclordid?,clordlinkid?,origordmodtime?
+   ,partieslist?,tradeoriginationdate,account,accounttype?,daybookinginst?,
+   bookingunit?,preallocmethod?,ordallocgrouplist?,quantitytype?,
+   orderqtydata,commissiondata?,ordercapacity?,orderrestrictions?,
+   custordercapacity?,forexreqorder?,text?,encodedtextgroup?,
+   positioneffect?,coveredoruncovered?,cashmargin?,clearingfeeindicator?)
+
+         ------------------------------------------------------------
+	                     <DERIVSECURITYLIST>
+
+  << old content rule <<
+  (securityreqid,securityresponseid,securityrequestresult,
+   underlyinginstrument?,totalnumsecurities?,instrumentlist?,currency?,
+   instrumentleglist?,tradingsessionid?,tradingsessionsubid?,text?,
+   encodedtextgroup?)
+
+  >> new content rule >>
+  (securityreqid,securityresponseid,securityrequestresult,
+   underlyinginstrument?,totalnumsecurities?,derivsecinstrlist?)
+
+         ------------------------------------------------------------
+	                           <ORDER>
+
+  << old content rule <<
+  (clordid,secondaryclordid?,clordlinkid?,partieslist?,
+   tradeoriginationdate?,account?,accounttype?,daybookinginst?,bookingunit?
+   ,preallocmethod?,ordallocgrouplist?,settlement?,cashmargin?,handinst,
+   execinstlist?,minqty?,maxfloor?,exdestination?,trdsessionlist?,
+   processcode?,instrument,prevclosepx?,side,locatereqd?,transacttime,
+   stipulationslist?,quantitytype?,orderqtydata,ordtype,pricetype?,price?,
+   stoppx?,spreadorbenchmarkcurvedata?,yielddata?,currency?,complianceid?,
+   solicitedflag?,ioi_id?,quoteid?,orderduration?,effectivetime?,
+   gtbookinginst?,commissiondata?,ordercapacity?,orderrestrictions?,
+   custordercapacity?,forexreqorder?,text?,encodedtextgroup?,futsettdate2?,
+   orderqty2?,positioneffect?,coveredoruncovered?,maxshow?,pegdifference?,
+   discretioninst?,discretionoffset?,cancellationrights?,
+   moneylaunderingstatus?,registid?,designation?,accruedinterestrate?,
+   accruedinterestamt?,netmoney?)
+
+  >> new content rule >>
+  (clordid,secondaryclordid?,clordlinkid?,partieslist?,
+   tradeoriginationdate?,account?,accounttype?,daybookinginst?,bookingunit?
+   ,preallocmethod?,ordallocgrouplist?,settlement?,cashmargin?,handinst,
+   execinstlist?,minqty?,maxfloor?,exdestination?,trdsessionlist?,
+   processcode?,instrument,prevclosepx?,side,locatereqd?,transacttime,
+   stipulationslist?,quantitytype?,orderqtydata,ordtype,pricetype?,price?,
+   stoppx?,spreadorbenchmarkcurvedata?,yielddata?,currency?,complianceid?,
+   solicitedflag?,ioi_id?,quoteid?,orderduration?,effectivetime?,
+   gtbookinginst?,commissiondata?,ordercapacity?,orderrestrictions?,
+   custordercapacity?,forexreqorder?,text?,encodedtextgroup?,futsettdate2?,
+   orderqty2?,price2,positioneffect?,coveredoruncovered?,maxshow?,
+   pegdifference?,discretioninst?,discretionoffset?,cancellationrights?,
+   moneylaunderingstatus?,registid?,designation?,accruedinterestrate?,
+   accruedinterestamt?,netmoney?)
+
+         ------------------------------------------------------------
+	                      <TRDREPSIDEGROUP>
+
+  << old content rule <<
+  (side,orderid,secondaryorderid?,clordid?,partieslist?,account?,
+   accounttype?,settlement?,processcode?,oddlot?,clearinginstructionslist?,
+   clearingfeeindicator?,tradeinputsource?,tradeinputdevice?,currency?,
+   complianceid?,solicitedflag?,ordercapacity?,orderrestrictions?,
+   custordercapacity?,transbkdtime?,tradingsessionid?,tradingsessionsubid?,
+   commissiondata?,grosstradeamt?,numdaysinterest?,exdate?,
+   accruedinterestrate?,accruedinterestamt?,concession?,totaltakedown?,
+   netmoney?,settlcurramt?,settlcurrency?,settlcurrfxrate?,
+   settlcurrfxratecalc?,positioneffect?,text?,encodedtextgroup?,
+   multilegreportingtype?,contractdetailslist?,miscfeelist?)
+
+  >> new content rule >>
+  (side,orderid,secondaryorderid?,clordid?,partieslist?,account?,
+   accounttype?,processcode?,oddlot?,clearinginstructionslist?,
+   clearingfeeindicator?,tradeinputsource?,tradeinputdevice?,currency?,
+   complianceid?,solicitedflag?,ordercapacity?,orderrestrictions?,
+   custordercapacity?,transbkdtime?,tradingsessionid?,tradingsessionsubid?,
+   commissiondata?,grosstradeamt?,numdaysinterest?,exdate?,
+   accruedinterestrate?,accruedinterestamt?,concession?,totaltakedown?,
+   netmoney?,settlcurramt?,settlcurrency?,settlcurrfxrate?,
+   settlcurrfxratecalc?,positioneffect?,text?,encodedtextgroup?,
+   multilegreportingtype?,contractdetailslist?,miscfeelist?)
+

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+<FileName>Standard Message Trailer</FileName> 
+ 
+
+	<TAG>
+		<level0>
+			<fieldID>93</fieldID>
+
+ 			<fieldName>
+				<hiddenName>SignatureLength</hiddenName>
+				<shownName>SignatureLength</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Required when trailer contains signature.  Note:  Not to be included within SecureData field 
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>89</fieldID>
+
+ 			<fieldName>
+				<hiddenName>Signature</hiddenName>
+				<shownName>Signature</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>Note:  Not to be included within SecureData field
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>10</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CheckSum</hiddenName>
+				<shownName>CheckSum</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>(Always unencrypted, always last field in message)
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

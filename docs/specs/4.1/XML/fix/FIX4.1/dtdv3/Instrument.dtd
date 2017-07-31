@@ -1,0 +1,206 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+-->
+
+<!ENTITY % instrdetails "SymbolSfx?, SecurityID?, IDSource?, SecurityType?, SecurityExch?,Issuer?,SecurityDesc?" >
+
+
+<!ELEMENT Instrument (Symbol, %instrdetails; )>
+
+<!--
+	RelInstrument contains RelatedSym which is only in News and Email
+-->
+
+<!ELEMENT InstrumentList (RelInstrument+)>
+
+<!ELEMENT RelInstrument (NoRelatedSym?, RelatedSym, %instrdetails; )>
+
+
+<!ELEMENT NoRelatedSym  (#PCDATA)>
+<!ATTLIST NoRelatedSym 
+	FIXTag CDATA #FIXED "146"
+	DataType CDATA #FIXED "int"
+>
+
+
+
+<!ELEMENT RelSecurityInfo (Future|Option)>
+
+
+<!-- SISecType supports required (example: SettlementInstructions) when all security info isn't) -->
+
+<!ELEMENT SISecType           EMPTY>
+<!ATTLIST SISecType
+	FIXTag CDATA #FIXED "167"
+	DataType CDATA #FIXED "char"
+	Value (BA|CD|CMO|CORP|CP|CPP|CS|FHA|FHL|FN|FOR|FUT|GN|GOVT|IET|MF|MIO|
+		MPO|MPP|MPT|MUNI|NONE|OPT|PS|RP|RVRP|SL|TD|USTB|WAR|ZOO ) #REQUIRED      
+>
+
+<!ELEMENT SecurityType (Equity  | MutualFund | ForeignExchange | FixedIncome | Warrant | Option | Future )>
+
+
+<!-- Security types are taken from the ISITC spec,
+     default value is CS (Common Stock) -->
+
+<!ELEMENT Option (PutCall, Cover?, CustomerFirm?, OpenClose?, Maturity, StrikePx, OptAttribute?)>
+<!ATTLIST Option 
+	FIXTag CDATA #FIXED "167"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "OPT" 
+>
+
+<!ELEMENT Future (Maturity)>
+<!ATTLIST Future 
+	FIXTag CDATA #FIXED "167"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "FUT" 
+>
+
+<!ELEMENT MutualFund EMPTY >
+<!ATTLIST MutualFund  
+	FIXTag CDATA #FIXED "167"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "MF" 
+>
+
+<!ELEMENT ForeignExchange EMPTY >
+<!ATTLIST ForeignExchange 
+	FIXTag CDATA #FIXED "167"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "FOR" 
+>
+
+<!ELEMENT FixedIncome EMPTY>
+<!ATTLIST FixedIncome 
+	  FIXTag CDATA #FIXED "167"
+	  DataType CDATA #FIXED "char"
+          Value	(BA|CD|CMO|COPR|CP|CPP|FHA|FHL|FN|GN|GOVT|IET|
+			MPO|MPP|MPT|MUNI|RP|RVRP|SL|TD| 						USTB|ZOO) #REQUIRED 
+>
+
+
+<!ELEMENT Equity EMPTY>
+<!ATTLIST Equity 
+	  FIXTag CDATA #FIXED "167"
+	  DataType CDATA #FIXED "char"
+          Value (CS|PS) #REQUIRED 
+>
+
+<!ELEMENT Warrant EMPTY>
+<!ATTLIST Warrant 
+	FIXTag CDATA #FIXED "167"
+	DataType CDATA #FIXED "char"
+	Value CDATA #FIXED "WAR" 
+>
+
+
+
+<!ELEMENT PutCall EMPTY>
+<!ATTLIST PutCall
+	FIXTag CDATA #FIXED "201"
+	DataType CDATA #FIXED "int"
+	Value (0|1) #REQUIRED
+	SDValue (Put|Call) #IMPLIED
+>
+
+<!ELEMENT Cover EMPTY>
+<!ATTLIST Cover 
+	FIXTag CDATA #FIXED "203"
+	DataType CDATA #FIXED "char"
+	Value (0|1) #REQUIRED
+	SDValue (Covered|Uncovered) #IMPLIED
+>
+
+<!ELEMENT CustomerFirm EMPTY>
+<!ATTLIST CustomerFirm 
+	FIXTag CDATA #FIXED "204"
+	DataType CDATA #FIXED "char"
+	Value (0|1) #REQUIRED
+	SDValue (Customer|Firm) #IMPLIED
+>
+
+<!ELEMENT OpenClose EMPTY>
+<!ATTLIST OpenClose
+	FIXTag CDATA #FIXED "77"
+	DataType CDATA #FIXED "char"
+	Value (O|C) #REQUIRED
+	SDValue (Open|Close) #IMPLIED
+>
+
+
+<!ELEMENT Symbol (#PCDATA)>
+<!ATTLIST Symbol
+    FIXTag CDATA #FIXED "55"
+    DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT RelatedSym (#PCDATA)>
+<!ATTLIST RelatedSym
+	FIXTag CDATA #FIXED "46"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SymbolSfx (#PCDATA)>
+<!ATTLIST SymbolSfx
+    FIXTag CDATA #FIXED "65"
+    DataType CDATA #FIXED "char"
+>
+
+
+<!ELEMENT IDSource EMPTY >
+<!ATTLIST IDSource 
+    FIXTag CDATA #FIXED "22"
+    DataType CDATA #FIXED "char"
+    Value (1|2|3|4|5|6|7) #REQUIRED
+    SDValue (CUSIP|SEDOL|QUIK|ISIN|RIC|ISOCurr|ISOCountry) #IMPLIED
+
+>
+
+<!ELEMENT SecurityID (#PCDATA)>
+<!ATTLIST SecurityID
+    FIXTag CDATA #FIXED "48"
+    DataType CDATA #FIXED "char"
+>
+    
+
+<!ELEMENT SecurityExch                EMPTY>
+<!ATTLIST SecurityExch
+	FIXTag CDATA #FIXED "207"
+	DataType CDATA #FIXED "char"
+	Value (%exchanges;)  #REQUIRED      >
+
+
+
+<!ELEMENT Issuer                 (#PCDATA)>
+<!ATTLIST Issuer
+	FIXTag CDATA #FIXED "106"
+	DataType CDATA #FIXED "char"
+>
+
+<!ELEMENT SecurityDesc           (#PCDATA)>
+<!ATTLIST SecurityDesc
+	FIXTag CDATA #FIXED "107"
+	DataType CDATA #FIXED "char"
+>
+    
+<!ELEMENT Maturity (MonthYear,Day?)>
+
+<!ELEMENT StrikePx (#PCDATA)>
+<!ATTLIST StrikePx
+    FIXTag CDATA #FIXED "202"
+    DataType CDATA #FIXED "float"
+    Min CDATA #FIXED "0"
+    Max CDATA #FIXED "99999999.9999"
+>
+    
+<!ELEMENT OptAttribute           (#PCDATA)>
+<!ATTLIST OptAttribute
+	FIXTag CDATA #FIXED "206"
+	DataType CDATA #FIXED "char"
+>
+
+

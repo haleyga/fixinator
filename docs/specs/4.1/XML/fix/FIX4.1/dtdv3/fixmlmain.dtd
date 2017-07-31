@@ -1,0 +1,106 @@
+<!--
+    Revision: 1.2.0
+    Date:  25 Aug 2000
+    FIX Protocol Base.dtd 
+    Copyright 2000 FIX Protocol Limited.  All rights reserved.
+  
+     This DTD defines the FIXML protocol.
+
+-->
+
+
+
+<!--
+ FIXML Extensibility
+
+Each application message has two entity declarations, Custom and Content, to provide extensible content models.   For example, IndicationCustom and IndicationContent are the entities for the Indication message.   Since FIXML is based on the FIX Protocol which allows user defined fields, the decision was made to have FIXML provide the same functionality.   The downside of this approach is that it makes the DTDs less readable.   To understand an application message's content model the user would need to look at the Content entity to determine the valid content model for the application message.
+
+If a user wanted to extend the content model of the Indication element they could add the following to the internal subset of a FIXML message.
+
+<!DOCTYPE fixml SYSTEM "fixmlmain.dtd" [
+   <!ENTITY % IndicationCustom ", IndicationExtensions?">
+   <!ELEMENT IndicationExtensions (#PCDATA)>
+]>
+
+After entity reference resolution the Indication content model will look like 
+
+<!ELEMENT Indication (IOI_ID, 
+				IOI_TransType, 
+				Instrument, 
+				IOI_Side, 
+				IOI_Shares, 
+				Price?, 
+				Currency?, 
+				ValidUntilTime?, 
+                      		IOI_QualifierList?, 
+				Text?, TransactTime?, URLLink?, IndicationExtensions?) >
+
+instead of 
+
+<!ELEMENT Indication (IOI_ID, 
+				IOI_TransType, 
+				Instrument, 
+				IOI_Side, 
+				IOI_Shares, 
+				Price?, 
+				Currency?, 
+				ValidUntilTime?, 
+                      		IOI_QualifierList?, 
+				Text?, TransactTime?, URLLink?) >
+
+Entities Added For Customization
+
+EmailCustom/EmailContent
+AdvertisementCustom/Advertisement/Content
+NewsCustom/NewsContent
+IndicationCustom/IndicationContent
+OrderCustom/OrderContent
+NewOrderListCustom/NewOrderListContent
+ExecutionReportCustom/ExecutionReportContent
+DKTradeCustom/DKTradeContent
+OrderModificationRequestCustom/OrderModificationRequestContent
+OrderCancelCustom/OrderCancelContent
+OrderCancelRejectCustom/OrderCancelRejectContent
+OrderStatusRequestCustom/OrderStatusRequestContent
+AllocationCustom/AllocationContent
+AllocationGroupCustom/AllocationGroupContent
+AllocOrderCustom/AllocOrderContent
+ExecOrderCustom/ExecOrderContent
+AllocationACKCustom/AllocationACKContent
+SettlementInstructionsCustom/SettlementInstructionsContent
+QuoteReqCustom/QuoteReqContent
+QuoteCustom/QuoteContent
+
+-->
+
+
+<!-- It is important that Base.dtd is "included" last. -->
+
+
+<!ENTITY % emaildtd SYSTEM "Email.dtd">
+%emaildtd;
+
+<!ENTITY % advertisementdtd SYSTEM "Advertisement.dtd">
+%advertisementdtd;
+
+<!ENTITY % newsdtd SYSTEM "News.dtd">
+%newsdtd;
+
+<!ENTITY % ioidtd SYSTEM "IOI.dtd">
+%ioidtd;
+
+<!ENTITY % orderdtd SYSTEM "Order.dtd">
+%orderdtd;
+
+<!ENTITY % quotedtd SYSTEM "Quote.dtd">
+%quotedtd;
+
+<!ENTITY % basedtd SYSTEM "Base.dtd">
+%basedtd;
+
+
+
+
+
+
+

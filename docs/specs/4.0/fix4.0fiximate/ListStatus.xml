@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style3.xsl"?>
+<TAGS xmlns="x-schema:schema.xml">  
+ 
+ 
+<FileName>List Status</FileName> 
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardHeader</msgName>
+				<shownName>Standard Header</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>MsgType = N
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>66</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ListID</hiddenName>
+				<shownName>ListID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>105</fieldID>
+
+ 			<fieldName>
+				<hiddenName>WaveNo</hiddenName>
+				<shownName>WaveNo</shownName>
+			</fieldName>
+
+			<reqd>N</reqd>
+
+			<commts>
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>82</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoRpts</hiddenName>
+				<shownName>NoRpts</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Total number of messages required to status complete list.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>83</fieldID>
+
+ 			<fieldName>
+				<hiddenName>RptSeq</hiddenName>
+				<shownName>RptSeq</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Sequence number of this report message.
+</commts>
+		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID>73</fieldID>
+
+ 			<fieldName>
+				<hiddenName>NoOrders</hiddenName>
+				<shownName>NoOrders</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>Number of orders statused in this message, i.e. number of repeating groups to follow.
+</commts>
+
+
+	<TAG>
+		<level1>
+			<fieldID>11</fieldID>
+
+ 			<fieldName>
+				<hiddenName>ClOrdID</hiddenName>
+				<shownName>ClOrdID</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>14</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CumQty</hiddenName>
+				<shownName>CumQty</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>84</fieldID>
+
+ 			<fieldName>
+				<hiddenName>CxlQty</hiddenName>
+				<shownName>CxlQty</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>
+
+	<TAG>
+		<level1>
+			<fieldID>6</fieldID>
+
+ 			<fieldName>
+				<hiddenName>AvgPx</hiddenName>
+				<shownName>AvgPx</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level1>
+	</TAG>		</level0>
+	</TAG>
+
+	<TAG>
+		<level0>
+			<fieldID> </fieldID>
+
+ 			<fieldName>
+				<msgName>StandardTrailer</msgName>
+				<shownName>Standard Trailer</shownName>
+			</fieldName>
+
+			<reqd>Y</reqd>
+
+			<commts>
+</commts>
+		</level0>	</TAG>
+
+
+</TAGS>

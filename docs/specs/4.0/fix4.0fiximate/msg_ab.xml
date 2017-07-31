@@ -1,0 +1,699 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="style2ab.xsl"?>
+<TAGS xmlns="x-schema:schema.xml"> <TAG>
+<fieldID>1</fieldID>
+ <fieldName>Account</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>2</fieldID>
+ <fieldName>AdvId</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>3</fieldID>
+ <fieldName>AdvRefID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>4</fieldID>
+ <fieldName>AdvSide</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>5</fieldID>
+ <fieldName>AdvTransType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>6</fieldID>
+ <fieldName>AvgPx</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>7</fieldID>
+ <fieldName>BeginSeqNo</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>8</fieldID>
+ <fieldName>BeginString</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>9</fieldID>
+ <fieldName>BodyLength</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>10</fieldID>
+ <fieldName>CheckSum</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>11</fieldID>
+ <fieldName>ClOrdID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>12</fieldID>
+ <fieldName>Commission</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>13</fieldID>
+ <fieldName>CommType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>14</fieldID>
+ <fieldName>CumQty</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>15</fieldID>
+ <fieldName>Currency</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>16</fieldID>
+ <fieldName>EndSeqNo</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>17</fieldID>
+ <fieldName>ExecID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>18</fieldID>
+ <fieldName>ExecInst</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>19</fieldID>
+ <fieldName>ExecRefID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>20</fieldID>
+ <fieldName>ExecTransType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>21</fieldID>
+ <fieldName>HandlInst</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>22</fieldID>
+ <fieldName>IDSource</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>23</fieldID>
+ <fieldName>IOIid</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>24</fieldID>
+ <fieldName>IOIOthSvc</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>25</fieldID>
+ <fieldName>IOIQltyInd</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>26</fieldID>
+ <fieldName>IOIRefID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>27</fieldID>
+ <fieldName>IOIShares</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>28</fieldID>
+ <fieldName>IOITransType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>29</fieldID>
+ <fieldName>LastCapacity</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>30</fieldID>
+ <fieldName>LastMkt</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>31</fieldID>
+ <fieldName>LastPx</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>32</fieldID>
+ <fieldName>LastShares</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>33</fieldID>
+ <fieldName>LinesOfText</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>34</fieldID>
+ <fieldName>MsgSeqNum</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>35</fieldID>
+ <fieldName>MsgType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>36</fieldID>
+ <fieldName>NewSeqNo</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>37</fieldID>
+ <fieldName>OrderID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>38</fieldID>
+ <fieldName>OrderQty</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>39</fieldID>
+ <fieldName>OrdStatus</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>40</fieldID>
+ <fieldName>OrdType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>41</fieldID>
+ <fieldName>OrigClOrdID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>42</fieldID>
+ <fieldName>OrigTime</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>43</fieldID>
+ <fieldName>PossDupFlag</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>44</fieldID>
+ <fieldName>Price</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>45</fieldID>
+ <fieldName>RefSeqNum</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>46</fieldID>
+ <fieldName>RelatdSym</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>47</fieldID>
+ <fieldName>Rule80A</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>48</fieldID>
+ <fieldName>SecurityID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>49</fieldID>
+ <fieldName>SenderCompID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>50</fieldID>
+ <fieldName>SenderSubID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>51</fieldID>
+ <fieldName>SendingDate</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>52</fieldID>
+ <fieldName>SendingTime</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>53</fieldID>
+ <fieldName>Shares</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>54</fieldID>
+ <fieldName>Side</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>55</fieldID>
+ <fieldName>Symbol</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>56</fieldID>
+ <fieldName>TargetCompID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>57</fieldID>
+ <fieldName>TargetSubID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>58</fieldID>
+ <fieldName>Text</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>59</fieldID>
+ <fieldName>TimeInForce</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>60</fieldID>
+ <fieldName>TransactTime</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>61</fieldID>
+ <fieldName>Urgency</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>62</fieldID>
+ <fieldName>ValidUntilTime</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>63</fieldID>
+ <fieldName>SettlmntTyp</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>64</fieldID>
+ <fieldName>FutSettDate</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>65</fieldID>
+ <fieldName>SymbolSfx</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>66</fieldID>
+ <fieldName>ListID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>67</fieldID>
+ <fieldName>ListSeqNo</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>68</fieldID>
+ <fieldName>ListNoOrds</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>69</fieldID>
+ <fieldName>ListExecInst</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>70</fieldID>
+ <fieldName>AllocID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>71</fieldID>
+ <fieldName>AllocTransType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>72</fieldID>
+ <fieldName>RefAllocID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>73</fieldID>
+ <fieldName>NoOrders</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>74</fieldID>
+ <fieldName>AvgPrxPrecision</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>75</fieldID>
+ <fieldName>TradeDate</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>76</fieldID>
+ <fieldName>ExecBroker</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>77</fieldID>
+ <fieldName>OpenClose</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>78</fieldID>
+ <fieldName>NoAllocs</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>79</fieldID>
+ <fieldName>AllocAccount</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>80</fieldID>
+ <fieldName>AllocShares</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>81</fieldID>
+ <fieldName>ProcessCode</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>82</fieldID>
+ <fieldName>NoRpts</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>83</fieldID>
+ <fieldName>RptSeq</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>84</fieldID>
+ <fieldName>CxlQty</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>85</fieldID>
+ <fieldName>NoDlvyInst</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>86</fieldID>
+ <fieldName>DlvyInst</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>87</fieldID>
+ <fieldName>AllocStatus</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>88</fieldID>
+ <fieldName>AllocRejCode</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>89</fieldID>
+ <fieldName>Signature</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>90</fieldID>
+ <fieldName>SecureDataLen</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>91</fieldID>
+ <fieldName>SecureData</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>92</fieldID>
+ <fieldName>BrokerOfCredit</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>93</fieldID>
+ <fieldName>SignatureLength</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>94</fieldID>
+ <fieldName>EmailType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>95</fieldID>
+ <fieldName>RawDataLength</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>96</fieldID>
+ <fieldName>RawData</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>97</fieldID>
+ <fieldName>PossResend</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>98</fieldID>
+ <fieldName>EncryptMethod</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>99</fieldID>
+ <fieldName>StopPx</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>100</fieldID>
+ <fieldName>ExDestination</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>102</fieldID>
+ <fieldName>CxlRejReason</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>103</fieldID>
+ <fieldName>OrdRejReason</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>104</fieldID>
+ <fieldName>IOIQualifier</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>105</fieldID>
+ <fieldName>WaveNo</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>106</fieldID>
+ <fieldName>Issuer</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>107</fieldID>
+ <fieldName>SecurityDesc</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>108</fieldID>
+ <fieldName>HeartBtInt</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>109</fieldID>
+ <fieldName>ClientID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>110</fieldID>
+ <fieldName>MinQty</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>111</fieldID>
+ <fieldName>MaxFloor</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>112</fieldID>
+ <fieldName>TestReqID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>113</fieldID>
+ <fieldName>ReportToExch</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>114</fieldID>
+ <fieldName>LocateReqd</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>115</fieldID>
+ <fieldName>OnBehalfOfID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>116</fieldID>
+ <fieldName>OnBehalfOfSubID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>117</fieldID>
+ <fieldName>QuoteID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>118</fieldID>
+ <fieldName>NetMoney</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>119</fieldID>
+ <fieldName>SettlCurrAmt</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>120</fieldID>
+ <fieldName>SettlCurrency</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>121</fieldID>
+ <fieldName>ForexReq</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>122</fieldID>
+ <fieldName>OrigSendingTime</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>123</fieldID>
+ <fieldName>GapFillFlag</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>124</fieldID>
+ <fieldName>NoExecs</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>125</fieldID>
+ <fieldName>CxlType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>126</fieldID>
+ <fieldName>ExpireTime</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>127</fieldID>
+ <fieldName>DKReason</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>128</fieldID>
+ <fieldName>DeliverToCompID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>129</fieldID>
+ <fieldName>DeliverToSubID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>130</fieldID>
+ <fieldName>IOINaturalFlag</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>131</fieldID>
+ <fieldName>QuoteReqID</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>132</fieldID>
+ <fieldName>BidPx</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>133</fieldID>
+ <fieldName>OfferPx</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>134</fieldID>
+ <fieldName>BidSize</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>135</fieldID>
+ <fieldName>OfferSize</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>136</fieldID>
+ <fieldName>NoMiscFees</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>137</fieldID>
+ <fieldName>MiscFeeAmt</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>138</fieldID>
+ <fieldName>MiscFeeCurr</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>139</fieldID>
+ <fieldName>MiscFeeType</fieldName>
+</TAG>
+
+<TAG>
+<fieldID>140</fieldID>
+ <fieldName>PrevClosePx</fieldName>
+</TAG>
+
+
+</TAGS>
