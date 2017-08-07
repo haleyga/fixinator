@@ -1,13 +1,58 @@
 {
   "name": "fixinator",
   "version": "0.1.0",
-  "description": "A TypeScript implementation of the FIX (Financial Information eXchange) protocol.  Includes all supported and unsupported versions.",
+  "description": "A TypeScript implementation of the FIX (Financial Information eXchange) protocol.  Includes all supported and unsupported versions from 2.7 and above.",
   "main": "index.js",
   "directories": {
-    "doc": "docs"
+    "doc": "docs",
+    "example": "examples",
+    "src": "src",
+    "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "npm run clean:dist",
+    "build": "npm run compile:src",
+    "postbuild": "npm run transpile",
+    "compile:src": "tsc --target es6 --outDir dist/es6",
+    "compile:examples": "tsc examples/*.demo.ts --target es6",
+    "compile:tests": "tsc src/**/*.spec.ts --target es6",
+    "lint": "tslint .",
+    "pretest": "npm run clean:src",
+    "test": "nyc mocha",
+    "securitycheck": "nsp check",
+    "predoc": "npm run clean:docs",
+    "doc": "typedoc --out docs/autogen --includeDeclarations --excludeExternals",
+    "pretranspile": "rm -rf dist/es5 && mkdir dist/es5",
+    "transpile": "babel dist/es6 --out-file dist/es5/fixinator.js",
+    "posttranspile": "npm run uglify",
+    "preuglify": "rm -rf dist/fixinator.min.js",
+    "uglify": "uglifyjs dist/es5/fixinator.js --compress --mangle --mangle-props --source-map --output dist/fixinator.min.js",
+    "prethewholenine": "npm run clean",
+    "thewholenine": "npm run lint && npm run build && npm run test && npm run securitycheck",
+    "clean": "npm run clean:dist & npm run clean:docs & npm run clean:misc & npm run clean:examples & npm run clean:src",
+    "clean:dist": "rm -rf dist",
+    "clean:docs": "rm -rf docs/autogen",
+    "clean:misc": "rm -rf index.d.ts index.js index.js.map npm-debug.log",
+    "clean:examples": "rm -rf examples/*.js",
+    "clean:src": "rm -rf src/**/*.js src/**/*.js.map"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.spec.ts",
+      "test/**/*.spec.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
   },
   "repository": {
     "type": "git",
@@ -21,10 +66,31 @@
     "exchange",
     "information"
   ],
-  "author": "Graham Haley",
+  "author": "Graham Haley <graham.andrew.haley@gmail.com> (https://haleyhousellc.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/haleyga/fixinator/issues"
   },
-  "homepage": "https://github.com/haleyga/fixinator#readme"
+  "homepage": "https://github.com/haleyga/fixinator#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.0",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.31",
+    "@types/uuid": "^3.0.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "nsp": "^2.6.3",
+    "nyc": "^11.0.3",
+    "source-map-support": "^0.4.15",
+    "ts-node": "^3.1.0",
+    "tslint": "^5.4.3",
+    "typedoc": "^0.7.1",
+    "typescript": "^2.3.4",
+    "uglify-js": "^3.0.17"
+  },
+  "dependencies": {
+    "uuid": "^3.1.0"
+  }
 }

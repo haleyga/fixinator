@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es6",
+    "declaration": true,
+    "outDir": "dist/es6"
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "src/**/*.spec.ts",
+    "node_modules",
+    "driver.ts"
+  ],
+  "include": [
+    "index.ts",
+    "src/**/*.ts",
+    "node_modules/@types"
+  ]
+}
