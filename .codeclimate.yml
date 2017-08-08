@@ -5,6 +5,15 @@ engines:
     config: tslint.json
   fixme:
     enabled: true
+    config:
+      strings:
+      - FIXME
+      - TODO
+      - BUG
+      - WARNING
+      - CAUTION
+      - DANGER
+      - HACK
   markdownlint:
     enabled: true
 ratings:
