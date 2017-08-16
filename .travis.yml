@@ -1,7 +1,13 @@
 language: node_js
 node_js:
-  - "node"
-  - "7"
+   - "0.10"
+   - "0.11"
+   - "0.12"
+   - "iojs"
+   - "4"
+   - "6"
+   - "8"
+   - "node"
 before_install:
   - "npm install -g typescript"
   - "npm install -g tslint"

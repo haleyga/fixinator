@@ -88,9 +88,12 @@
     "tslint": "^5.4.3",
     "typedoc": "^0.7.1",
     "typescript": "^2.3.4",
-    "uglify-js": "^3.0.17"
+    "uglify-js": "^3.0.17",
+    "iconv-lite": "^0.4.18"
   },
   "dependencies": {
-    "uuid": "^3.1.0"
+    "@types/winston": "^2.3.4",
+    "uuid": "^3.1.0",
+    "winston": "^2.3.1"
   }
 }
