@@ -1,7 +1,7 @@
 import { FixFloat, IFixFloat } from '../../../data-types/fix-float';
 import { FixinatorValidationError } from '../../../errors/FixinatorValidationError';
-import { Tag } from '../../../tag';
 import { BaseField, IBaseField } from '../base-field';
+import { Tag } from '../tag';
 
 export interface IFixFloatField extends IBaseField {}
 

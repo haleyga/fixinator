@@ -1,7 +1,7 @@
 import { FixChar } from '../../../data-types/fix-char';
-import { Tag } from '../../../tag';
 import { FixinatorDate, IFixinatorDate } from '../../../util/datetime';
 import { FixCharField, IFixCharField } from '../fix/fix-char-field';
+import { Tag } from '../tag';
 
 export interface IDateField extends IFixCharField {
     date: IFixinatorDate;

@@ -1,11 +1,4 @@
-
 import * as uuid from 'uuid';
-import { FixinatorParseError } from '../errors/FixinatorParseError';
-import { FixTypeValidationError } from '../errors/FixTypeValidationError';
-import { IFixChar } from '../data-types/fix-char';
-import { IFixInt } from '../data-types/fix-int';
-import { IFixFloat } from '../data-types/fix-float';
-import { IFixData } from '../data-types/fix-data';
 
 /**
  * Defines a type with string keys and string values
@@ -15,7 +8,7 @@ export type StringKeyStringValue = { [s: string]: string };
 /**
  * Defines a generic type with string keys and values of type T
  */
-export type StringKeyObjectValue<T> = { [s: string]: T};
+export type StringKeyObjectValue<T> = { [s: string]: T };
 
 /**
  * Typescript hack - this facilitates a "typed strings" type.  Essentially an enum with string keys.
@@ -25,7 +18,7 @@ export type UnionKeyToValue<U extends string> = { [K in U]: K; };
 /**
  * The current package version
  */
-export const VERSION: string    = '0.1.0';
+export const VERSION: string = '0.1.0';
 
 /**
  * The user agent string

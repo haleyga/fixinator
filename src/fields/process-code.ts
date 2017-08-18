@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { IStringEnumField, StringEnumField } from './base/custom/string-enum-field';
+import { Tag } from './base/tag';
 
 export interface IEnumTypeTemplateField extends IStringEnumField {}
 

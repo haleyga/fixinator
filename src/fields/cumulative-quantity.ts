@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { BoundedIntField, IBoundedIntField } from './base/custom/bounded-int';
+import { Tag } from './base/tag';
 
 export interface ICumulativeQuantityField extends IBoundedIntField {}
 

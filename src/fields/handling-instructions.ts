@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { IStringEnumField, StringEnumField } from './base/custom/string-enum-field';
+import { Tag } from './base/tag';
 
 export interface IHandlingInstructionsField extends IStringEnumField {}
 
@@ -17,9 +17,9 @@ export class HandlingInstructionsField extends StringEnumField implements IHandl
 
     constructor(raw: string) {
         super(Tag.HandlInst, raw, {
-            1: ['1', 'dot_private'],
-            2: ['2', 'dot_public'],
-            3: ['3', 'manual'],
+            1: ['1', 'dot_order_private_no_broker_intervention'],
+            2: ['2', 'dot_order_public_broker_intervention_ok'],
+            3: ['3', 'manual_order_best_execution'],
         });
     }
 

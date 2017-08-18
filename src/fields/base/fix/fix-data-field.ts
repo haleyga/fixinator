@@ -1,6 +1,6 @@
 import { FixData, IFixData } from '../../../data-types/fix-data';
-import { Tag } from '../../../tag';
 import { BaseField, IBaseField } from '../base-field';
+import { Tag } from '../tag';
 
 export interface IFixDataField extends IBaseField {
     data: IFixData;

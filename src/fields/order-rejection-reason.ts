@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { INumberEnumField, NumberEnumField } from './base/custom/number-enum-field';
+import { Tag } from './base/tag';
 
 export interface IOrderRejectionReasonField extends INumberEnumField {}
 

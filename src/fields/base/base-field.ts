@@ -1,6 +1,6 @@
 import { IFixBaseType } from '../../data-types/fix-base-type';
-import { Tag } from '../../tag';
 import { IFixVersion } from '../../util/fix-version';
+import { Tag } from './tag';
 
 export interface IBaseField {
     tag: Tag;
@@ -13,6 +13,8 @@ export interface IBaseField {
     supportedVersions: IFixVersion[];
 
     validate(): boolean;
+
+    toString(): string;
 }
 
 export abstract class BaseField implements IBaseField {
@@ -86,6 +88,16 @@ export abstract class BaseField implements IBaseField {
      */
     public abstract validate(): boolean;
 
+    public toString(): string {
+        //tslint:disable:no-magic-numbers
+        const tagName   = this.padRightWithSpace(Tag[this._tag], 20);
+        const tagNumber = this.padRightWithSpace(this._tag + '', 4);
+        const value     = this._formatted;
+
+        return `${tagName} (${tagNumber}): ${value}`;
+        //tslint:enable:no-magic-numbers
+    }
+
     /**
      * Invalidates the field and throws an error.  This is typically called, and caught, within the #validate logic
      * of a concrete field implementation.
@@ -111,5 +123,11 @@ export abstract class BaseField implements IBaseField {
         const message = `attempt to access invalid data [${this._raw}] in field ${caller.constructor.name}`;
 
         console.warn(message);
+    }
+
+    private padRightWithSpace(content: string, targetLength: number): string {
+        while (content.length < targetLength) content += ' ';
+
+        return content;
     }
 }

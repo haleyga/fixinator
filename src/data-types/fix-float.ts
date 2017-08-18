@@ -1,6 +1,6 @@
-import { FixBaseType, IFixBaseType } from './fix-base-type';
-import { FixinatorParseError } from '../errors/FixinatorParseError';
 import { FixTypeValidationError } from '../errors/FixTypeValidationError';
+import { FixinatorParseError } from '../errors/FixinatorParseError';
+import { FixBaseType, IFixBaseType } from './fix-base-type';
 
 export interface IFixFloat extends IFixBaseType {
     value: number;

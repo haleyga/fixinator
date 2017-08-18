@@ -1,6 +1,6 @@
 import { FixInt, IFixInt } from '../../../data-types/fix-int';
-import { Tag } from '../../../tag';
 import { BaseField, IBaseField } from '../base-field';
+import { Tag } from '../tag';
 
 export interface IFixIntField extends IBaseField {
     data: IFixInt;

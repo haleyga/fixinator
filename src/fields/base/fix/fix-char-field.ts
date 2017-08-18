@@ -1,6 +1,6 @@
 import { FixChar, IFixChar } from '../../../data-types/fix-char';
-import { Tag } from '../../../tag';
 import { BaseField, IBaseField } from '../base-field';
+import { Tag } from '../tag';
 
 export interface IFixCharField extends IBaseField {
     data: IFixChar;

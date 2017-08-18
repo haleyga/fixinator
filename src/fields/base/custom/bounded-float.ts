@@ -1,7 +1,7 @@
 import { FixFloat } from '../../../data-types/fix-float';
 import { FixinatorValidationError } from '../../../errors/FixinatorValidationError';
-import { Tag } from '../../../tag';
 import { FixFloatField, IFixFloatField } from '../fix/fix-float-field';
+import { Tag } from '../tag';
 
 export interface IBoundedFloatField extends IFixFloatField {
     min: number;

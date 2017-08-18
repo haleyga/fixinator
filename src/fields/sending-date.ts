@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { DateField, IDateField } from './base/custom/date-field';
+import { Tag } from './base/tag';
 
 export interface ISendingDateField extends IDateField {}
 

@@ -1,7 +1,7 @@
 import { FixChar } from '../../../data-types/fix-char';
-import { Tag } from '../../../tag';
 import { FixinatorTime, IFixinatorTime } from '../../../util/datetime';
 import { FixCharField, IFixCharField } from '../fix/fix-char-field';
+import { Tag } from '../tag';
 
 export interface ITimeField extends IFixCharField {
     time: IFixinatorTime;

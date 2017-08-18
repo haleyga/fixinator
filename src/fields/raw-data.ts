@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { FixDataField, IFixDataField } from './base/fix/fix-data-field';
+import { Tag } from './base/tag';
 
 export interface IRawTypeTemplateField extends IFixDataField {}
 

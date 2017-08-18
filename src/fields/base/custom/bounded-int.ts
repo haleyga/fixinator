@@ -1,7 +1,7 @@
 import { FixInt } from '../../../data-types/fix-int';
 import { FixinatorValidationError } from '../../../errors/FixinatorValidationError';
-import { Tag } from '../../../tag';
 import { FixIntField, IFixIntField } from '../fix/fix-int-field';
+import { Tag } from '../tag';
 
 export interface IBoundedIntField extends IFixIntField {
     min: number;

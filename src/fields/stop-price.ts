@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { BoundedFloatField, IBoundedFloatField } from './base/custom/bounded-float';
+import { Tag } from './base/tag';
 
 export interface IStopPriceField extends IBoundedFloatField {}
 

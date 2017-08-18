@@ -1,5 +1,5 @@
-import { Tag } from '../../../tag';
 import { StringKeyObjectValue } from '../../../util/util';
+import { Tag } from '../tag';
 import { BaseEnumField, IBaseEnumField } from './base-enum-field';
 
 export interface IStringEnumField extends IBaseEnumField {

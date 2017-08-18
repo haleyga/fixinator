@@ -1,8 +1,8 @@
 import { FixChar, IFixChar } from '../../../data-types/fix-char';
 import { FixinatorValidationError } from '../../../errors/FixinatorValidationError';
-import { Tag } from '../../../tag';
 import { StringKeyObjectValue } from '../../../util/util';
 import { BaseField, IBaseField } from '../base-field';
+import { Tag } from '../tag';
 
 export interface IBaseEnumField extends IBaseField {
     data: IFixChar;

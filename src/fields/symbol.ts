@@ -1,5 +1,5 @@
-import { Tag } from '../tag';
 import { FixCharField, IFixCharField } from './base/fix/fix-char-field';
+import { Tag } from './base/tag';
 
 /**
  * Empty interface just used for typing.
