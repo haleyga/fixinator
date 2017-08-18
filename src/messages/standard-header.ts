@@ -1,17 +1,17 @@
-import { IBeginningOfStringField } from '../fields/beginning-of-string';
-import { IBodyLengthField } from '../fields/body-length';
-import { IMessageSequenceNumberField } from '../fields/message-sequence-number';
-import { IMessageTypeField } from '../fields/message-type';
-import { IPossibleDuplicateFlagField } from '../fields/possible-duplicate-flag';
-import { IPossibleResendField } from '../fields/possible-resend';
-import { ISecureDataField } from '../fields/secure-data';
-import { ISecureDataLengthField } from '../fields/secure-data-length';
-import { ISenderCompanyIdField } from '../fields/sender-company-id';
-import { ISenderSubordinateIdField } from '../fields/sender-subordinate-id';
-import { ISendingDateField } from '../fields/sending-date';
-import { ISendingTimeField } from '../fields/sending-time';
-import { ITargetCompanyIdField } from '../fields/target-company-id';
-import { ITargetSubordinateIdField } from '../fields/target-subordinate-id';
+import { IBeginningOfStringField } from '../fields/beginning-of-string/beginning-of-string';
+import { IBodyLengthField } from '../fields/body-length/body-length';
+import { IMessageSequenceNumberField } from '../fields/message-sequence-number/message-sequence-number';
+import { IMessageTypeField } from '../fields/message-type/message-type';
+import { IPossibleDuplicateFlagField } from '../fields/possible-duplicate-flag/possible-duplicate-flag';
+import { IPossibleResendField } from '../fields/possible-resend/possible-resend';
+import { ISecureDataField } from '../fields/secure-data/secure-data';
+import { ISecureDataLengthField } from '../fields/secure-data-length/secure-data-length';
+import { ISenderCompanyIdField } from '../fields/sender-company-id/sender-company-id';
+import { ISenderSubordinateIdField } from '../fields/sender-subordinate-id/sender-subordinate-id';
+import { ISendingDateField } from '../fields/sending-date/sending-date';
+import { ISendingTimeField } from '../fields/sending-time/sending-time';
+import { ITargetCompanyIdField } from '../fields/target-company-id/target-company-id';
+import { ITargetSubordinateIdField } from '../fields/target-subordinate-id/target-subordinate-id';
 
 export interface IStandardHeader {
     beginString: IBeginningOfStringField;

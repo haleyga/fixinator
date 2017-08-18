@@ -1,6 +1,6 @@
-import { ISignatureLengthField } from '../fields/signature-length';
-import { ISignatureField } from '../fields/signature';
-import { IChecksumField } from '../fields/checksum';
+import { ISignatureLengthField } from '../fields/signature-length/signature-length';
+import { ISignatureField } from '../fields/signature/signature';
+import { IChecksumField } from '../fields/checksum/checksum';
 
 export interface IStandardTrailer {
     signatureLength?: ISignatureLengthField;
