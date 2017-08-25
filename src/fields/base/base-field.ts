@@ -1,41 +1,40 @@
 import { IFixBaseType } from '../../data-types/fix-base-type';
-import { IFixVersion } from '../../util/fix-version';
+import { padRight } from '../../util/util';
 import { Tag } from './tag';
 
-export interface IBaseField {
+export interface IBaseField<T> {
     tag: Tag;
     raw: string;
     data: IFixBaseType;
-    formatted: {};
+    formatted: T;
     isValid: boolean;
-    minimumSupportedVersion: IFixVersion;
-    maximumSupportedVersion: IFixVersion;
-    supportedVersions: IFixVersion[];
+//    minimumSupportedVersion: IFixVersion;
+//    maximumSupportedVersion: IFixVersion;
+//    supportedVersions: IFixVersion[];
 
     validate(): boolean;
 
     toString(): string;
 }
 
-export abstract class BaseField implements IBaseField {
-    protected _tag: Tag                             = null;
-    protected _raw: string                          = null;
-    protected _data: IFixBaseType                   = null;
-    protected _formatted: {}                        = null;
-    protected _isValid: boolean                     = null;
-    protected _minimumSupportedVersion: IFixVersion = null;
-    protected _maximumSupportedVersion: IFixVersion = null;
-    protected _supportedVersions: IFixVersion[]     = null;
+export abstract class BaseField<T> implements IBaseField<T> {
+    protected _tag: Tag           = null;
+    protected _raw: string        = null;
+    protected _data: IFixBaseType = null;
+    protected _formatted: T      = null;
+    protected _isValid: boolean   = null;
+//    protected _minimumSupportedVersion: IFixVersion = null;
+//    protected _maximumSupportedVersion: IFixVersion = null;
+//    protected _supportedVersions: IFixVersion[]     = null;
 
     constructor(tag: Tag, raw: string) {
         this._tag = tag;
         this._raw = raw;
 
         // TODO: Fix this - implement it in all fields (ug...)
-        this._supportedVersions = [];
-        this._supportedVersions.sort((version) => version.versionNumeric);
-        this._minimumSupportedVersion = this._supportedVersions[0];
-        this._maximumSupportedVersion = this._supportedVersions[this._supportedVersions.length - 1];
+//        this._supportedVersions = [];
+//        this._minimumSupportedVersion = this._supportedVersions[0];
+//        this._maximumSupportedVersion = this._supportedVersions[this._supportedVersions.length - 1];
 
         // #_data is assigned in the derived type
         // #_formatted is assigned in the derived type
@@ -71,15 +70,15 @@ export abstract class BaseField implements IBaseField {
      *
      * @returns {{}}
      */
-    public abstract get formatted(): {};
+    public abstract get formatted(): T;
 
     public get isValid(): boolean { return this._isValid; }
 
-    public get minimumSupportedVersion(): IFixVersion { return this._minimumSupportedVersion; }
+//    public get minimumSupportedVersion(): IFixVersion { return this._minimumSupportedVersion; }
 
-    public get maximumSupportedVersion(): IFixVersion { return this._maximumSupportedVersion; }
+//    public get maximumSupportedVersion(): IFixVersion { return this._maximumSupportedVersion; }
 
-    public get supportedVersions(): IFixVersion[] { return this._supportedVersions; }
+//    public get supportedVersions(): IFixVersion[] { return this._supportedVersions; }
 
     /**
      * Each concrete field must implement this method individually.
@@ -90,8 +89,8 @@ export abstract class BaseField implements IBaseField {
 
     public toString(): string {
         //tslint:disable:no-magic-numbers
-        const tagName   = this.padRightWithSpace(Tag[this._tag], 20);
-        const tagNumber = this.padRightWithSpace(this._tag + '', 4);
+        const tagName   = padRight(Tag[this._tag], ' ', 20);
+        const tagNumber = padRight(this._tag + '', ' ', 4);
         const value     = this._formatted;
 
         return `${tagName} (${tagNumber}): ${value}`;
@@ -104,13 +103,14 @@ export abstract class BaseField implements IBaseField {
      *
      * @param {BaseField} caller
      */
-    protected invalidate(caller: BaseField): void {
+    protected invalidate(caller: BaseField<T>): void {
 
         this._isValid = false;
 
         const message = `${caller.constructor.name} [tag ${this._tag}] has been invalidated => raw: ${this._raw}`;
 
-        console.warn(message);
+        //TODO: enable these warnings when logging is implemented
+//        console.warn(message);
     }
 
     /**
@@ -119,15 +119,10 @@ export abstract class BaseField implements IBaseField {
      * @param {BaseField} caller
      * @returns {any}
      */
-    protected logAccessOfInvalidField(caller: BaseField): void {
+    protected logAccessOfInvalidField(caller: BaseField<T>): void {
         const message = `attempt to access invalid data [${this._raw}] in field ${caller.constructor.name}`;
 
-        console.warn(message);
-    }
-
-    private padRightWithSpace(content: string, targetLength: number): string {
-        while (content.length < targetLength) content += ' ';
-
-        return content;
+        //TODO: enable these warnings when logging is implemented
+//        console.warn(message);
     }
 }

@@ -1,7 +1,11 @@
-import { INumberEnumField, NumberEnumField } from '../base/custom/number-enum-field';
+import { ConstrainedIntField, IConstrainedIntField } from '../base/custom/constrained-field/constrained-int-field';
 import { Tag } from '../base/tag';
 
-export interface IExecutionDestinationField extends INumberEnumField {}
+export interface IExecutionDestinationField extends IConstrainedIntField {}
+
+//tslint:disable:no-magic-numbers
+export const EXECUTION_DESTINATION_VALUES: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+//tslint:enable:no-magic-numbers
 
 /**
  * Field ID (TAG): 100
@@ -21,22 +25,10 @@ export interface IExecutionDestinationField extends INumberEnumField {}
  *                  8 = PBW
  *                  9 = OTC
  */
-export class ExecutionDestinationField extends NumberEnumField implements IExecutionDestinationField {
+export class ExecutionDestinationField extends ConstrainedIntField implements IExecutionDestinationField {
 
-    //tslint:disable:no-magic-numbers
     constructor(raw: string) {
-        super(Tag.ExDestination, raw, {
-            0: [0, 'none'],
-            1: [1, 'nyse/amex'],
-            2: [2, 'midwest'],
-            3: [3, 'boston'],
-            4: [4, 'posit'],
-            5: [5, 'instinet'],
-            6: [6, 'cincinnati'],
-            7: [7, 'pcse'],
-            8: [8, 'pbw'],
-            9: [9, 'otc'],
-        });
+        super(Tag.ExDestination, raw, EXECUTION_DESTINATION_VALUES);
     }
 
 }

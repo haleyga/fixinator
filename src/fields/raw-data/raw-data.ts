@@ -1,7 +1,7 @@
-import { FixDataField, IFixDataField } from '../base/fix/fix-data-field';
+import { FixDataField, IFixDataField } from '../base/fix/fix-data-field/fix-data-field';
 import { Tag } from '../base/tag';
 
-export interface IRawTypeTemplateField extends IFixDataField {}
+export interface IRawDataField extends IFixDataField {}
 
 /**
  * Field ID (TAG): 96
@@ -9,7 +9,7 @@ export interface IRawTypeTemplateField extends IFixDataField {}
  * Format: data
  * Description: Unformatted raw data, can include bitmaps, word processor documents, etc.
  */
-export class RawTypeTemplateField extends FixDataField implements IRawTypeTemplateField {
+export class RawDataField extends FixDataField implements IRawDataField {
 
     constructor(raw: string) {
         super(Tag.RawData, raw);

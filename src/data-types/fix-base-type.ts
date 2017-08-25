@@ -1,19 +1,17 @@
 export interface IFixBaseType {
-    raw: {};
+    raw: string;
     value: {};
 }
 
 export abstract class FixBaseType implements IFixBaseType {
 
-    protected _raw: {}   = null;
-    protected _value: {} = null;
+    protected _raw: string = null;
 
-    constructor(raw: {}) {
-        this._raw   = raw;
-        this._value = this._raw;
+    constructor(raw: string) {
+        this._raw = raw;
     }
 
-    public get raw(): {} { return this._raw; }
+    public get raw(): string { return this._raw; }
 
-    public get value(): {} { return this._value; }
+    public abstract get value(): {};
 }

@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IRule80AField extends IStringEnumField {}
+export interface IRule80AField extends IConstrainedCharField {}
+export const RULE_80A_VALUES: string[] = ['A', 'I', 'D', 'C', 'J', 'K', 'U', 'Y', 'M', 'N', 'W'];
 
 /**
  * Field ID (TAG): 47
@@ -22,22 +23,10 @@ export interface IRule80AField extends IStringEnumField {}
  *                  N = Program Order, non-index arb, for other member
  *                  W = All other orders as agent for other member
  */
-export class Rule80AField extends StringEnumField implements IRule80AField {
+export class Rule80AField extends ConstrainedCharField implements IRule80AField {
 
     constructor(raw: string) {
-        super(Tag.Rule80A, raw, {
-            A: ['A', 'agency_single'],
-            C: ['C', 'program_non_index_member'],
-            D: ['D', 'program_index_member'],
-            I: ['I', 'individual_single'],
-            J: ['J', 'program_index_individual'],
-            K: ['K', 'program_non_index_individual'],
-            M: ['M', 'program_index_other_member'],
-            N: ['N', 'program_non_index_other_member'],
-            U: ['U', 'program_index_other_agency'],
-            W: ['W', 'all_other'],
-            Y: ['Y', 'program_non_index_other_agency'],
-        });
+        super(Tag.Rule80A, raw, RULE_80A_VALUES);
     }
 
 }

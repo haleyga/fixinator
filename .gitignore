@@ -566,3 +566,8 @@ jspm_packages/
 
 
 ### Custom
+
+src/**/*.js
+.test_container
+driver.*
+package.json.new

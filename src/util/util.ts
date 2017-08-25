@@ -45,3 +45,18 @@ export function generateUuid(version: UuidVersion = UUID_VERSION_ENUM.v1): strin
 }
 
 export const STANDARD_DELIMITER = String.fromCharCode(0x01);
+
+
+export function padRight(content: string, padding: string, targetLength: number): string {
+    while (content.length < targetLength) content += padding;
+
+    return content;
+}
+
+export function padLeft(content: string, padding: string, targetLength: number): string {
+    while (content.length < targetLength) content = padding + content;
+
+    return content;
+}
+
+export const ASCII_UPPER_LIMIT: number = 128;

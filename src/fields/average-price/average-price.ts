@@ -1,4 +1,4 @@
-import { BoundedFloatField, IBoundedFloatField } from '../base/custom/bounded-float';
+import { BoundedFloatField, IBoundedFloatField } from '../base/custom/bounded-field/bounded-float-field';
 import { Tag } from '../base/tag';
 
 export interface IAveragePriceField extends IBoundedFloatField {}
@@ -24,7 +24,7 @@ export class AveragePriceField extends BoundedFloatField implements IAveragePric
 
         // NOTE: Field may be blank depending on ExecTransType.
         // TODO: Maybe beef up this validation (maybe it doesn't belong in this class though)
-        if (!this._data) return true;
+        if (!this._raw) return true;
 
         try { return super.validate(); }
         catch (error) { throw error; }

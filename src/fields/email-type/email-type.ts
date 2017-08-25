@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IEmailTypeField extends IStringEnumField {}
+export interface IEmailTypeField extends IConstrainedCharField {}
+export const EMAIL_TYPE_VALUES: string[] = ['1', '2', '3'];
 
 /**
  * Field ID (TAG): 94
@@ -14,14 +15,10 @@ export interface IEmailTypeField extends IStringEnumField {}
  *                  1 = Reply
  *                  2 = Admin Reply
  */
-export class EmailTypeField extends StringEnumField implements IEmailTypeField {
+export class EmailTypeField extends ConstrainedCharField implements IEmailTypeField {
 
     constructor(raw: string) {
-        super(Tag.EmailType, raw, {
-            0: ['0', 'new'],
-            1: ['1', 'reply'],
-            2: ['2', 'admin_reply'],
-        });
+        super(Tag.EmailType, raw, EMAIL_TYPE_VALUES);
     }
 
 }

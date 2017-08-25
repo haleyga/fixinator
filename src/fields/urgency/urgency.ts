@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IUrgencyField extends IStringEnumField {}
+export interface IUrgencyField extends IConstrainedCharField {}
+export const URGENCY_VALUES: string[] = ['0', '1', '2'];
 
 /**
  * Field ID (TAG): 61
@@ -14,14 +15,10 @@ export interface IUrgencyField extends IStringEnumField {}
  *                  1 = Flash
  *                  2 = Background
  */
-export class UrgencyField extends StringEnumField implements IUrgencyField {
+export class UrgencyField extends ConstrainedCharField implements IUrgencyField {
 
     constructor(raw: string) {
-        super(Tag.Urgency, raw, {
-            0: ['0', 'normal'],
-            1: ['1', 'flash'],
-            2: ['2', 'background'],
-        });
+        super(Tag.Urgency, raw, URGENCY_VALUES);
     }
 
 }

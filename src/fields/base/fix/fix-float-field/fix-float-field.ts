@@ -1,30 +1,30 @@
-import { FixInt, IFixInt } from '../../../data-types/fix-int';
-import { BaseField, IBaseField } from '../base-field';
-import { Tag } from '../tag';
+import { FixFloat, IFixFloat } from '../../../../data-types/fix-float';
+import { BaseField, IBaseField } from '../../base-field';
+import { Tag } from '../../tag';
 
-export interface IFixIntField extends IBaseField {
-    data: IFixInt;
+export interface IFixFloatField extends IBaseField<number> {
+    data: IFixFloat;
     formatted: number;
 }
 
 /**
- * Field ID (TAG): 16
- * Field Name: BeginSeqNo
- * Format: int
- * Description: Message sequence number of last record in range to be resent. If request is for a single record
- *              BeginSeqNo = EndSeqNo. If request is for all messages subsequent to a particular message, EndSeqNo =
- *              "99999"
+ * Field ID (TAG): 12
+ * Field Name: FixFloat
+ * Format: float
+ * Description: FixFloat
+ *                  Valid values:
+ *                      -9.999 - 9999.999
  */
-export abstract class FixIntField extends BaseField implements IFixIntField {
+export abstract class FixFloatField extends BaseField<number> implements IFixFloatField {
 
-    protected _data: IFixInt = null;
+    protected _data: IFixFloat   = null;
     protected _formatted: number = null;
 
     constructor(tag: Tag, raw: string) {
         super(tag, raw);
     }
 
-    public get data(): IFixInt {
+    public get data(): IFixFloat {
 
         // If the value is valid, just return it.
         if (this._isValid) return this._data;
@@ -51,7 +51,7 @@ export abstract class FixIntField extends BaseField implements IFixIntField {
         try {
 
             // Attempt to parse the raw value.
-            this._data = new FixInt(this._raw);
+            this._data = new FixFloat(this._raw);
 
             this._formatted = this._data.value;
 
@@ -64,7 +64,7 @@ export abstract class FixIntField extends BaseField implements IFixIntField {
             throw error;
         }
 
-        if (this._data && this._formatted) this._isValid = true;
+        if (this._data && this._formatted !== null) this._isValid = true;
 
         return this._isValid;
     }

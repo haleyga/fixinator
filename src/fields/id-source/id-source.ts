@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IIdSourceField extends IStringEnumField {}
+export interface IIdSourceField extends IConstrainedCharField {}
+export const ID_SOURCE_VALUES: string[] = ['1', '2', '3'];
 
 /**
  * Field ID (TAG): 22
@@ -13,14 +14,10 @@ export interface IIdSourceField extends IStringEnumField {}
  *                      2 = SEDOL
  *                      3 = QUIK
  */
-export class IdSourceField extends StringEnumField implements IIdSourceField {
+export class IdSourceField extends ConstrainedCharField implements IIdSourceField {
 
     constructor(raw: string) {
-        super(Tag.IDSource, raw, {
-            1: ['1', 'cusip'],
-            2: ['2', 'sedol'],
-            3: ['3', 'quik'],
-        });
+        super(Tag.IDSource, raw, ID_SOURCE_VALUES);
     }
 
 }

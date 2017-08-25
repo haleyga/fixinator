@@ -1,7 +1,11 @@
-import { INumberEnumField, NumberEnumField } from '../base/custom/number-enum-field';
+import { ConstrainedIntField, IConstrainedIntField } from '../base/custom/constrained-field/constrained-int-field';
 import { Tag } from '../base/tag';
 
-export interface IAllocationRejectionCodeField extends INumberEnumField {}
+export interface IAllocationRejectionCodeField extends IConstrainedIntField {}
+
+//tslint:disable:no-magic-numbers
+export const ALLOCATION_REJECTION_CODE_VALUES: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
+//tslint:enable:no-magic-numbers
 
 /**
  * Field ID (TAG): 88
@@ -19,20 +23,10 @@ export interface IAllocationRejectionCodeField extends INumberEnumField {}
  *                  6 = unknown ListID
  *                  7 = other
  */
-export class AllocationRejectionCodeField extends NumberEnumField implements IAllocationRejectionCodeField {
+export class AllocationRejectionCodeField extends ConstrainedIntField implements IAllocationRejectionCodeField {
 
-    //tslint:disable:no-magic-numbers
     constructor(raw: string) {
-        super(Tag.AllocRejCode, raw, {
-            0: [0, 'unknown_accounts'],
-            1: [1, 'incorrect_quantity'],
-            2: [2, 'incorrect_average_price'],
-            3: [3, 'unknown_executing_broker_mnemonic'],
-            4: [4, 'commission_difference'],
-            5: [5, 'unknown_order_id'],
-            6: [6, 'unknown_list_id'],
-            7: [7, 'other'],
-        });
+        super(Tag.AllocRejCode, raw, ALLOCATION_REJECTION_CODE_VALUES);
     }
 
 }

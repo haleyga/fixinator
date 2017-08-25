@@ -1,6 +1,6 @@
-import { FixTypeValidationError } from '../errors/FixTypeValidationError';
 import { FixinatorParseError } from '../errors/FixinatorParseError';
 import { FixBaseType, IFixBaseType } from './fix-base-type';
+import { pathExistsSync } from 'fs-extra';
 
 export interface IFixFloat extends IFixBaseType {
     value: number;
@@ -13,14 +13,12 @@ export class FixFloat extends FixBaseType implements IFixFloat {
     constructor(raw: string) {
         super(raw);
 
-        // Parse the string using built-in functions.
-        const parsedValue: number = parseFloat(raw);
+        const trimmedRaw = this._raw.trim();
+        const parsedValue: number = Number(trimmedRaw);
 
-        if (isNaN(parsedValue)) throw new FixinatorParseError(`unable to parse [${raw}] as FixFloat`);
+        if (isNaN(parsedValue)) throw new FixinatorParseError(`unable to parse [${this._raw}] as float`);
 
-        // If the value is parsed, validate it according to the FIX standard.
-        if (Number(parsedValue) === parsedValue && parsedValue % 1 !== 0) this._value = parsedValue;
-        else throw new FixTypeValidationError(`unable to validate float ${raw} against FIX standards`);
+        this._value = parsedValue;
     }
 
     public get value(): number { return this._value as number; }

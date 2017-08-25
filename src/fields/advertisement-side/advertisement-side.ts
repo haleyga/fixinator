@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IAdvertisementSideField extends IStringEnumField {}
+export interface IAdvertisementSideField extends IConstrainedCharField {}
+export const ADVERTISEMENT_SIDE_VALUES: string[] = ['B', 'S', 'T', 'X'];
 
 /**
  * Field ID (TAG): 4
@@ -14,15 +15,10 @@ export interface IAdvertisementSideField extends IStringEnumField {}
  *                      X = Cross
  *                      T = Trade
  */
-export class AdvertisementSideField extends StringEnumField implements IAdvertisementSideField {
+export class AdvertisementSideField extends ConstrainedCharField implements IAdvertisementSideField {
 
     constructor(raw: string) {
-        super(Tag.AdvSide, raw, {
-            B: ['B', 'buy'],
-            S: ['S', 'sell'],
-            T: ['T', 'trade'],
-            X: ['X', 'cross'],
-        });
+        super(Tag.AdvSide, raw, ADVERTISEMENT_SIDE_VALUES);
     }
 
 }

@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface ISettlementTypeField extends IStringEnumField {}
+export interface ISettlementTypeField extends IConstrainedCharField {}
+export const SETTLEMENT_TYPE_VALUES: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 
 /**
  * Field ID (TAG): 63
@@ -20,20 +21,10 @@ export interface ISettlementTypeField extends IStringEnumField {}
  *                  7 = When Issued
  *                  8 = Sellers Option
  */
-export class SettlementTypeField extends StringEnumField implements ISettlementTypeField {
+export class SettlementTypeField extends ConstrainedCharField implements ISettlementTypeField {
 
     constructor(raw: string) {
-        super(Tag.SettlmntTyp, raw, {
-            0: ['0', 'regular'],
-            1: ['1', 'cash'],
-            2: ['2', 'next_day'],
-            3: ['3', 't_plus_2'],
-            4: ['4', 't_plus_3'],
-            5: ['5', 't_plus_4'],
-            6: ['6', 'future'],
-            7: ['7', 'when_issued'],
-            8: ['8', 'sellers_option'],
-        });
+        super(Tag.SettlmntTyp, raw, SETTLEMENT_TYPE_VALUES);
     }
 
 }

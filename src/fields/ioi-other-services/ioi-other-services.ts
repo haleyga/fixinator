@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IIoiOtherServicesField extends IStringEnumField {}
+export interface IIoiOtherServicesField extends IConstrainedCharField {}
+export const IOI_OTHER_SERVICES_VALUES: string[] = ['A', 'AB', 'B', 'BA'];
 
 /**
  * Field ID (TAG): 24
@@ -13,14 +14,10 @@ export interface IIoiOtherServicesField extends IStringEnumField {}
  *                      A = Autex
  *                      B = Bridge
  */
-export class IoiOtherServicesField extends StringEnumField implements IIoiOtherServicesField {
+export class IoiOtherServicesField extends ConstrainedCharField implements IIoiOtherServicesField {
 
     constructor(raw: string) {
-        super(Tag.IOIOthSvc, raw, {
-            A:  ['A', 'autex'],
-            AB: ['AB', 'autex_and_bridge'],
-            B:  ['B', 'bridge'],
-        });
+        super(Tag.IOIOthSvc, raw, IOI_OTHER_SERVICES_VALUES);
     }
 
 }

@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IIoiNumberOfSharesField extends IStringEnumField {}
+export interface IIoiNumberOfSharesField extends IConstrainedCharField {}
+export const IOI_NUMBER_OF_SHARES_VALUES: string[] = ['0', 'S', 'M', 'L'];
 
 /**
  * Field ID (TAG): 27
@@ -14,15 +15,10 @@ export interface IIoiNumberOfSharesField extends IStringEnumField {}
  *                      M = Medium
  *                      L = Large
  */
-export class IoiNumberOfSharesField extends StringEnumField implements IIoiNumberOfSharesField {
+export class IoiNumberOfSharesField extends ConstrainedCharField implements IIoiNumberOfSharesField {
 
     constructor(raw: string) {
-        super(Tag.IOIShares, raw, {
-            0: ['0', '1000000000'],
-            L: ['L', 'large'],
-            M: ['M', 'medium'],
-            S: ['S', 'small'],
-        });
+        super(Tag.IOIShares, raw, IOI_NUMBER_OF_SHARES_VALUES);
     }
 
 }

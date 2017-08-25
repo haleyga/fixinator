@@ -1,9 +1,0 @@
-#!/bin/bash
-
-for file in *.ts; do
-    dir=${file%%.*}
-    mkdir -p "$dir"
-    mv "$file" "$dir"
-    specFile="${file/.ts/.spec.ts}"
-    touch "$dir/$specFile"
-done

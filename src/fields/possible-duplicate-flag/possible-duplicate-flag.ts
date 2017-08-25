@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IPossibleDuplicateFlagField extends IStringEnumField {}
+export interface IPossibleDuplicateFlagField extends IConstrainedCharField {}
+export const POSSIBLE_DUPLICATE_FLAG_VALUES: string[] = ['Y', 'N'];
 
 /**
  * Field ID (TAG): 43
@@ -13,13 +14,10 @@ export interface IPossibleDuplicateFlagField extends IStringEnumField {}
  *                  Y = Possible duplicate
  *                  N = Original transmission
  */
-export class PossibleDuplicateFlagField extends StringEnumField implements IPossibleDuplicateFlagField {
+export class PossibleDuplicateFlagField extends ConstrainedCharField implements IPossibleDuplicateFlagField {
 
     constructor(raw: string) {
-        super(Tag.PossDupFlag, raw, {
-            N: ['N', 'original_transmission'],
-            Y: ['Y', 'possible_duplicate'],
-        });
+        super(Tag.PossDupFlag, raw, POSSIBLE_DUPLICATE_FLAG_VALUES);
     }
 
 }

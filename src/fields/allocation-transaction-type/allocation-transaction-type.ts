@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IAllocationTransactionTypeField extends IStringEnumField {}
+export interface IAllocationTransactionTypeField extends IConstrainedCharField {}
+export const ALLOCATION_TRANSACTION_TYPE_VALUES: string[] = ['N', 'C', 'R'];
 
 /**
  * Field ID (TAG): 71
@@ -14,15 +15,10 @@ export interface IAllocationTransactionTypeField extends IStringEnumField {}
  *                  C = Cancel
  *                  R = Replace
  */
-export class AllocationTransactionTypeField extends StringEnumField implements IAllocationTransactionTypeField {
+export class AllocationTransactionTypeField extends ConstrainedCharField implements IAllocationTransactionTypeField {
 
-    //tslint:disable:no-magic-numbers
     constructor(raw: string) {
-        super(Tag.AllocTransType, raw, {
-            C: ['C', 'cancel'],
-            N: ['N', 'new'],
-            R: ['R', 'replace'],
-        });
+        super(Tag.AllocTransType, raw, ALLOCATION_TRANSACTION_TYPE_VALUES);
     }
 
 }

@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IHandlingInstructionsField extends IStringEnumField {}
+export interface IHandlingInstructionsField extends IConstrainedCharField {}
+export const HANDLING_INSTRUCTIONS_VALUES: string[] = ['1', '2', '3'];
 
 /**
  * Field ID (TAG): 21
@@ -13,14 +14,10 @@ export interface IHandlingInstructionsField extends IStringEnumField {}
  *                  2 = DOT order, public, Broker intervention OK
  *                  3 = Manual order, best execution
  */
-export class HandlingInstructionsField extends StringEnumField implements IHandlingInstructionsField {
+export class HandlingInstructionsField extends ConstrainedCharField implements IHandlingInstructionsField {
 
     constructor(raw: string) {
-        super(Tag.HandlInst, raw, {
-            1: ['1', 'dot_order_private_no_broker_intervention'],
-            2: ['2', 'dot_order_public_broker_intervention_ok'],
-            3: ['3', 'manual_order_best_execution'],
-        });
+        super(Tag.HandlInst, raw, HANDLING_INSTRUCTIONS_VALUES);
     }
 
 }

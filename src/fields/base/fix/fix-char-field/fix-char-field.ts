@@ -1,13 +1,13 @@
-import { FixChar, IFixChar } from '../../../data-types/fix-char';
-import { BaseField, IBaseField } from '../base-field';
-import { Tag } from '../tag';
+import { FixChar, IFixChar } from '../../../../data-types/fix-char';
+import { BaseField, IBaseField } from '../../base-field';
+import { Tag } from '../../tag';
 
-export interface IFixCharField extends IBaseField {
+export interface IFixCharField extends IBaseField<string> {
     data: IFixChar;
     formatted: string;
 }
 
-export abstract class FixCharField extends BaseField implements IFixCharField {
+export abstract class FixCharField extends BaseField<string> implements IFixCharField {
 
     protected _data: IFixChar    = null;
     protected _formatted: string = null;
@@ -62,7 +62,7 @@ export abstract class FixCharField extends BaseField implements IFixCharField {
             throw error;
         }
 
-        if (this._data && this._formatted) this._isValid = true;
+        if (this._data && this._formatted !== null) this._isValid = true;
 
         return this._isValid;
     }

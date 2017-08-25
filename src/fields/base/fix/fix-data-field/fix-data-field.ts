@@ -1,8 +1,8 @@
-import { FixData, IFixData } from '../../../data-types/fix-data';
-import { BaseField, IBaseField } from '../base-field';
-import { Tag } from '../tag';
+import { FixData, IFixData } from '../../../../data-types/fix-data';
+import { BaseField, IBaseField } from '../../base-field';
+import { Tag } from '../../tag';
 
-export interface IFixDataField extends IBaseField {
+export interface IFixDataField extends IBaseField<string> {
     data: IFixData;
     formatted: string;
 }
@@ -13,7 +13,7 @@ export interface IFixDataField extends IBaseField {
  * Format: char
  * Description: FixData mnemonic
  */
-export abstract class FixDataField extends BaseField implements IFixDataField {
+export abstract class FixDataField extends BaseField<string> implements IFixDataField {
 
     protected _data: IFixData    = null;
     protected _formatted: string = null;
@@ -68,7 +68,7 @@ export abstract class FixDataField extends BaseField implements IFixDataField {
             throw error;
         }
 
-        if (this._data && this._formatted) this._isValid = true;
+        if (this._data && this._formatted !== null) this._isValid = true;
 
         return this._isValid;
     }

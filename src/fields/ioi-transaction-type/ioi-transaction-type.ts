@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IIoiTransactionTypeField extends IStringEnumField {}
+export interface IIoiTransactionTypeField extends IConstrainedCharField {}
+export const IOI_TRANSACTION_TYPE_VALUES: string[] = ['N', 'C', 'R'];
 
 /**
  * Field ID (TAG): 28
@@ -13,14 +14,10 @@ export interface IIoiTransactionTypeField extends IStringEnumField {}
  *                      C = Cancel
  *                      R = Replace
  */
-export class IoiTransactionTypeField extends StringEnumField implements IIoiTransactionTypeField {
+export class IoiTransactionTypeField extends ConstrainedCharField implements IIoiTransactionTypeField {
 
     constructor(raw: string) {
-        super(Tag.IOITransType, raw, {
-            C: ['C', 'cancel'],
-            N: ['N', 'new'],
-            R: ['R', 'replace'],
-        });
+        super(Tag.IOITransType, raw, IOI_TRANSACTION_TYPE_VALUES);
     }
 
 }

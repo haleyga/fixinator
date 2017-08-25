@@ -1,7 +1,8 @@
+import { FixinatorError } from './FixinatorError';
 
 export class FixinatorParseError extends FixinatorError {
-
-    constructor(message: string) {
-        super(message);
+    constructor(message?: string) {
+        super(message); // 'Error' breaks prototype chain here
+        if (new.target) Object.setPrototypeOf(this, new.target.prototype); // restore prototype chain
     }
 }

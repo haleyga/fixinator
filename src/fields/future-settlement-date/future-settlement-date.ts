@@ -1,4 +1,4 @@
-import { DateField, IDateField } from '../base/custom/date-field';
+import { DateField, IDateField } from '../base/custom/date-field/date-field';
 import { Tag } from '../base/tag';
 
 export interface IFutureSettlementDateField extends IDateField {}

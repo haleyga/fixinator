@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IExecutionTransactionTypeField extends IStringEnumField {}
+export interface IExecutionTransactionTypeField extends IConstrainedCharField {}
+export const EXECUTION_TRANSACTION_TYPE_VALUES: string[] = ['0', '1', '2', '3'];
 
 /**
  * Field ID (TAG): 20
@@ -14,15 +15,10 @@ export interface IExecutionTransactionTypeField extends IStringEnumField {}
  *                  2 = Correct
  *                  3 = Status
  */
-export class ExecutionTransactionTypeField extends StringEnumField implements IExecutionTransactionTypeField {
+export class ExecutionTransactionTypeField extends ConstrainedCharField implements IExecutionTransactionTypeField {
 
     constructor(raw: string) {
-        super(Tag.ExecTransType, raw, {
-            0: ['0', 'new'],
-            1: ['1', 'cancel'],
-            2: ['2', 'correct'],
-            3: ['3', 'status'],
-        });
+        super(Tag.ExecTransType, raw, EXECUTION_TRANSACTION_TYPE_VALUES);
     }
 
 }

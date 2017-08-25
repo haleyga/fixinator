@@ -1,4 +1,4 @@
-import { BoundedIntField, IBoundedIntField } from '../base/custom/bounded-int';
+import { BoundedIntField, IBoundedIntField } from '../base/custom/bounded-field/bounded-int-field';
 import { Tag } from '../base/tag';
 
 export interface INewSequenceNumberField extends IBoundedIntField {}

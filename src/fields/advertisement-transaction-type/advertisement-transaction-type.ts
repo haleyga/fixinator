@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IAdvertisementTransactionTypeField extends IStringEnumField {}
+export interface IAdvertisementTransactionTypeField extends IConstrainedCharField {}
+export const ADVERTISEMENT_TRANSACTION_TYPE_VALUES: string[] = ['N', 'C', 'R'];
 
 /**
  * Field ID (TAG): 5
@@ -14,14 +15,11 @@ export interface IAdvertisementTransactionTypeField extends IStringEnumField {}
  *                  C = Cancel
  *                  R = Replace
  */
-export class AdvertisementTransactionTypeField extends StringEnumField implements IAdvertisementTransactionTypeField {
+export class AdvertisementTransactionTypeField extends ConstrainedCharField
+    implements IAdvertisementTransactionTypeField {
 
     constructor(raw: string) {
-        super(Tag.AdvTransType, raw, {
-            C: ['C', 'cancel'],
-            N: ['N', 'new'],
-            R: ['R', 'replace'],
-        });
+        super(Tag.AdvTransType, raw, ADVERTISEMENT_TRANSACTION_TYPE_VALUES);
     }
 
 }

@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IIoiQualityOfIndicationField extends IStringEnumField {}
+export interface IIoiQualityOfIndicationField extends IConstrainedCharField {}
+export const IOI_QUALITY_OF_INDICATION_VALUES: string[] = ['L', 'M', 'H'];
 
 /**
  * Field ID (TAG): 25
@@ -13,14 +14,10 @@ export interface IIoiQualityOfIndicationField extends IStringEnumField {}
  *                      M = Medium
  *                      H = High
  */
-export class IoiQualityOfIndicationField extends StringEnumField implements IIoiQualityOfIndicationField {
+export class IoiQualityOfIndicationField extends ConstrainedCharField implements IIoiQualityOfIndicationField {
 
     constructor(raw: string) {
-        super(Tag.IOIQltyInd, raw, {
-            H: ['H', 'high'],
-            L: ['L', 'low'],
-            M: ['M', 'medium'],
-        });
+        super(Tag.IOIQltyInd, raw, IOI_QUALITY_OF_INDICATION_VALUES);
     }
 
 }

@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IEnumTypeTemplateField extends IStringEnumField {}
+export interface IProcessCodeField extends IConstrainedCharField {}
+export const PROCESS_CODE_VALUES: string[] = ['0', '1', '2', '3', '4', '5'];
 
 /**
  * Field ID (TAG): 81
@@ -18,17 +19,10 @@ export interface IEnumTypeTemplateField extends IStringEnumField {}
  *                  4 = soft-dollar step-in
  *                  5 = soft-dollar step-out
  */
-export class EnumTypeTemplateField extends StringEnumField implements IEnumTypeTemplateField {
+export class ProcessCodeField extends ConstrainedCharField implements IProcessCodeField {
 
     constructor(raw: string) {
-        super(Tag.ProcessCode, raw, {
-            0: ['0', 'regular'],
-            1: ['1', 'soft_dollar'],
-            2: ['2', 'step_in'],
-            3: ['3', 'step_out'],
-            4: ['4', 'soft_dollar_step_in'],
-            5: ['5', 'soft_dollar_step_out'],
-        });
+        super(Tag.ProcessCode, raw, PROCESS_CODE_VALUES);
     }
 
     // TODO: validate use with other fields like AllocAccount, AllocShares

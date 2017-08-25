@@ -1,7 +1,11 @@
-import { INumberEnumField, NumberEnumField } from '../base/custom/number-enum-field';
+import { ConstrainedIntField, IConstrainedIntField } from '../base/custom/constrained-field/constrained-int-field';
 import { Tag } from '../base/tag';
 
-export interface IEncryptionMethodField extends INumberEnumField {}
+export interface IEncryptionMethodField extends IConstrainedIntField {}
+
+//tslint:disable:no-magic-numbers
+export const ENCRYPTION_METHOD_VALUES: number[] = [0, 1, 2, 3];
+//tslint:enable:no-magic-numbers
 
 /**
  * Field ID (TAG): 98
@@ -15,16 +19,10 @@ export interface IEncryptionMethodField extends INumberEnumField {}
  *                  2 = DES
  *                  3 = PKCS/DES
  */
-export class EncryptionMethodField extends NumberEnumField implements IEncryptionMethodField {
+export class EncryptionMethodField extends ConstrainedIntField implements IEncryptionMethodField {
 
-    //tslint:disable:no-magic-numbers
     constructor(raw: string) {
-        super(Tag.EncryptMethod, raw, {
-            0: [0, 'none'],
-            1: [1, 'pkcs'],
-            2: [2, 'des'],
-            3: [3, 'pkcs/des'],
-        });
+        super(Tag.EncryptMethod, raw, ENCRYPTION_METHOD_VALUES);
     }
 
 }

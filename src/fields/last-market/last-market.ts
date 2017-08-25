@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface ILastMarketField extends IStringEnumField {}
+export interface ILastMarketField extends IConstrainedCharField {}
+export const LAST_MARKET_VALUES: string[] = ['A', 'B', 'D', 'M', 'N', 'O', 'P', 'W'];
 
 /**
  * Field ID (TAG): 30
@@ -19,19 +20,10 @@ export interface ILastMarketField extends IStringEnumField {}
  *                  P = PCSE
  *                  W = PBW
  */
-export class LastMarketField extends StringEnumField implements ILastMarketField {
+export class LastMarketField extends ConstrainedCharField implements ILastMarketField {
 
     constructor(raw: string) {
-        super(Tag.LastMkt, raw, {
-            A: ['A', 'amex'],
-            B: ['B', 'boston'],
-            D: ['D', 'cincinnati'],
-            M: ['M', 'midwest'],
-            N: ['N', 'nyse'],
-            O: ['O', 'otc'],
-            P: ['P', 'pcse'],
-            W: ['W', 'pbw'],
-        });
+        super(Tag.LastMkt, raw, LAST_MARKET_VALUES);
     }
 
 }

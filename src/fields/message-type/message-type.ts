@@ -1,7 +1,9 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IMessageTypeField extends IStringEnumField {}
+export interface IMessageTypeField extends IConstrainedCharField {}
+export const MESSAGE_TYPE_VALUES: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                                              'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P'];
 
 /**
  * Field ID (TAG): 35
@@ -37,36 +39,10 @@ export interface IMessageTypeField extends IStringEnumField {}
  *                  N = List Status
  *                  P = Allocation ACK
  */
-export class MessageTypeField extends StringEnumField implements IMessageTypeField {
+export class MessageTypeField extends ConstrainedCharField implements IMessageTypeField {
 
     constructor(raw: string) {
-        super(Tag.MsgType, raw, {
-            0: ['0', 'heartbeat'],
-            1: ['1', 'test_request'],
-            2: ['2', 'resend_request'],
-            3: ['3', 'reject'],
-            4: ['4', 'sequence_reset'],
-            5: ['5', 'logout'],
-            6: ['6', 'indication_of_interest'],
-            7: ['7', 'advertisement'],
-            8: ['8', 'execution_report'],
-            9: ['9', 'order_cancel_reject'],
-            A: ['A', 'logon'],
-            B: ['B', 'news'],
-            C: ['C', 'email'],
-            D: ['D', 'order_single'],
-            E: ['E', 'order_list'],
-            F: ['F', 'order_cancel_request'],
-            G: ['G', 'order_cancel_replace_request'],
-            H: ['H', 'order_status_request'],
-            J: ['J', 'allocation'],
-            K: ['K', 'list_cancel_request'],
-            L: ['L', 'list_execute'],
-            M: ['M', 'list_status_request'],
-            N: ['N', 'list_status'],
-            P: ['P', 'allocation_acknowledgement'],
-            U: ['U', 'private'],
-        });
+        super(Tag.MsgType, raw, MESSAGE_TYPE_VALUES);
     }
 
 }

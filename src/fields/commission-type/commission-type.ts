@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface ICommissionTypeField extends IStringEnumField {}
+export interface ICommissionTypeField extends IConstrainedCharField {}
+export const COMMISSION_TYPE_VALUES: string[] = ['1', '2', '3'];
 
 /**
  * Field ID (TAG): 13
@@ -13,14 +14,10 @@ export interface ICommissionTypeField extends IStringEnumField {}
  *                      2 = percentage
  *                      3 = absolute
  */
-export class CommissionTypeField extends StringEnumField implements ICommissionTypeField {
+export class CommissionTypeField extends ConstrainedCharField implements ICommissionTypeField {
 
     constructor(raw: string) {
-        super(Tag.CommType, raw, {
-            1: ['1', 'per_share'],
-            2: ['2', 'percentage'],
-            3: ['3', 'absolute'],
-        });
+        super(Tag.CommType, raw, COMMISSION_TYPE_VALUES);
     }
 
 }

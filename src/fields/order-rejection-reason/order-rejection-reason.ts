@@ -1,7 +1,11 @@
-import { INumberEnumField, NumberEnumField } from '../base/custom/number-enum-field';
+import { ConstrainedIntField, IConstrainedIntField } from '../base/custom/constrained-field/constrained-int-field';
 import { Tag } from '../base/tag';
 
-export interface IOrderRejectionReasonField extends INumberEnumField {}
+export interface IOrderRejectionReasonField extends IConstrainedIntField {}
+
+//tslint:disable:no-magic-numbers
+export const ORDER_REJECTION_REASON_VALUES: number[] = [0, 1, 2, 3];
+//tslint:enable:no-magic-numbers
 
 /**
  * Field ID (TAG): 103
@@ -15,16 +19,11 @@ export interface IOrderRejectionReasonField extends INumberEnumField {}
  *                  2 = Exchange closed
  *                  3 = Order exceeds limit
  */
-export class OrderRejectionReasonField extends NumberEnumField implements IOrderRejectionReasonField {
+export class OrderRejectionReasonField extends ConstrainedIntField implements IOrderRejectionReasonField {
 
     //tslint:disable:no-magic-numbers
     constructor(raw: string) {
-        super(Tag.OrdRejReason, raw, {
-            0: [0, 'broker_option'],
-            1: [1, 'unknown_symbol'],
-            2: [2, 'exchange_closed'],
-            3: [3, 'order_exceeds_limit'],
-        });
+        super(Tag.OrdRejReason, raw, ORDER_REJECTION_REASON_VALUES);
     }
 
 }

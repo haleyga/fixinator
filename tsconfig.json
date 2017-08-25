@@ -13,14 +13,14 @@
     "outDir": "dist/es6"
   },
   "compileOnSave": true,
-  "exclude": [
-    "src/**/*.spec.ts",
-    "node_modules",
-    "driver.ts"
-  ],
   "include": [
     "index.ts",
     "src/**/*.ts",
     "node_modules/@types"
+  ],
+  "exclude": [
+//    "src/**/*.spec.ts",
+    "node_modules",
+    "driver.ts"
   ]
 }

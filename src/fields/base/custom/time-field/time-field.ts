@@ -1,7 +1,7 @@
-import { FixChar } from '../../../data-types/fix-char';
-import { FixinatorTime, IFixinatorTime } from '../../../util/datetime';
-import { FixCharField, IFixCharField } from '../fix/fix-char-field';
-import { Tag } from '../tag';
+import { FixChar } from '../../../../data-types/fix-char';
+import { FixinatorTime, IFixinatorTime } from '../../../../util/datetime';
+import { FixCharField, IFixCharField } from '../../fix/fix-char-field/fix-char-field';
+import { Tag } from '../../tag';
 
 export interface ITimeField extends IFixCharField {
     time: IFixinatorTime;
@@ -46,7 +46,7 @@ export abstract class TimeField extends FixCharField implements ITimeField {
             throw error;
         }
 
-        if (this._data && this._formatted && this._time) this._isValid = true;
+        if (this._data && this._formatted !== null && this._time) this._isValid = true;
 
         return this._isValid;
     }

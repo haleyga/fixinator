@@ -1,28 +1,30 @@
-import { FixFloat, IFixFloat } from '../../../data-types/fix-float';
-import { FixinatorValidationError } from '../../../errors/FixinatorValidationError';
-import { BaseField, IBaseField } from '../base-field';
-import { Tag } from '../tag';
+import { FixInt, IFixInt } from '../../../../data-types/fix-int';
+import { BaseField, IBaseField } from '../../base-field';
+import { Tag } from '../../tag';
 
-export interface IFixFloatField extends IBaseField {}
+export interface IFixIntField extends IBaseField<number> {
+    data: IFixInt;
+    formatted: number;
+}
 
 /**
- * Field ID (TAG): 12
- * Field Name: FixFloat
- * Format: float
- * Description: FixFloat
- *                  Valid values:
- *                      -9.999 - 9999.999
+ * Field ID (TAG): 16
+ * Field Name: BeginSeqNo
+ * Format: int
+ * Description: Message sequence number of last record in range to be resent. If request is for a single record
+ *              BeginSeqNo = EndSeqNo. If request is for all messages subsequent to a particular message, EndSeqNo =
+ *              "99999"
  */
-export abstract class FixFloatField extends BaseField implements IFixFloatField {
+export abstract class FixIntField extends BaseField<number> implements IFixIntField {
 
-    protected _data: IFixFloat   = null;
+    protected _data: IFixInt     = null;
     protected _formatted: number = null;
 
     constructor(tag: Tag, raw: string) {
         super(tag, raw);
     }
 
-    public get data(): IFixFloat {
+    public get data(): IFixInt {
 
         // If the value is valid, just return it.
         if (this._isValid) return this._data;
@@ -49,7 +51,7 @@ export abstract class FixFloatField extends BaseField implements IFixFloatField 
         try {
 
             // Attempt to parse the raw value.
-            this._data = new FixFloat(this._raw);
+            this._data = new FixInt(this._raw);
 
             this._formatted = this._data.value;
 
@@ -62,7 +64,7 @@ export abstract class FixFloatField extends BaseField implements IFixFloatField 
             throw error;
         }
 
-        if (this._data && this._formatted) this._isValid = true;
+        if (this._data && this._formatted !== null) this._isValid = true;
 
         return this._isValid;
     }

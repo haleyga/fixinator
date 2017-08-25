@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface ITimeInForceField extends IStringEnumField {}
+export interface ITimeInForceField extends IConstrainedCharField {}
+export const TIME_IN_FORCE: string[] = ['0', '1', '2', '3', '4', '5'];
 
 /**
  * Field ID (TAG): 59
@@ -17,17 +18,10 @@ export interface ITimeInForceField extends IStringEnumField {}
  *                  4 = Fill or Kill (FOK)
  *                  5 = Good Till Crossing (GTX)
  */
-export class TimeInForceField extends StringEnumField implements ITimeInForceField {
+export class TimeInForceField extends ConstrainedCharField implements ITimeInForceField {
 
     constructor(raw: string) {
-        super(Tag.TimeInForce, raw, {
-            0: ['0', 'day'],
-            1: ['1', 'good_till_cancel'],
-            2: ['2', 'at_the_opening'],
-            3: ['3', 'immediate_or_cancel'],
-            4: ['4', 'fill_or_kill'],
-            5: ['5', 'good_till_crossing'],
-        });
+        super(Tag.TimeInForce, raw, TIME_IN_FORCE);
     }
 
 }

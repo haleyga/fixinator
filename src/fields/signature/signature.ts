@@ -1,4 +1,4 @@
-import { FixDataField, IFixDataField } from '../base/fix/fix-data-field';
+import { FixDataField, IFixDataField } from '../base/fix/fix-data-field/fix-data-field';
 import { Tag } from '../base/tag';
 
 export interface ISignatureField extends IFixDataField {}

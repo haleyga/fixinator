@@ -1,8 +1,13 @@
-import { INumberEnumField, NumberEnumField } from '../base/custom/number-enum-field';
+import { ConstrainedIntField, IConstrainedIntField } from '../base/custom/constrained-field/constrained-int-field';
 import { Tag } from '../base/tag';
 
 
-export interface IAllocationStatusField extends INumberEnumField {}
+export interface IAllocationStatusField extends IConstrainedIntField {}
+
+//tslint:disable:no-magic-numbers
+export const ALLOCATION_STATUS_VALUES: number[] = [0, 1, 2];
+//tslint:enable:no-magic-numbers
+
 
 /**
  * Field ID (TAG): 87
@@ -15,15 +20,10 @@ export interface IAllocationStatusField extends INumberEnumField {}
  *                  1 = rejected
  *                  2 = partial accept
  */
-export class AllocationStatusField extends NumberEnumField implements IAllocationStatusField {
+export class AllocationStatusField extends ConstrainedIntField implements IAllocationStatusField {
 
-    //tslint:disable:no-magic-numbers
     constructor(raw: string) {
-        super(Tag.AllocStatus, raw, {
-            0: [0, 'accepted'],
-            1: [1, 'rejected'],
-            2: [2, 'partial_accept'],
-        });
+        super(Tag.AllocStatus, raw, ALLOCATION_STATUS_VALUES);
     }
 
 }

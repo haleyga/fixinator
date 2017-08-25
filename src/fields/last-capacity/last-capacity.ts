@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface ILastCapacityField extends IStringEnumField {}
+export interface ILastCapacityField extends IConstrainedCharField {}
+export const LAST_CAPACITY_VALUES: string[] = ['1', '2', '3', '4'];
 
 /**
  * Field ID (TAG): 29
@@ -15,15 +16,10 @@ export interface ILastCapacityField extends IStringEnumField {}
  *                  3 = Cross as principal
  *                  4 = Principal
  */
-export class LastCapacityField extends StringEnumField implements ILastCapacityField {
+export class LastCapacityField extends ConstrainedCharField implements ILastCapacityField {
 
     constructor(raw: string) {
-        super(Tag.LastCapacity, raw, {
-            1: ['1', 'agent'],
-            2: ['2', 'cross_as_agent'],
-            3: ['3', 'cross_as_principal'],
-            4: ['4', 'principal'],
-        });
+        super(Tag.LastCapacity, raw, LAST_CAPACITY_VALUES);
     }
 
 }

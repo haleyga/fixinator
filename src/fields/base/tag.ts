@@ -1,4 +1,5 @@
 export enum Tag {
+    DUMMY_TAG       = 0,
     Account         = 1,
     AdvId           = 2,
     AdvRefID        = 3,

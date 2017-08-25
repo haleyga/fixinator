@@ -1,4 +1,4 @@
-import { BoundedIntField, IBoundedIntField } from '../base/custom/bounded-int';
+import { BoundedIntField, IBoundedIntField } from '../base/custom/bounded-field/bounded-int-field';
 import { Tag } from '../base/tag';
 
 export interface ICumulativeQuantityField extends IBoundedIntField {}
@@ -25,7 +25,7 @@ export class CumulativeQuantityField extends BoundedIntField implements ICumulat
 
         // NOTE: Field may be blank depending on ExecTransType.
         // TODO: Maybe beef up this validation (maybe it doesn't belong in this class though)
-        if (!this._data) return true;
+        if (!this._raw) return true;
 
         try { return super.validate(); }
         catch (error) { throw error; }

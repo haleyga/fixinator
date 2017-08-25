@@ -1,7 +1,8 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IOrderStatusField extends IStringEnumField {}
+export interface IOrderStatusField extends IConstrainedCharField {}
+export const ORDER_STATUS_VALUES: string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 
 /**
  * Field ID (TAG): 39
@@ -20,20 +21,10 @@ export interface IOrderStatusField extends IStringEnumField {}
  *                  7 = Stopped
  *                  8 = Rejected
  */
-export class OrderStatusField extends StringEnumField implements IOrderStatusField {
+export class OrderStatusField extends ConstrainedCharField implements IOrderStatusField {
 
     constructor(raw: string) {
-        super(Tag.OrdStatus, raw, {
-            0: ['0', 'new'],
-            1: ['1', 'partially_filled'],
-            2: ['2', 'filled'],
-            3: ['3', 'done_for_day'],
-            4: ['4', 'canceled'],
-            5: ['5', 'replaced'],
-            6: ['6', 'pending_cancel_replace'],
-            7: ['7', 'stopped'],
-            8: ['8', 'rejected'],
-        });
+        super(Tag.OrdStatus, raw, ORDER_STATUS_VALUES);
     }
 
 }

@@ -1,7 +1,9 @@
-import { IStringEnumField, StringEnumField } from '../base/custom/string-enum-field';
+import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
-export interface IExecutionInstructionsField extends IStringEnumField {}
+export interface IExecutionInstructionsField extends IConstrainedCharField {}
+export const EXECUTION_INSTRUCTIONS_VALUES: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
+                                                        'A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
 /**
  * Field ID (TAG): 18
@@ -30,28 +32,10 @@ export interface IExecutionInstructionsField extends IStringEnumField {}
  *                      F = Do not reduce - DNR (D)
  *                      G = All or none - AON (D)
  */
-export class ExecutionInstructionsField extends StringEnumField implements IExecutionInstructionsField {
+export class ExecutionInstructionsField extends ConstrainedCharField implements IExecutionInstructionsField {
 
     constructor(raw: string) {
-        super(Tag.ExecInst, raw, {
-            1: ['1', 'not_held'],
-            2: ['2', 'work'],
-            3: ['3', 'go_along'],
-            4: ['4', 'over_the_day'],
-            5: ['5', 'held'],
-            6: ['6', 'participate_do_not_initiate'],
-            7: ['7', 'strict_scale'],
-            8: ['8', 'try_to_scale'],
-            9: ['9', 'stay_on_bid_side'],
-            0: ['0', 'stay_on_offer_side'],
-            A: ['A', 'no_cross'],
-            B: ['B', 'ok_to_cross'],
-            C: ['C', 'call_first'],
-            D: ['D', 'percent_of_volume'],
-            E: ['E', 'do_not_increase'],
-            F: ['F', 'do_not_reduce'],
-            G: ['G', 'all_or_none'],
-        });
+        super(Tag.ExecInst, raw, EXECUTION_INSTRUCTIONS_VALUES);
     }
 
 }

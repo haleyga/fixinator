@@ -1,4 +1,4 @@
-import { ITimeField, TimeField } from '../base/custom/time-field';
+import { ITimeField, TimeField } from '../base/custom/time-field/time-field';
 import { Tag } from '../base/tag';
 
 export interface ISendingTimeField extends ITimeField {}
