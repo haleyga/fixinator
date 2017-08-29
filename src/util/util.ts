@@ -15,6 +15,8 @@ export type StringKeyObjectValue<T> = { [s: string]: T };
  */
 export type UnionKeyToValue<U extends string> = { [K in U]: K; };
 
+export type ConstrainedKeyValueMap<U extends string> = { [K in U]: string; };
+
 /**
  * The current package version
  */

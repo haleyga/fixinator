@@ -22,7 +22,7 @@ import { ISendingDateField, SendingDateField } from './sending-date';
 // (this.timeout) rather than use the lexical binding provided by an arrow function.
 describe('sending-date.spec.ts', function () {
 
-    this.timeout(5000);
+    this.timeout(10000);;
 
     describe('SendingDateField', () => {
 

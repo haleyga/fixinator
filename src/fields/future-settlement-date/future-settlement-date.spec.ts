@@ -22,7 +22,7 @@ import { FutureSettlementDateField, IFutureSettlementDateField } from './future-
 // (this.timeout) rather than use the lexical binding provided by an arrow function.
 describe('future-settlement-date.spec.ts', function () {
 
-    this.timeout(5000);
+    this.timeout(10000);;
 
     describe('FutureSettlementDateField', () => {
 

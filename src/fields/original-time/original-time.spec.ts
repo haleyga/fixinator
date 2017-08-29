@@ -13,7 +13,7 @@ import { IOriginalTimeField, OriginalTimeField } from './original-time';
 // (this.timeout) rather than use the lexical binding provided by an arrow function.
 describe('original-time.spec.ts', function () {
 
-    this.timeout(5000);
+    this.timeout(10000);;
 
     describe('OriginalTimeField', () => {
 

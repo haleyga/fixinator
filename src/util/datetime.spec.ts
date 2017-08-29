@@ -31,7 +31,7 @@ import { padLeft } from './util';
 // (this.timeout) rather than use the lexical binding provided by an arrow function.
 describe('datetime.spec.ts', function () {
 
-    this.timeout(5000);
+    this.timeout(10000);;
 
     describe('FixinatorTime', () => {
 
