@@ -18,7 +18,7 @@
     "compile:tests": "tsc src/**/*.spec.ts --target es6",
     "lint": "tslint .",
     "pretest": "npm run clean:src",
-    "test": "npm tun test:ts && npm run test:js",
+    "test": "npm run test:js",
     "test:ts": "nyc mocha --opts ./test/mocha.opts-ts",
     "pretest:js": "rm -rf .test_container && tsc --target es6 --outDir .test_container",
     "test:js": "nyc mocha --opts ./test/mocha.opts-js",
@@ -35,9 +35,9 @@
     "clean": "npm run clean:dist & npm run clean:docs & npm run clean:misc & npm run clean:examples & npm run clean:src",
     "clean:dist": "rm -rf dist",
     "clean:docs": "rm -rf docs/autogen",
-    "clean:misc": "rm -rf driver.js driver.js.map index.d.ts index.js index.js.map npm-debug.log",
-    "clean:examples": "rm -rf examples/*.js",
-    "clean:src": "rm -rf src/**/*.js src/**/*.js.map"
+    "clean:misc": "rm -f driver.js driver.js.map index.d.ts index.js index.js.map npm-debug.log",
+    "clean:examples": "find ./examples -type f -name '*.js' -name '*.js.map' -exec rm {} +",
+    "clean:src": "find ./src -type f -name '*.js' -exec rm {} +"
   },
   "nyc": {
     "include": [
@@ -95,8 +95,11 @@
     "iconv-lite": "^0.4.18"
   },
   "dependencies": {
+    "@types/mongodb": "^2.2.11",
     "@types/winston": "^2.3.4",
+    "mongodb": "^2.2.31",
     "uuid": "^3.1.0",
-    "winston": "^2.3.1"
+    "winston": "^2.3.1",
+    "ws": "^3.1.0"
   }
 }

@@ -15,6 +15,9 @@ export type StringKeyObjectValue<T> = { [s: string]: T };
  */
 export type UnionKeyToValue<U extends string> = { [K in U]: K; };
 
+/**
+ * This type is designed to accept a string union as a list of keys to string values.
+ */
 export type ConstrainedKeyValueMap<U extends string> = { [K in U]: string; };
 
 /**
@@ -40,7 +43,7 @@ export const UUID_VERSION_ENUM: UnionKeyToValue<UuidVersion> = {
 /**
  * Generates a random uuid string via the uuid npm package
  */
-export function generateUuid(version: UuidVersion = UUID_VERSION_ENUM.v1): string {
+export function generateUuid(version: UuidVersion = UUID_VERSION_ENUM.v4): string {
     if (version === UUID_VERSION_ENUM.v4) return uuid.v4();
 
     return uuid.v1();
@@ -62,3 +65,22 @@ export function padLeft(content: string, padding: string, targetLength: number):
 }
 
 export const ASCII_UPPER_LIMIT: number = 128;
+
+export interface IEventEmitter {
+    on(event: string, listener: Function): this;
+
+    removeAllListeners(event?: string | symbol): this;
+}
+
+export type SocketEvent = 'data' | 'close' | 'error' | 'connection';
+export const SOCKET_EVENT: UnionKeyToValue<SocketEvent> = {
+    close: 'close',
+    connection: 'connection',
+    data : 'data',
+    error: 'error',
+};
+
+export type CodecType = 'ascii';
+export const CODEC_TYPE: UnionKeyToValue<CodecType> = {
+    ascii: 'ascii',
+};

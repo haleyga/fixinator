@@ -83,6 +83,8 @@
         "protected-instance-method",
         "private-instance-method"
       ]
-    }]
+    }],
+    "ban-types": [false],
+    "no-namespace": false
   }
 }

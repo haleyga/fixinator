@@ -214,6 +214,20 @@ export class FixinatorDate implements IFixinatorDate {
 
     }
 
+    // TODO: NOT TESTED
+    public static todayAsFixDateString(): string {
+        const date = new Date();
+
+        return padLeft(date.getFullYear().toString().slice(2), '0', 2)
+               + padLeft(date.getMonth().toString(), '0', 2)
+               + padLeft(date.getDay().toString(), '0', 2);
+    }
+
+    // TODO: NOT TESTED
+    public static getThisTimeYesterday(): number {
+        return Date.now() - (24 * 3600);
+    }
+
     /**
      * This static utility accepts a number or a string and determines whether or not its numerical, four-digit year
      * equivalent is a leap year.  Since this engine only operates within the frame 1931 - 2030, any arguments are
@@ -228,7 +242,7 @@ export class FixinatorDate implements IFixinatorDate {
         const yearString: string = typeof yearArg === 'number' ? yearArg.toString() : yearArg;
         if (!yearString) return false;
 
-        const year: number       = this.getFourDigitYear(yearString);
+        const year: number = this.getFourDigitYear(yearString);
 
         return year ? LEAP_YEARS_SINCE_1930.findIndex((leapYear) => leapYear === year) !== -1 : false;
     }
