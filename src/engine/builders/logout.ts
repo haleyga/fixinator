@@ -107,10 +107,14 @@ export class LogoutMessageBuilder extends BaseMessageBuilder implements ILogoutM
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.logout) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

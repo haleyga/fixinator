@@ -102,16 +102,23 @@ export class SequenceResetMessageBuilder extends BaseMessageBuilder implements I
      *      Tag     Field Name          Required?   Comments
      *      ------------------------------------------------------------------------------------------------------------
      *              <Standard Header>   Y           MsgType = 4
-     *      36      NewSeqNum           Y
+     *      36      NewSeqNo            Y
      *              <Standard Trailer>  Y
      *
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.sequence_reset) return false;
+
+        // Check NewSeqNum
+        if (!this._protoMessage[Tag.NewSeqNo]) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

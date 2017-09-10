@@ -154,15 +154,26 @@ export class EmailMessageBuilder extends BaseMessageBuilder implements IEmailMes
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
+
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
         // Verify MsgType
         if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.advertisement) return false;
 
+        // Check EmailType
+        if (!this._protoMessage[Tag.EmailType]) return false;
+
+        // Check LinesOfText
+        if (!this._protoMessage[Tag.LinesOfText]) return false;
+
+        // Check Text
+        if (!this._protoMessage[Tag.Text]) return false;
+
+        // Verify that LinesOfText matches the number of Text fields
         if (this._protoMessage[Tag.LinesOfText].formatted !== this._protoMessage[Tag.Text].length) return false;
 
-        // TODO: Verify CheckSum
-
-        return true;
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

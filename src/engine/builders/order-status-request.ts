@@ -120,7 +120,7 @@ export class OrderStatusRequestMessageBuilder extends BaseMessageBuilder impleme
      *      ------------------------------------------------------------------------------------------------------------
      *              <Standard Header>   Y           MsgType = H
      *      37      OrderID             N
-     *      11      ClOrdId             Y
+     *      11      ClOrdID             Y
      *      55      Symbol              Y
      *      65      SymbolSfx           N
      *      54      Side                Y
@@ -129,10 +129,23 @@ export class OrderStatusRequestMessageBuilder extends BaseMessageBuilder impleme
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.order_status_request) return false;
+
+        // Check ClOrdID
+        if (!this._protoMessage[Tag.ClOrdID]) return false;
+
+        // Check Symbol
+        if (!this._protoMessage[Tag.Symbol]) return false;
+
+        // Check Side
+        if (!this._protoMessage[Tag.Side]) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

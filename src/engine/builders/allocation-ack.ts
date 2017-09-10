@@ -149,6 +149,7 @@ export class AllocationAcknowledgementMessageBuilder extends BaseMessageBuilder
             return false;
         }
 
+        // Validate Trailer
         return this.validateTrailer();
     }
 }

@@ -5,13 +5,13 @@ import { IBeginningOfStringField } from '../../messaging/fields/beginning-of-str
 import { IBodyLengthField } from '../../messaging/fields/body-length/body-length';
 import { ClientOrderIdField } from '../../messaging/fields/client-order-id/client-order-id';
 import { CumulativeQuantityField } from '../../messaging/fields/cumulative-quantity/cumulative-quantity';
-import { CURRENCY, CurrencyField } from '../../messaging/fields/currency/currency';
+import { CurrencyField, CURRENCY } from '../../messaging/fields/currency/currency';
 import { ExecutionIdField } from '../../messaging/fields/execution-id/execution-id';
 import { ExecutionInstructionsField } from '../../messaging/fields/execution-instructions/execution-instructions';
 import { ExecutionReferenceIdField } from '../../messaging/fields/execution-reference-id/execution-reference-id';
 import {
-    EXECUTION_TRANSACTION_TYPE,
     ExecutionTransactionTypeField,
+    EXECUTION_TRANSACTION_TYPE,
 } from '../../messaging/fields/execution-transaction-type/execution-transaction-type';
 import { FutureSettlementDateField } from '../../messaging/fields/future-settlement-date/future-settlement-date';
 import { IdSourceField } from '../../messaging/fields/id-source/id-source';
@@ -23,24 +23,23 @@ import { ListIdField } from '../../messaging/fields/list-id/list-id';
 import { IMessageTypeField, MESSAGE_TYPE } from '../../messaging/fields/message-type/message-type';
 import { OrderIdField } from '../../messaging/fields/order-id/order-id';
 import { OrderQuantityField } from '../../messaging/fields/order-quantity/order-quantity';
-import { ORDER_STATUS, OrderStatusField } from '../../messaging/fields/order-status/order-status';
+import { OrderStatusField, ORDER_STATUS } from '../../messaging/fields/order-status/order-status';
 import { PriceField } from '../../messaging/fields/price/price';
 import { Rule80AField } from '../../messaging/fields/rule-80a/rule-80a';
 import { SecurityIdField } from '../../messaging/fields/security-id/security-id';
-import { SETTLEMENT_TYPE, SettlementTypeField } from '../../messaging/fields/settlement-type/settlement-type';
+import { SettlementTypeField, SETTLEMENT_TYPE } from '../../messaging/fields/settlement-type/settlement-type';
 import { SideField } from '../../messaging/fields/side/side';
 import { StopPriceField } from '../../messaging/fields/stop-price/stop-price';
 import { SymbolSuffixField } from '../../messaging/fields/symbol-suffix/symbol-suffix';
 import { SymbolField } from '../../messaging/fields/symbol/symbol';
 import { TextField } from '../../messaging/fields/text/text';
-import { TIME_IN_FORCE, TimeInForceField } from '../../messaging/fields/time-in-force/time-in-force';
+import { TimeInForceField, TIME_IN_FORCE } from '../../messaging/fields/time-in-force/time-in-force';
 import { TransactionTimeField } from '../../messaging/fields/transaction-time/transaction-time';
 import {
     ExecutionReportMessage,
     IExecutionReportMessage, IProtoExecutionReportMessage, ProtoExecutionReportMessage,
 } from '../../messaging/messages/execution-report';
 import { BaseMessageBuilder, BUILDER_EVENT, IBaseMessageBuilder } from './base-message-builder';
-import { isStopOrder } from '../../messaging/fields/order-type/order-type';
 
 export interface IExecutionReportMessageBuilder extends IBaseMessageBuilder {
     message: IExecutionReportMessage;
@@ -324,7 +323,12 @@ export class ExecutionReportMessageBuilder extends BaseMessageBuilder implements
      */
     //tslint:disable:cyclomatic-complexity
     protected validate(): boolean {
-        super.validate();
+
+        // Validate Header
+        if (!this.validateHeader()) return false;
+
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.execution_report) return false;
 
         // Check OrderID
         if (!this._protoMessage[Tag.OrderID]) return false;
@@ -358,6 +362,15 @@ export class ExecutionReportMessageBuilder extends BaseMessageBuilder implements
         {
             return false;
         }
+
+        // Check Symbol
+        if (!this._protoMessage[Tag.Symbol]) return false;
+
+        // Check Side
+        if (!this._protoMessage[Tag.Side]) return false;
+
+        // Check OrderQty
+        if (!this._protoMessage[Tag.OrderQty]) return false;
 
         // This check is strange in the documentation because the Execution Report message does not include the OrdType
         // if (isStopOrder(this._protoMessage[Tag.OrdType].formatted) && !this._protoMessage[Tag.StopPx]) return false;
@@ -398,9 +411,8 @@ export class ExecutionReportMessageBuilder extends BaseMessageBuilder implements
             return false;
         }
 
-        // TODO: Verify CheckSum
-
-        return true;
+        // Validate Trailer
+        return this.validateTrailer();
     }
 
     //tslint:enable:cyclomatic-complexity

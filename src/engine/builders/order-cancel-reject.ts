@@ -130,10 +130,20 @@ export class OrderCancelRejectMessageBuilder extends BaseMessageBuilder implemen
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.order_cancel_reject) return false;
+
+        // Check OrderID
+        if (!this._protoMessage[Tag.OrderID]) return false;
+
+        // Check CxlOrdReqId
+        if (!this._protoMessage[Tag.CxlOrdReqId]) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

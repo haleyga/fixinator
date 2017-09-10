@@ -256,19 +256,36 @@ export class OrderCancelReplaceRequestMessageBuilder extends BaseMessageBuilder
      *
      * @returns {boolean}
      */
+    // tslint:disable:cyclomatic-complexity
     protected validate(): boolean {
-        super.validate();
 
+        // Validate Header
+        if (!this.validateHeader()) return false;
+
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.order_cancel_replace_request) return false;
+
+        // Check OrigClOrdID
+        if (!this._protoMessage[Tag.OrigClOrdID]) return false;
+
+        // Check ClOrdID
+        if (!this._protoMessage[Tag.ClOrdID]) return false;
+
+        // Set SettlmntType to default is not present
         if (!this._protoMessage[Tag.SettlmntTyp]) {
             this._protoMessage[Tag.SettlmntTyp] = new SettlementTypeField(SETTLEMENT_TYPE.regular);
         }
 
+        // Check FutSettDate
         if ((this._protoMessage[Tag.SettlmntTyp].formatted === SETTLEMENT_TYPE.future
              || this._protoMessage[Tag.SettlmntTyp].formatted === SETTLEMENT_TYPE.sellers_option)
             && !this._protoMessage[Tag.FutSettDate])
         {
             return false;
         }
+
+        // Check HandlInst
+        if (!this._protoMessage[Tag.HandlInst]) return false;
 
         // Ensure execution instructions align with handling instructions.
         const handlingInstruction   = this._protoMessage[Tag.HandlInst].formatted;
@@ -280,19 +297,37 @@ export class OrderCancelReplaceRequestMessageBuilder extends BaseMessageBuilder
             if (!applicabilityFunction(instruction.formatted)) return false;
         }
 
+        // Check Symbol
+        if (!this._protoMessage[Tag.Symbol]) return false;
+
+        // Check Side
+        if (!this._protoMessage[Tag.Side]) return false;
+
+        // Check OrderQty
+        if (!this._protoMessage[Tag.OrderQty]) return false;
+
+        // Check OrdType
+        if (!this._protoMessage[Tag.OrdType]) return false;
+
+        // Check Price
         if (isLimitOrder(this._protoMessage[Tag.OrdType].formatted) && !this._protoMessage[Tag.Price]) return false;
+
+        // Check StopPx
         if (isStopOrder(this._protoMessage[Tag.OrdType].formatted) && !this._protoMessage[Tag.StopPx]) return false;
 
+        // Set Currency to default if not present
         if (!this._protoMessage[Tag.Currency]) {
             this._protoMessage[Tag.Currency] = new CurrencyField(CURRENCY.USD);
         }
 
+        // Set TimeInForce to default if not present
         if (!this._protoMessage[Tag.TimeInForce]) {
             this._protoMessage[Tag.TimeInForce] = new TimeInForceField(TIME_IN_FORCE.day);
         }
 
-        // TODO: Verify CheckSum
-
-        return true;
+        // Validate Trailer
+        return this.validateTrailer();
     }
+
+    // tslint:enable:cyclomatic-complexity
 }

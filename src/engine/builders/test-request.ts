@@ -1,3 +1,4 @@
+import { Tag } from '../../messaging/fields/base/tag';
 import { IBeginningOfStringField } from '../../messaging/fields/beginning-of-string/beginning-of-string';
 import { IBodyLengthField } from '../../messaging/fields/body-length/body-length';
 import { IMessageTypeField, MESSAGE_TYPE } from '../../messaging/fields/message-type/message-type';
@@ -90,10 +91,14 @@ export class TestRequestMessageBuilder extends BaseMessageBuilder implements ITe
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.test_request) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

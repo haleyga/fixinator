@@ -185,8 +185,11 @@ export class ListStatusMessageBuilder extends BaseMessageBuilder implements ILis
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
+        // Validate Header
+        if (!this.validateHeader()) return false;
+
+        // Track report set/sequence
         if (this._sizeOfCurrentReportSet === 0) {
             this._sizeOfCurrentReportSet = this._protoMessage[Tag.NoRpts].formatted;
         } else if (this._protoMessage[Tag.RptSeq].formatted !== this._lastReportSequence + 1) {
@@ -202,14 +205,48 @@ export class ListStatusMessageBuilder extends BaseMessageBuilder implements ILis
             this._lastReportSequence = this._protoMessage[Tag.RptSeq].formatted;
         }
 
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.list_status) return false;
+
+        // Check ListID
+        if (!this._protoMessage[Tag.ListID]) return false;
+
+        // Check NoRpts
+        if (!this._protoMessage[Tag.NoRpts]) return false;
+
+        // Check RptSeq
+        if (!this._protoMessage[Tag.RptSeq]) return false;
+
+        // Check NoOrders
+        if (!this._protoMessage[Tag.NoOrders]) return false;
+
+        // Check ClOrdID
+        if (!this._protoMessage[Tag.ClOrdID]) return false;
+
+        // Check CumQty
+        if (!this._protoMessage[Tag.CumQty]) return false;
+
+        // Check CxlQty
+        if (!this._protoMessage[Tag.CxlQty]) return false;
+
+        // Check AvgPx
+        if (!this._protoMessage[Tag.AvgPx]) return false;
+
         const numberOfOrders = this._protoMessage[Tag.NoOrders].formatted;
+
+        // Verify that NoOrders matches the number of ClOrderID fields
         if (this._protoMessage[Tag.ClOrdID].length !== numberOfOrders) return false;
+
+        // Verify that NoOrders matches the number of CumQty fields
         if (this._protoMessage[Tag.CumQty].length !== numberOfOrders) return false;
+
+        // Verify that NoOrders matches the number of CxlQty fields
         if (this._protoMessage[Tag.CxlQty].length !== numberOfOrders) return false;
+
+        // Verify that NoOrders matches the number of AvgPx fields
         if (this._protoMessage[Tag.AvgPx].length !== numberOfOrders) return false;
 
-        // TODO: Verify CheckSum
-
-        return true;
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

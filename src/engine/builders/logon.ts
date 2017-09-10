@@ -106,10 +106,17 @@ export class LogonMessageBuilder extends BaseMessageBuilder implements ILogonMes
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.logon) return false;
+
+        // Check EncryptMethod
+        if (!this._protoMessage[Tag.EncryptMethod]) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

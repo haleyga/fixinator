@@ -218,12 +218,25 @@ export class OrderCancelRequestMessageBuilder extends BaseMessageBuilder impleme
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
+        // Validate Header
+        if (!this.validateHeader()) return false;
+
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.order_cancel_request) return false;
+
+        // Check CxlOrdReqId
+        if (!this._protoMessage[Tag.CxlOrdReqId]) return false;
+
+        // Check ClOrdID
+        if (!this._protoMessage[Tag.ClOrdID]) return false;
+
+        // Set SettlmntType to default is not present
         if (!this._protoMessage[Tag.SettlmntTyp]) {
             this._protoMessage[Tag.SettlmntTyp] = new SettlementTypeField(SETTLEMENT_TYPE.regular);
         }
 
+        // Check FutSettDate
         if ((this._protoMessage[Tag.SettlmntTyp].formatted === SETTLEMENT_TYPE.future
              || this._protoMessage[Tag.SettlmntTyp].formatted === SETTLEMENT_TYPE.sellers_option)
             && !this._protoMessage[Tag.FutSettDate])
@@ -231,18 +244,35 @@ export class OrderCancelRequestMessageBuilder extends BaseMessageBuilder impleme
             return false;
         }
 
+        // Check HandlInst
+        if (!this._protoMessage[Tag.HandlInst]) return false;
+
+        // Check Symbol
+        if (!this._protoMessage[Tag.Symbol]) return false;
+
+        // Check Side
+        if (!this._protoMessage[Tag.Side]) return false;
+
+        // Check OrderQty
+        if (!this._protoMessage[Tag.OrderQty]) return false;
+
+        // Check OrdType
+        if (!this._protoMessage[Tag.OrdType]) return false;
+
+        // Check Price
         if (isLimitOrder(this._protoMessage[Tag.OrdType].formatted) && !this._protoMessage[Tag.Price]) return false;
 
+        // Set Currency to default if not present
         if (!this._protoMessage[Tag.Currency]) {
             this._protoMessage[Tag.Currency] = new CurrencyField(CURRENCY.USD);
         }
 
+        // Set TimeInForce to default if not present
         if (!this._protoMessage[Tag.TimeInForce]) {
             this._protoMessage[Tag.TimeInForce] = new TimeInForceField(TIME_IN_FORCE.day);
         }
 
-        // TODO: Verify CheckSum
-
-        return true;
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

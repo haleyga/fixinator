@@ -115,10 +115,14 @@ export class RejectMessageBuilder extends BaseMessageBuilder implements IRejectM
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.reject) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

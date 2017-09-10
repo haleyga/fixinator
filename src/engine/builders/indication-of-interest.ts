@@ -193,7 +193,18 @@ export class IndicationOfInterestMessageBuilder extends BaseMessageBuilder
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
+
+        // Validate Header
+        if (!this.validateHeader()) return false;
+
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.indication_of_interest) return false;
+
+        // Check IOIid
+        if (!this._protoMessage[Tag.IOIid]) return false;
+
+        // Check IOITransType
+        if (!this._protoMessage[Tag.IOITransType]) return false;
 
         const ioiTransType: string = this._protoMessage[Tag.IOITransType].formatted;
         if ((ioiTransType === IOI_TRANSACTION_TYPE.cancel || ioiTransType === IOI_TRANSACTION_TYPE.replace)
@@ -202,15 +213,23 @@ export class IndicationOfInterestMessageBuilder extends BaseMessageBuilder
             return false;
         }
 
+        // Check Symbol
+        if (!this._protoMessage[Tag.Symbol]) return false;
+
+        // Check Side
+        if (!this._protoMessage[Tag.Side]) return false;
+
         const side: string = this._protoMessage[Tag.Side].formatted;
         if (side !== SIDE.buy && side !== SIDE.sell) return false;
+
+        // Check IOIShares
+        if (!this._protoMessage[Tag.IOIShares]) return false;
 
         if (!this._protoMessage[Tag.Currency]) {
             this._protoMessage[Tag.Currency] = new CurrencyField(CURRENCY.USD);
         }
 
-        // TODO: Verify CheckSum
-
-        return true;
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

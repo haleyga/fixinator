@@ -113,10 +113,17 @@ export class ListExecuteMessageBuilder extends BaseMessageBuilder implements ILi
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        // TODO: Verify CheckSum
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        return true;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.list_execute) return false;
+
+        // Check ListID
+        if (!this._protoMessage[Tag.ListID]) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

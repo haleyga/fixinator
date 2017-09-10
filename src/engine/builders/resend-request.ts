@@ -115,12 +115,20 @@ export class ResendRequestMessageBuilder extends BaseMessageBuilder implements I
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
-        if (this._protoMessage[Tag.BeginSeqNo] > this._protoMessage[Tag.EndSeqNo]) return false;
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        // TODO: Verify CheckSum
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.resend_request) return false;
 
-        return true;
+        // Check BeginSeqNo
+        if (!this._protoMessage[Tag.BeginSeqNo]) return false;
+
+        // Check EndSeqNo
+        if (!this._protoMessage[Tag.EndSeqNo]) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }
