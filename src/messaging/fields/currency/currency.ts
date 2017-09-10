@@ -1,4 +1,4 @@
-import { ConstrainedKeyValueMap } from '../../../util/util';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
@@ -200,7 +200,7 @@ export type Currency =
     | 'ZRZ'
     | 'ZWD';
 
-export const CURRENCY: ConstrainedKeyValueMap<Currency> = {
+export const CURRENCY: ConstrainedKeyToStringMap<Currency> = {
     AED: 'AED',
     AFA: 'AFA',
     ALL: 'ALL',

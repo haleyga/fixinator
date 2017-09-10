@@ -1,4 +1,4 @@
-import { ConstrainedKeyValueMap } from '../../../util/util';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
@@ -14,7 +14,7 @@ export type MessageType =
     'order_list' | 'order_single' | 'order_status_request' | 'reject' | 'resend_request' | 'sequence_reset' |
     'test_request';
 
-export const MESSAGE_TYPE: ConstrainedKeyValueMap<MessageType> = {
+export const MESSAGE_TYPE: ConstrainedKeyToStringMap<MessageType> = {
     advertisement               : '7',
     allocation                  : 'J',
     allocation_ack              : 'P',

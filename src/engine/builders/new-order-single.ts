@@ -38,7 +38,6 @@ export interface INewOrderSingleMessageBuilder extends IBaseMessageBuilder {
     message: INewOrderSingleMessage;
 }
 
-// TODO: Perform field order verification here
 export class NewOrderSingleMessageBuilder extends BaseMessageBuilder implements INewOrderSingleMessageBuilder {
 
     protected _message: INewOrderSingleMessage           = null;
@@ -190,7 +189,7 @@ export class NewOrderSingleMessageBuilder extends BaseMessageBuilder implements 
     protected finalizeAndEmitMessage(): void {
         if (!this.validate()) this.emitError();
 
-        const type    = MESSAGE_TYPE.list_status;
+        const type    = MESSAGE_TYPE.order_single;
         const message = new NewOrderSingleMessage(this._protoMessage);
         this.emit(BUILDER_EVENT.message_complete, { type, message });
         this._message = message;
@@ -241,6 +240,7 @@ export class NewOrderSingleMessageBuilder extends BaseMessageBuilder implements 
      */
     protected validate(): boolean {
         super.validate();
+
         if (!this._protoMessage[Tag.SettlmntTyp]) {
             this._protoMessage[Tag.SettlmntTyp] = new SettlementTypeField(SETTLEMENT_TYPE.regular);
         }
@@ -272,6 +272,8 @@ export class NewOrderSingleMessageBuilder extends BaseMessageBuilder implements 
         if (!this._protoMessage[Tag.TimeInForce]) {
             this._protoMessage[Tag.TimeInForce] = new TimeInForceField(TIME_IN_FORCE.day);
         }
+
+        // TODO: Verify CheckSum
 
         return true;
     }

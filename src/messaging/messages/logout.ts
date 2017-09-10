@@ -30,7 +30,7 @@ export interface ILogoutMessage extends IBaseAdministrativeMessage {
  *  58      Text                N
  *          <Standard Trailer>  Y
  */
-export abstract class LogoutMessage extends BaseAdministrativeMessage implements ILogoutMessage {
+export class LogoutMessage extends BaseAdministrativeMessage implements ILogoutMessage {
 
     protected _text: ITextField = null;
 

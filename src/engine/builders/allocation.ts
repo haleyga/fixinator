@@ -5,6 +5,7 @@ import {
 } from '../../messaging/fields/allocation-share-count/allocation-share-count';
 import {
     AllocationTransactionTypeField,
+    ALLOCATION_TRANSACTION_TYPE,
 } from '../../messaging/fields/allocation-transaction-type/allocation-transaction-type';
 import { AveragePricePrecisionField } from '../../messaging/fields/average-price-precision/average-price-precision';
 import { AveragePriceField } from '../../messaging/fields/average-price/average-price';
@@ -27,7 +28,7 @@ import {
 import { NumberOfOrdersField } from '../../messaging/fields/number-of-orders/number-of-orders';
 import { OpenCloseField } from '../../messaging/fields/open-close/open-close';
 import { OrderIdField } from '../../messaging/fields/order-id/order-id';
-import { ProcessCodeField } from '../../messaging/fields/process-code/process-code';
+import { ProcessCodeField, PROCESS_CODE } from '../../messaging/fields/process-code/process-code';
 import { ReferenceAllocationIdField } from '../../messaging/fields/reference-allocation-id/reference-allocation-id';
 import { SecurityIdField } from '../../messaging/fields/security-id/security-id';
 import { SettlementTypeField, SETTLEMENT_TYPE } from '../../messaging/fields/settlement-type/settlement-type';
@@ -66,9 +67,9 @@ export class AllocationMessageBuilder extends BaseMessageBuilder implements IAll
         let rawDataLength = -1;
 
         const keyValue: string[] = token.split('=');
-        const tag: Tag = Number(keyValue[0]) as Tag;
-        const rawValue: string = keyValue[1];
-        let field      = null;
+        const tag: Tag           = Number(keyValue[0]) as Tag;
+        const rawValue: string   = keyValue[1];
+        let field                = null;
         if (!rawValue) this.emitError();
 
         switch (tag) {
@@ -249,17 +250,13 @@ export class AllocationMessageBuilder extends BaseMessageBuilder implements IAll
     protected finalizeAndEmitMessage(): void {
         if (!this.validate()) this.emitError();
 
-        const type    = MESSAGE_TYPE.allocation;
         const message = new AllocationMessage(this._protoMessage);
-        this.emit(BUILDER_EVENT.message_complete, { type, message });
+        this.emit(BUILDER_EVENT.message_complete, message);
         this._message = message;
     }
 
     /**
      * Validation rules:
-     *
-     *  The allocation record is used by the institution to instruct the broker on how to allocate executed shares to
-     *  sub-accounts.
      *
      *  The allocation record contains repeating fields for each sub-account; the repeating fields are shown below in
      *  typeface Bold-Italic (*). The relative position of the repeating fields is important in this record, i.e. each
@@ -317,64 +314,82 @@ export class AllocationMessageBuilder extends BaseMessageBuilder implements IAll
      */
     // tslint:disable:cyclomatic-complexity
     protected validate(): boolean {
-        super.validate();
 
-        if (!this._protoMessage[Tag.NoOrders]) this._protoMessage[Tag.NoOrders] = new NumberOfOrdersField('1');
-        const numberOfOrders: number = this._protoMessage[Tag.NoOrders].formatted;
+        // Validate Header
+        if (!this.validateHeader()) return false;
 
-        if (this._protoMessage[Tag.ClOrdID].length !== numberOfOrders) return false;
-        if (this._protoMessage[Tag.OrderID] && this._protoMessage[Tag.OrderID].length !== numberOfOrders) return false;
-        if (this._protoMessage[Tag.ListID] && this._protoMessage[Tag.ListID].length !== numberOfOrders) return false;
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.allocation) return false;
 
-        if (!this._protoMessage[Tag.TradeDate]) {
-            this._protoMessage[Tag.TradeDate] = new TradeDateField(FixinatorDate.todayAsFixDateString());
-        }
+        // Check AllocID
+        if (!this._protoMessage[Tag.AllocID]) return false;
 
-        if (!this._protoMessage[Tag.SettlmntTyp]) {
-            this._protoMessage[Tag.SettlmntTyp] = new SettlementTypeField(SETTLEMENT_TYPE.regular);
-        }
+        // Check AllocTransType
+        if (!this._protoMessage[Tag.AllocTransType]) return false;
 
-        const numberOfAllocations: number = this._protoMessage[Tag.NoAllocs].formatted;
-
-        if (this._protoMessage[Tag.AllocAccount].length !== numberOfAllocations) return false;
-        if (this._protoMessage[Tag.AllocShares].length !== numberOfAllocations) return false;
-
-        const count = this._protoMessage[Tag.AllocShares].reduce((sum, value) => sum + value.formatted, 0);
-        if (count !== this._protoMessage[Tag.Shares].formatted) return false;
-
-        if (this._protoMessage[Tag.ProcessCode] && this._protoMessage[Tag.ProcessCode].length !== numberOfAllocations) {
-            return false;
-        }
-
-        if (this._protoMessage[Tag.ExecBroker] && this._protoMessage[Tag.ExecBroker].length !== numberOfAllocations) {
-            return false;
-        }
-
-        if (this._protoMessage[Tag.Commission] && this._protoMessage[Tag.Commission].length !== numberOfAllocations) {
-            return false;
-        }
-
-        if (this._protoMessage[Tag.CommType] && this._protoMessage[Tag.CommType].length !== numberOfAllocations) {
-            return false;
-        }
-
-        if (this._protoMessage[Tag.NoDlvyInst] && this._protoMessage[Tag.NoDlvyInst].length !== numberOfAllocations) {
-            return false;
-        }
-
-        if (this._protoMessage[Tag.BrokerOfCredit]
-            && this._protoMessage[Tag.BrokerOfCredit].length !== numberOfAllocations)
+        // Check RefAllocID
+        const type: string = this._protoMessage[Tag.AllocTransType].formatted;
+        if ((type === ALLOCATION_TRANSACTION_TYPE.cancel || type === ALLOCATION_TRANSACTION_TYPE.replace)
+            && !this._protoMessage[Tag.RefAllocID])
         {
             return false;
         }
 
-        if (this._protoMessage[Tag.DlvyInst] && this._protoMessage[Tag.DlvyInst].length !== numberOfAllocations) {
-            return false;
+        // Set NoOrders to default if not present
+        if (!this._protoMessage[Tag.NoOrders]) this._protoMessage[Tag.NoOrders] = new NumberOfOrdersField('1');
+        const numberOfOrders: number = this._protoMessage[Tag.NoOrders].formatted;
+
+        // Check ClOrdID
+        if (!this._protoMessage[Tag.ClOrdID]) return false;
+
+        // Verify that the number of ClOrdID fields matches NoOrders
+        if (this._protoMessage[Tag.ClOrdID].length !== numberOfOrders) return false;
+
+        // Check Side
+        if (!this._protoMessage[Tag.Side]) return false;
+
+        // Check Symbol
+        if (!this._protoMessage[Tag.Symbol]) return false;
+
+        // Check Shares
+        if (!this._protoMessage[Tag.Shares]) return false;
+
+        // Check AvgPx
+        if (!this._protoMessage[Tag.AvgPx]) return false;
+
+        // Set TradeDate to default if not present
+        if (!this._protoMessage[Tag.TradeDate]) {
+            this._protoMessage[Tag.TradeDate] = new TradeDateField(FixinatorDate.todayAsFixDateString());
         }
 
-        // TODO: Verify CheckSum
+        // Set SettlmntTyp to default if not present
+        if (!this._protoMessage[Tag.SettlmntTyp]) {
+            this._protoMessage[Tag.SettlmntTyp] = new SettlementTypeField(SETTLEMENT_TYPE.regular);
+        }
 
-        return true;
+        // Check NoAllocs
+        if (!this._protoMessage[Tag.NoAllocs]) return false;
+        const noAllocs: number = this._protoMessage[Tag.NoAllocs].formatted;
+
+        // Verify that the number of AllocAccount fields matches NoAllocs
+        if (this._protoMessage[Tag.AllocAccount].length !== noAllocs) return false;
+
+        // Verify that the number of AllocShares fields matches NoAllocs
+        if (this._protoMessage[Tag.AllocShares].length !== noAllocs) return false;
+
+        // Verify total AllocShares matches Shares
+        const total = this._protoMessage[Tag.AllocShares].reduce((sum, value) => sum + value.formatted, 0);
+        if (total !== this._protoMessage[Tag.Shares].formatted) return false;
+
+        // Check ExecBroker is present when ProcessCode demands it. Since these are stored in simple lists, just
+        // count the number of step-in and step-out trades and ensure that number of ExecBroker fields exists.
+        const stepInOutCodeFields = this._protoMessage[Tag.ProcessCode]
+            .filter((field) => field.formatted === PROCESS_CODE.step_in || field.formatted === PROCESS_CODE.step_out);
+
+        if (this._protoMessage[Tag.ExecBroker].length !== stepInOutCodeFields.length) return false;
+
+        // Validate Trailer
+        return this.validateTrailer();
     }
 
     // tslint:enable:cyclomatic-complexity

@@ -1,8 +1,27 @@
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 
 export interface IProcessCodeField extends IConstrainedCharField {}
+
 export const PROCESS_CODE_VALUES: string[] = ['0', '1', '2', '3', '4', '5'];
+
+export type ProcessCode =
+    'regular'
+    | 'soft_dollar'
+    | 'step_in'
+    | 'step_out'
+    | 'soft_dollar_step_in'
+    | 'soft_dollar_step_out';
+
+export const PROCESS_CODE: ConstrainedKeyToStringMap<ProcessCode> = {
+    regular             : '0',
+    soft_dollar         : '1',
+    soft_dollar_step_in : '4',
+    soft_dollar_step_out: '5',
+    step_in             : '2',
+    step_out            : '3',
+};
 
 /**
  * Field ID (TAG): 81

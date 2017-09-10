@@ -18,7 +18,12 @@ export type UnionKeyToValue<U extends string> = { [K in U]: K; };
 /**
  * This type is designed to accept a string union as a list of keys to string values.
  */
-export type ConstrainedKeyValueMap<U extends string> = { [K in U]: string; };
+export type ConstrainedKeyToStringMap<U extends string> = { [K in U]: string; };
+
+/**
+ * This type is designed to accept a string union as a list of keys to number values.
+ */
+export type ConstrainedKeyToNumberMap<U extends string> = { [K in U]: number; };
 
 /**
  * The current package version

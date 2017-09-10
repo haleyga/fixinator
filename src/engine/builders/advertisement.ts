@@ -46,8 +46,8 @@ export class AdvertisementMessageBuilder extends BaseMessageBuilder implements I
         let rawDataLength = -1;
 
         const keyValue: string[] = token.split('=');
-        const tag: Tag = Number(keyValue[0]) as Tag;
-        const rawValue: string = keyValue[1];
+        const tag: Tag           = Number(keyValue[0]) as Tag;
+        const rawValue: string   = keyValue[1];
         if (!rawValue) this.emitError();
 
         switch (tag) {
@@ -149,9 +149,8 @@ export class AdvertisementMessageBuilder extends BaseMessageBuilder implements I
     protected finalizeAndEmitMessage(): void {
         if (!this.validate()) this.emitError();
 
-        const type    = MESSAGE_TYPE.advertisement;
         const message = new AdvertisementMessage(this._protoMessage);
-        this.emit(BUILDER_EVENT.message_complete, { type, message });
+        this.emit(BUILDER_EVENT.message_complete, message);
         this._message = message;
     }
 
@@ -186,8 +185,20 @@ export class AdvertisementMessageBuilder extends BaseMessageBuilder implements I
      * @returns {boolean}
      */
     protected validate(): boolean {
-        super.validate();
 
+        // Validate Header
+        if (!this.validateHeader()) return false;
+
+        // Verify MsgType
+        if (this._protoMessage[Tag.MsgType].formatted !== MESSAGE_TYPE.advertisement) return false;
+
+        // Check AdvID
+        if (!this._protoMessage[Tag.AdvId]) return false;
+
+        // Check AdvTransType
+        if (!this._protoMessage[Tag.AdvTransType]) return false;
+
+        // Check AdvRefID
         if ((this._protoMessage[Tag.AdvTransType].formatted === ADVERTISEMENT_TRANSACTION_TYPE.cancel
              || this._protoMessage[Tag.AdvTransType].formatted === ADVERTISEMENT_TRANSACTION_TYPE.replace)
             && !this._protoMessage[Tag.AdvRefID])
@@ -195,10 +206,19 @@ export class AdvertisementMessageBuilder extends BaseMessageBuilder implements I
             return false;
         }
 
+        // Check Symbol
+        if (!this._protoMessage[Tag.Symbol]) return false;
+
+        // Check AdvSide
+        if (!this._protoMessage[Tag.AdvSide]) return false;
+
+        // Check Shares
+        if (!this._protoMessage[Tag.Shares]) return false;
+
+        // Set Currency to default if not present.
         if (!this._protoMessage[Tag.Currency]) this._protoMessage[Tag.Currency] = new CurrencyField(CURRENCY.USD);
 
-        // TODO: Verify CheckSum
-
-        return true;
+        // Validate Trailer
+        return this.validateTrailer();
     }
 }

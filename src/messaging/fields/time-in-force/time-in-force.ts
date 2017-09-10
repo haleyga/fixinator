@@ -1,13 +1,13 @@
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
-import { ConstrainedKeyValueMap } from '../../../util/util';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 
 export interface ITimeInForceField extends IConstrainedCharField {}
 
 export const TIME_IN_FORCE_VALUES: string[] = ['0', '1', '2', '3', '4', '5'];
 
 export type TimeInForce = 'day' | 'gtc' | 'opg' | 'oc' | 'fok' | 'gtx';
-export const TIME_IN_FORCE: ConstrainedKeyValueMap<TimeInForce> = {
+export const TIME_IN_FORCE: ConstrainedKeyToStringMap<TimeInForce> = {
     day: '0',
     fok: '4',
     gtc: '1',

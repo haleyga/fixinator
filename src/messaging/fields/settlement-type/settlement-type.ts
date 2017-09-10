@@ -1,4 +1,4 @@
-import { ConstrainedKeyValueMap } from '../../../util/util';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
 
@@ -17,7 +17,7 @@ export type SettlementType =
     | 'when_issued'
     | 'sellers_option';
 
-export const SETTLEMENT_TYPE: ConstrainedKeyValueMap<SettlementType> = {
+export const SETTLEMENT_TYPE: ConstrainedKeyToStringMap<SettlementType> = {
     cash          : '1',
     future        : '6',
     next_day      : '2',

@@ -59,7 +59,7 @@ export interface IProtoExecutionReportMessage extends IProtoBaseApplicationMessa
     99?: IStopPriceField;
     15?: ICurrencyField;
     59?: ITimeInForceField;
-    18?: IExecutionInstructionsField;
+    18?: IExecutionInstructionsField[];
     47?: IRule80AField;
     32: ILastSharesField;
     31: ILastPriceField;
@@ -109,7 +109,7 @@ export interface IExecutionReportMessage extends IBaseApplicationMessage {
     stopPx?: IStopPriceField;
     currency?: ICurrencyField;
     timeInForce?: ITimeInForceField;
-    execInst?: IExecutionInstructionsField;
+    execInst?: IExecutionInstructionsField[];
     rule80A?: IRule80AField;
     lastShares: ILastSharesField;
     lastPx: ILastPriceField;
@@ -236,7 +236,7 @@ export class ExecutionReportMessage extends BaseApplicationMessage implements IE
     private _stopPx: IStopPriceField                       = null;
     private _currency: ICurrencyField                      = null;
     private _timeInForce: ITimeInForceField                = null;
-    private _execInst: IExecutionInstructionsField         = null;
+    private _execInst: IExecutionInstructionsField[]       = null;
     private _rule80A: IRule80AField                        = null;
     private _lastShares: ILastSharesField                  = null;
     private _lastPx: ILastPriceField                       = null;
@@ -297,7 +297,7 @@ export class ExecutionReportMessage extends BaseApplicationMessage implements IE
 
     public get timeInForce(): ITimeInForceField { return this._timeInForce; }
 
-    public get execInst(): IExecutionInstructionsField { return this._execInst; }
+    public get execInst(): IExecutionInstructionsField[] { return this._execInst; }
 
     public get rule80A(): IRule80AField { return this._rule80A; }
 

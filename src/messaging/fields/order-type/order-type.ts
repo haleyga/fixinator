@@ -1,6 +1,6 @@
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
-import { ConstrainedKeyValueMap } from '../../../util/util';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 
 export interface IOrderTypeField extends IConstrainedCharField {}
 
@@ -20,7 +20,7 @@ export type OrderType =
     | 'on_close'
     | 'limit_on_close';
 
-export const ORDER_TYPE: ConstrainedKeyValueMap<OrderType> = {
+export const ORDER_TYPE: ConstrainedKeyToStringMap<OrderType> = {
     limit                : '2',
     limit_on_close       : 'B',
     limit_or_better      : '7',

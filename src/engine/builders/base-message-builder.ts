@@ -221,6 +221,8 @@ export abstract class BaseMessageBuilder extends EventEmitter implements IBaseMe
 
     protected abstract finalizeAndEmitMessage(): void;
 
+    protected abstract validate(): boolean;
+
     /**
      * Validation rules:
      *
@@ -248,27 +250,68 @@ export abstract class BaseMessageBuilder extends EventEmitter implements IBaseMe
      *      52      SendingTime         Y           (Can be embedded within encrypted data section.)
      *      51      SendingDate         Y           (Can be embedded within encrypted data section.)
      *
-     *      Tag     Field Name          Required?   Comments
-     *      ------------------------------------------------------------------------------------------------------------
-     *      93      SignatureLength     N           Required when trailer contains signature.
-     *      89      Signature           N
-     *      10      CheckSum            Y           (Always unencrypted)
-     *
-     * @see BaseMessage
      * @returns {boolean}
      */
-    protected validate(): boolean {
+    protected validateHeader(): boolean {
+
+        // Check BeginString
+        // TODO: check BeginString against the FIX version used in this session
+        if (!this._protoMessage[Tag.BeginString]) return false;
+
+        // Check BodyLength
+        // TODO: verify BodyLength with parsed byte length
+        if (!this._protoMessage[Tag.BodyLength]) return false;
+
+        // Check MsgType
+        if (!this._protoMessage[Tag.MsgType]) return false;
+
+        // Check SenderCompID
+        if (!this._protoMessage[Tag.SenderCompID]) return false;
+
+        // Check TargetCompID
+        if (!this._protoMessage[Tag.TargetCompID]) return false;
+
+        // Check SecureDataLength and SecureData - if one exists, so should the other
         if ((this._protoMessage[Tag.SecureDataLen] && !this._protoMessage[Tag.SecureData])
             || (this._protoMessage[Tag.SecureData] && !this._protoMessage[Tag.SecureDataLen]))
         {
             return false;
         }
 
+        // Check MsgSeqNum
+        // TODO: verify MsgSeqNum is properly increasing
+        if (!this._protoMessage[Tag.MsgSeqNum]) return false;
+
+        // Check SendingTime
+        if (!this._protoMessage[Tag.SendingTime]) return false;
+
+        // Check SendingDate
+        if (!this._protoMessage[Tag.SendingDate]) return false;
+    }
+
+    /**
+     * Validation rules:
+     *
+     *      Tag     Field Name          Required?   Comments
+     *      ------------------------------------------------------------------------------------------------------------
+     *      93      SignatureLength     N           Required when trailer contains signature.
+     *      89      Signature           N
+     *      10      CheckSum            Y           (Always unencrypted)
+     *
+     * @returns {boolean}
+     */
+    protected validateTrailer(): boolean {
+
+        // Check SignatureLength and Signature - if one exists, so should the other
         if ((this._protoMessage[Tag.SignatureLength] && !this._protoMessage[Tag.Signature])
             || (this._protoMessage[Tag.Signature] && !this._protoMessage[Tag.SignatureLength]))
         {
             return false;
         }
+
+        // Check CheckSum
+        // TODO: Verify CheckSum
+        if (!this._protoMessage[Tag.CheckSum]) return false;
     }
 
     protected emitError(errorCode: string = BUILDER_EVENT.error, message: IBuilderErrorEvent = null): void {

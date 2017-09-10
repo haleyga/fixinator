@@ -1,6 +1,6 @@
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
-import { ConstrainedKeyValueMap } from '../../../util/util';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 
 export interface IExecutionInstructionsField extends IConstrainedCharField {}
 
@@ -25,7 +25,7 @@ export type ExecutionInstructions =
     | 'do_not_reduce'
     | 'all_or_none';
 
-export const EXECUTION_INSTRUCTIONS: ConstrainedKeyValueMap<ExecutionInstructions> = {
+export const EXECUTION_INSTRUCTIONS: ConstrainedKeyToStringMap<ExecutionInstructions> = {
     all_or_none              : 'G',
     call_first               : 'C',
     do_not_increase          : 'E',

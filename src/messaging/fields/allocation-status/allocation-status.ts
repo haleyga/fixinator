@@ -1,13 +1,21 @@
 import { ConstrainedIntField, IConstrainedIntField } from '../base/custom/constrained-field/constrained-int-field';
 import { Tag } from '../base/tag';
+import { ConstrainedKeyToNumberMap } from '../../../util/util';
 
 
 export interface IAllocationStatusField extends IConstrainedIntField {}
 
 //tslint:disable:no-magic-numbers
 export const ALLOCATION_STATUS_VALUES: number[] = [0, 1, 2];
-//tslint:enable:no-magic-numbers
 
+export type AllocationStatus = 'accepted' | 'rejected' | 'partial_accept';
+export const ALLOCATION_STATUS: ConstrainedKeyToNumberMap<AllocationStatus> = {
+    accepted      : 0,
+    partial_accept: 2,
+    rejected      : 1,
+};
+
+//tslint:enable:no-magic-numbers
 
 /**
  * Field ID (TAG): 87

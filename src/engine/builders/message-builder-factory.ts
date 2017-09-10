@@ -1,7 +1,7 @@
-import { Tag } from '../../fields/base/tag';
-import { BeginningOfStringField } from '../../fields/beginning-of-string/beginning-of-string';
-import { BodyLengthField } from '../../fields/body-length/body-length';
-import { MessageTypeField, MESSAGE_TYPE } from '../../fields/message-type/message-type';
+import { Tag } from '../../messaging/fields/base/tag';
+import { BeginningOfStringField } from '../../messaging/fields/beginning-of-string/beginning-of-string';
+import { BodyLengthField } from '../../messaging/fields/body-length/body-length';
+import { MessageTypeField, MESSAGE_TYPE } from '../../messaging/fields/message-type/message-type';
 import { AdvertisementMessageBuilder } from './advertisement';
 import { AllocationMessageBuilder } from './allocation';
 import { AllocationAcknowledgementMessageBuilder } from './allocation-ack';

@@ -26,7 +26,7 @@ export interface ITestRequestMessage extends IBaseAdministrativeMessage {}
  *          <Standard Header>   Y           MsgType = 1
  *          <Standard Trailer>  Y
  */
-export abstract class TestRequestMessage extends BaseAdministrativeMessage implements ITestRequestMessage {
+export class TestRequestMessage extends BaseAdministrativeMessage implements ITestRequestMessage {
 
     constructor(protoMessage: IProtoTestRequestMessage) {
         super(protoMessage);

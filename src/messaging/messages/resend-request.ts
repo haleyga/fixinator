@@ -46,7 +46,7 @@ export interface IResendRequestMessage extends IBaseAdministrativeMessage {
  *  16      EndSeqNo            Y
  *          <Standard Trailer>  Y
  */
-export abstract class ResendRequestMessage extends BaseAdministrativeMessage implements IResendRequestMessage {
+export class ResendRequestMessage extends BaseAdministrativeMessage implements IResendRequestMessage {
 
     protected _beginSeqNo: IBeginningSequenceNumberField = null;
     protected _endSeqNo: IEndingSequenceNumberField      = null;

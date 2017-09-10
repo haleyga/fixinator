@@ -1,6 +1,6 @@
 import { ConstrainedCharField, IConstrainedCharField } from '../base/custom/constrained-field/constrained-char-field';
 import { Tag } from '../base/tag';
-import { ConstrainedKeyValueMap } from '../../../util/util';
+import { ConstrainedKeyToStringMap } from '../../../util/util';
 
 export interface IHandlingInstructionsField extends IConstrainedCharField {}
 
@@ -11,7 +11,7 @@ export type HandlingInstructions =
     | 'dot_order_public_broker_intervention_ok'
     | 'manual_order_best_execution';
 
-export const HANDLING_INSTRUCTIONS: ConstrainedKeyValueMap<HandlingInstructions> = {
+export const HANDLING_INSTRUCTIONS: ConstrainedKeyToStringMap<HandlingInstructions> = {
     dot_order_private_no_broker_intervention: '1',
     dot_order_public_broker_intervention_ok : '2',
     manual_order_best_execution             : '3',

@@ -215,7 +215,7 @@ export class NewOrderListMessageBuilder extends BaseMessageBuilder implements IN
     protected finalizeAndEmitMessage(): void {
         if (!this.validate()) this.emitError();
 
-        const type    = MESSAGE_TYPE.list_status;
+        const type    = MESSAGE_TYPE.order_list;
         const message = new NewOrderListMessage(this._protoMessage);
         this.emit(BUILDER_EVENT.message_complete, { type, message });
         this._message = message;
@@ -349,6 +349,8 @@ export class NewOrderListMessageBuilder extends BaseMessageBuilder implements IN
         if (!this._protoMessage[Tag.TimeInForce]) {
             this._protoMessage[Tag.TimeInForce] = new TimeInForceField(TIME_IN_FORCE.day);
         }
+
+        // TODO: Verify CheckSum
 
         return true;
     }

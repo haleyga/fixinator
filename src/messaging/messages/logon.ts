@@ -36,7 +36,7 @@ export interface ILogonMessage extends IBaseAdministrativeMessage {
  *  98      EncryptMethod       Y           (Always unencrypted)
  *          <Standard Trailer>  Y
  */
-export abstract class LogonMessage extends BaseAdministrativeMessage implements ILogonMessage {
+export class LogonMessage extends BaseAdministrativeMessage implements ILogonMessage {
 
     protected _encryptMethod: IEncryptionMethodField = null;
 

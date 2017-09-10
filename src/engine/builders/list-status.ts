@@ -208,6 +208,8 @@ export class ListStatusMessageBuilder extends BaseMessageBuilder implements ILis
         if (this._protoMessage[Tag.CxlQty].length !== numberOfOrders) return false;
         if (this._protoMessage[Tag.AvgPx].length !== numberOfOrders) return false;
 
+        // TODO: Verify CheckSum
+
         return true;
     }
 }

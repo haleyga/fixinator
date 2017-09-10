@@ -15,7 +15,7 @@ export interface IProtoListExecuteMessage extends IProtoBaseApplicationMessage {
 
 //tslint:enable:no-magic-numbers
 
-export class ProtoListCancelRequestMessage extends ProtoBaseApplicationMessage
+export class ProtoListExecuteMessage extends ProtoBaseApplicationMessage
     implements IProtoListExecuteMessage
 {
     public 66: IListIdField = null;

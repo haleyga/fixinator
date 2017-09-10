@@ -37,7 +37,7 @@ export interface IRejectMessage extends IBaseAdministrativeMessage {
  *  58      Text                N           Where possible, message to explain reason for rejection
  *          <Standard Trailer>  Y
  */
-export abstract class RejectMessage extends BaseAdministrativeMessage implements IRejectMessage {
+export class RejectMessage extends BaseAdministrativeMessage implements IRejectMessage {
 
     protected _refSeqNo: IReferenceSequenceNumberField = null;
     protected _text: ITextField                        = null;
